@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private float _horizontalInput = 0f, _movementSmoothing = .1f;
-    private bool _facingRight = true, _inverted = false;
+    private float _horizontalInput = 0f;
+    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f;
+    private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false;
     private readonly int _speed = 6;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
@@ -18,6 +19,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ( _isDead)
+        {
+            return;
+        }
+
+        if (Input.GetButtonDown("Float"))
+        {
+            StartFloat();
+        }
+
+        if (Input.GetButtonUp("Float"))
+        {
+            EndFloat();
+        }
+
+        if (_isShrinking)
+        {
+            return;
+        }
+
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         // Control the sprite for the character
         if (_horizontalInput > 0 && !_facingRight)
@@ -31,9 +52,9 @@ public class PlayerController : MonoBehaviour
             // _animator?.SetBool("facingRight", false);
         }
 
-        if ( Input.GetButtonDown("Flip"))
+        if (_grounded && Input.GetButtonDown("Flip"))
         {
-            _animator.SetTrigger("Flip");
+            StartShrink();
         }
     }
 
@@ -62,5 +83,51 @@ public class PlayerController : MonoBehaviour
         InvertGravity();
         transform.Rotate(Vector3.forward, 180f);
         transform.position += (_inverted ? -1 : 1) * Vector3.up;
+    }
+
+    public void StartShrink()
+    {
+        _animator.SetTrigger("Flip");
+        _isShrinking = true;
+    }
+
+    public void EndShrink()
+    {
+        _isShrinking = false;
+    }
+
+    public void StartFloat()
+    {
+        _playerRB.gravityScale /= _floatGravityMultiplier;
+    }
+
+    public void EndFloat()
+    {
+        _playerRB.gravityScale *= _floatGravityMultiplier;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        CheckGrounding(collision);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _grounded = false;
+    }
+
+    private void CheckGrounding(Collision2D collision)
+    {
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            Vector2 normal = collision.GetContact(i).normal;
+            _grounded |= Vector2.Angle(normal, transform.up) < 90;
+        }
+    }
+
+    public void StartDeath()
+    {
+        Debug.Log("dead");
+        _isDead = true;
     }
 }
