@@ -127,7 +127,12 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath()
     {
-        Debug.Log("dead");
         _isDead = true;
+        _animator.SetTrigger("Death");
+    }
+
+    public void FinishDeath()
+    {
+        SceneTransition.Instance.RestartLevelTransition();
     }
 }
