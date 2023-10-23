@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Rigidbody2D _playerRB;
+    [SerializeField] private AudioClip _invertClip;
+    [SerializeField] private AudioClip _deathClip;
 
     // Update is called once per frame
     void Update()
@@ -89,6 +91,8 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger("Flip");
         _isShrinking = true;
+        _audioSource.clip = _invertClip;
+        _audioSource.Play();
     }
 
     public void EndShrink()
@@ -129,10 +133,14 @@ public class PlayerController : MonoBehaviour
     {
         _isDead = true;
         _animator.SetTrigger("Death");
+        _audioSource.clip = _deathClip;
+        _audioSource.Play();
+        CameraController.Instance.ShakeCamera();
     }
 
     public void FinishDeath()
     {
+        _playerRB.simulated = false;
         SceneTransition.Instance.RestartLevelTransition();
     }
 }
