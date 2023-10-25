@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class EndLevelManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource _AudioSource;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var controller = collision.GetComponent<PlayerController>();
         if (controller != null)
         {
             SceneTransition.Instance.EndLevelTransition();
+            _AudioSource.Play();
         }
     }
 }
