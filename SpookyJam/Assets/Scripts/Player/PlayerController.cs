@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private float _horizontalInput = 0f;
-    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f;
-    private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false;
+    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f, _maxFloatFall = 4f;
+    private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false, _isFloating = false;
     private readonly int _speed = 6;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
@@ -36,12 +36,13 @@ public class PlayerController : MonoBehaviour
             EndFloat();
         }
 
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
+
         if (_isShrinking)
         {
             return;
         }
 
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
         // Control the sprite for the character
         if (_horizontalInput > 0 && !_facingRight)
         {
@@ -62,7 +63,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isShrinking)
+        {
+            return;
+        }
+
         Move(_horizontalInput * _speed * Time.fixedDeltaTime);
+        CapVelocity();
     }
 
     private void Move(float xSpeed)
@@ -70,6 +77,15 @@ public class PlayerController : MonoBehaviour
         Vector2 targetVelocity = new Vector2(xSpeed * 60f, _playerRB.velocity.y);
         // And then smoothing it out and applying it to the character
         _playerRB.velocity = Vector2.SmoothDamp(_playerRB.velocity, targetVelocity, ref _currentVelocity, _movementSmoothing);
+    }
+
+    private void CapVelocity()
+    {
+        var currentYVelocity = _playerRB.velocity.y;
+        if (_isFloating && Mathf.Abs(currentYVelocity) > _maxFloatFall)
+        {
+            _playerRB.velocity = new Vector2(_playerRB.velocity.x, _maxFloatFall * currentYVelocity / Mathf.Abs(currentYVelocity));
+        }
     }
 
     public void InvertGravity()
@@ -91,6 +107,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger("Flip");
         _isShrinking = true;
+        _playerRB.velocity = Vector2.zero;
         _audioSource.clip = _invertClip;
         _audioSource.Play();
     }
@@ -103,11 +120,15 @@ public class PlayerController : MonoBehaviour
     public void StartFloat()
     {
         _playerRB.gravityScale /= _floatGravityMultiplier;
+        _isFloating = true;
+        _animator.SetBool("Float", true);
     }
 
     public void EndFloat()
     {
         _playerRB.gravityScale *= _floatGravityMultiplier;
+        _isFloating = false;
+        _animator.SetBool("Float", false);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
