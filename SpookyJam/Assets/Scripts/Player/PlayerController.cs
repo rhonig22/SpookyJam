@@ -90,16 +90,20 @@ public class PlayerController : MonoBehaviour
 
     public void InvertGravity()
     {
+        _inverted = !_inverted;
         _playerRB.gravityScale *= -1;
+    }
+
+    public void FlipCharacter()
+    {
+        transform.Rotate(Vector3.forward, 180f);
     }
 
     public void InvertCharacter()
     {
-        Debug.Log("flip");
-        _inverted = !_inverted;
         GameManager.Instance.FlipGravity();
         InvertGravity();
-        transform.Rotate(Vector3.forward, 180f);
+        FlipCharacter();
         transform.position += (_inverted ? -1 : 1) * Vector3.up;
     }
 
