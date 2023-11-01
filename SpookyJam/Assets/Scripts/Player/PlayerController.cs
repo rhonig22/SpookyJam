@@ -156,11 +156,14 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath()
     {
-        _isDead = true;
-        _animator.SetTrigger("Death");
-        _audioSource.clip = _deathClip;
-        _audioSource.Play();
-        CameraController.Instance.ShakeCamera();
+        if (!_isDead)
+        {
+            _isDead = true;
+            _animator.SetTrigger("Death");
+            _audioSource.clip = _deathClip;
+            _audioSource.Play();
+            CameraController.Instance.ShakeCamera();
+        }
     }
 
     public void FinishDeath()

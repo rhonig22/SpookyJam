@@ -7,7 +7,7 @@ public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader Instance;
     public int CurrentLevel = 0;
-    public readonly int LevelCount = 5;
+    public readonly int LevelCount = 6;
 
     private void Awake()
     {
