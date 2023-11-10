@@ -13,7 +13,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
             return;
         }
 
