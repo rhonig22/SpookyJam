@@ -7,6 +7,7 @@ TagManager:
   - Block
   - InvisiBlock
   - Inverter
+  - Pumpkin
   layers:
   - Default
   - TransparentFX

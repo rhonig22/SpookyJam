@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndLevelManager : MonoBehaviour
+public class EndLevel : MonoBehaviour
 {
     [SerializeField] private AudioSource _AudioSource;
 
@@ -13,6 +13,7 @@ public class EndLevelManager : MonoBehaviour
         {
             SceneTransition.Instance.EndLevelTransition();
             _AudioSource.Play();
+            DataManager.Instance.LevelFinished();
         }
     }
 }
