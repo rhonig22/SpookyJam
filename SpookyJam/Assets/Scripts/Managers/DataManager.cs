@@ -9,6 +9,8 @@ public class DataManager : MonoBehaviour
     public int CurrentPumpkinCount { get; private set; } = 0;
     public int CurrentPumpkinMax { get; private set; } = 0;
 
+    private int[] _levelsLoaded = { 1, 0, 0 };
+
     [SerializeField] private string _collectibleName = "Pumpkin";
 
     private void Awake()
@@ -50,5 +52,15 @@ public class DataManager : MonoBehaviour
         {
             CurrentPumpkinCount++;
         }
+    }
+
+    public int[] GetLevelsLoaded()
+    {
+        return _levelsLoaded;
+    }
+
+    public void CompleteWorld(int world)
+    {
+        _levelsLoaded[world + 1] = 1;
     }
 }
