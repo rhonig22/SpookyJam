@@ -7,7 +7,8 @@ public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader Instance;
     public int CurrentLevel = 0;
-    public readonly int LevelCount = 6;
+    public int CurrentWorld = 0;
+    public readonly int[] LevelCount = {3,3,0};
 
     private void Awake()
     {
@@ -21,14 +22,30 @@ public class LevelLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void FinishWorld(int world)
+    {
+        DataManager.Instance.CompleteWorld(world);
+        if (LevelCount[world+1] > 0)
+            LoadLevelMenu();
+        else
+            LoadEndScreen();
+    }
+
     public void LoadNextLevel()
     {
         CurrentLevel++;
-        var nextLevel = "Level_" + CurrentLevel;
-        if (CurrentLevel <= LevelCount)
+        var nextLevel = "Level_" + (CurrentWorld + 1) + "_" + CurrentLevel;
+        if (CurrentLevel <= LevelCount[CurrentWorld])
             SceneManager.LoadScene(nextLevel);
         else
-            LoadEndScreen();
+            FinishWorld(CurrentWorld);
+    }
+
+    public void LoadWorld(int world)
+    {
+        CurrentWorld = world;
+        CurrentLevel = 0;
+        LoadNextLevel();
     }
 
     public void ReloadLevel()
@@ -39,5 +56,10 @@ public class LevelLoader : MonoBehaviour
     public void LoadEndScreen()
     {
         SceneManager.LoadScene("EndTitle");
+    }
+
+    public void LoadLevelMenu()
+    {
+        SceneManager.LoadScene("LevelMenu");
     }
 }
