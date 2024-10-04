@@ -1153,21 +1153,53 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 456272542732246546}
+    - target: {fileID: 6331925799719093885, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6331925799719093886, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6331925799719093886, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2500002
+      value: 0.3699999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800150124320, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: orthographic size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800150124511, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800150124511, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2500002
+      value: 0.3699999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_BiasY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_ScreenY
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_DeadZoneWidth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_SoftZoneWidth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_DeadZoneHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_SoftZoneHeight
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800921451386, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_RootOrder
