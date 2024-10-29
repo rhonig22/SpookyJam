@@ -35,11 +35,11 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        LevelLoader.Instance.LoadNextLevel();
+        GameManager.Instance.LoadNextLevel();
     }
 
     public void RestartLevel()
     {
-        LevelLoader.Instance.ReloadLevel();
+        GameManager.Instance.ReloadLevel();
     }
 }
