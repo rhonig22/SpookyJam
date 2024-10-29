@@ -1,44 +1,96 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool Inverted { get; private set; } = false;
-
-    [SerializeField] private GameObject _player;
-    private GameObject[] _blocks, _invisiBlocks;
-
+    private readonly string _titleScene = "Title";
+    private readonly string _settingsScene = "SettingsScene";
+    private readonly string _levelScene = "Level";
+    private int CurrentLevel = 0;
+    private int CurrentWorld = 0;
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += LevelLoaded;
     }
 
-    private void Start()
+    // called second
+    private void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        _blocks = GameObject.FindGameObjectsWithTag("Block");
-        _invisiBlocks = GameObject.FindGameObjectsWithTag("InvisiBlock");
-
-        foreach (var invisiBlock in _invisiBlocks)
+        var vals = scene.name.Split('_');
+        if (vals[0] == _levelScene && vals.Length == 3)
         {
-            invisiBlock.GetComponent<BoxCollider2D>().enabled = false;
+            CurrentWorld = int.Parse(vals[1]);
+            CurrentLevel = int.Parse(vals[2]);
         }
     }
 
-    public void FlipGravity()
+    public void LoadSettings()
     {
-        Inverted = !Inverted;
+        LoadScene(_settingsScene);
+    }
 
-        foreach (var block in _blocks)
-        {
-            block.GetComponent<BoxCollider2D>().enabled = !Inverted;
-        }
+    public void LoadTitleScreen()
+    {
+        LoadScene(_titleScene);
+    }
 
-        foreach (var invisiBlock in _invisiBlocks)
-        {
-            invisiBlock.GetComponent<BoxCollider2D>().enabled = Inverted;
-        }
+    private void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+
+    private void FinishWorld(int world)
+    {
+        SaveDataManager.Instance.CompleteWorld(world - 1);
+        if (world+1 < SaveDataManager.Instance.GetWorldCount())
+            LoadLevelMenu();
+        else
+            LoadEndScreen();
+    }
+
+    public void LoadNextLevel()
+    {
+        CurrentLevel++;
+        var nextLevel = _levelScene + "_" + CurrentWorld + "_" + CurrentLevel;
+        if (CurrentLevel <= SaveDataManager.Instance.GetLevelCountForWorld(CurrentWorld))
+            SceneManager.LoadScene(nextLevel);
+        else
+            FinishWorld(CurrentWorld);
+    }
+
+    public void LoadWorld(int world)
+    {
+        CurrentWorld = world;
+        CurrentLevel = 0;
+        LoadNextLevel();
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadEndScreen()
+    {
+        SceneManager.LoadScene("EndTitle");
+    }
+
+    public void LoadLevelMenu()
+    {
+        SceneManager.LoadScene("LevelMenu");
     }
 }

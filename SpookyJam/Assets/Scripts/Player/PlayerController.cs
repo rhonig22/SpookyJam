@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
     public void InvertCharacter()
     {
-        GameManager.Instance.FlipGravity();
+        GravityManager.Instance.FlipGravity();
         InvertGravity();
         FlipCharacter();
         transform.position += (_inverted ? -1 : 1) * Vector3.up;
