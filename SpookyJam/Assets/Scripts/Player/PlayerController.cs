@@ -8,12 +8,11 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private float _horizontalInput = 0f;
-    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f, _maxFloatFall = 4f;
+    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f, _maxFloatFall = 3.5f;
     private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false, _isFloating = false;
     private readonly int _speed = 6;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
-    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private AudioClip _invertClip;
     [SerializeField] private AudioClip _deathClip;
@@ -112,8 +111,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Flip");
         _isShrinking = true;
         _playerRB.velocity = Vector2.zero;
-        _audioSource.clip = _invertClip;
-        _audioSource.Play();
+        SoundManager.Instance.PlaySound(_invertClip, transform.position, 1.2f);
     }
 
     public void EndShrink()
@@ -159,9 +157,10 @@ public class PlayerController : MonoBehaviour
         if (!_isDead)
         {
             _isDead = true;
+            _playerRB.gravityScale = 0;
+            _playerRB.velocity = Vector2.zero;
             _animator.SetTrigger("Death");
-            _audioSource.clip = _deathClip;
-            _audioSource.Play();
+            SoundManager.Instance.PlaySound(_deathClip, transform.position);
             CameraController.Instance.ShakeCamera();
         }
     }
