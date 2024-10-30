@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseCollectible : MonoBehaviour
 {
     [SerializeField] private string _collectibleName = "Pumpkin";
-    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _pumpkinSound;
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
     private bool _collected = false;
@@ -23,7 +23,7 @@ public class BaseCollectible : MonoBehaviour
         if (!_collected)
         {
             DataManager.Instance.PickupCollectible(_collectibleName);
-            _audioSource.Play();
+            SoundManager.Instance.PlaySound(_pumpkinSound, transform.position, 1f);
             _animator.SetTrigger("PickedUp");
             _particleSystem.Play();
             _collected = true;

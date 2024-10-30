@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndLevel : MonoBehaviour
 {
-    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] AudioClip _endClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,7 +12,7 @@ public class EndLevel : MonoBehaviour
         if (controller != null)
         {
             SceneTransition.Instance.EndLevelTransition();
-            _AudioSource.Play();
+            SoundManager.Instance.PlaySound(_endClip, transform.position, 1f);
             DataManager.Instance.LevelFinished();
         }
     }
