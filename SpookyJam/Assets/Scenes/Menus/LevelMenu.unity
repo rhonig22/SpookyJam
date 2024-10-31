@@ -248,14 +248,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 637102315}
     m_Modifications:
-    - target: {fileID: 5752442808807202139, guid: 3fc3ea3fb7bb7224e823def2d62ecddf, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 5752442808807202139, guid: 3fc3ea3fb7bb7224e823def2d62ecddf, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7451227376764176339, guid: 3fc3ea3fb7bb7224e823def2d62ecddf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -263,10 +255,6 @@ PrefabInstance:
     - target: {fileID: 7451227376764176339, guid: 3fc3ea3fb7bb7224e823def2d62ecddf, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451227376764176339, guid: 3fc3ea3fb7bb7224e823def2d62ecddf, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7451227376764176339, guid: 3fc3ea3fb7bb7224e823def2d62ecddf, type: 3}
       propertyPath: m_AnchorMax.x
