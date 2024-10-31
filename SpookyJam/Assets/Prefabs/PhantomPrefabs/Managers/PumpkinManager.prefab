@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4159120288980856644}
   - component: {fileID: 6003778737796842257}
   m_Layer: 0
-  m_Name: DataManager
+  m_Name: PumpkinManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

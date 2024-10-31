@@ -9,6 +9,6 @@ public class LevelUxManager : MonoBehaviour
 
     private void Update()
     {
-        _textBox.text = DataManager.Instance.CurrentPumpkinCount + " / " + DataManager.Instance.CurrentPumpkinMax;
+        _textBox.text = PumpkinManager.Instance.GetPumpkinsFound() + " / " + PumpkinManager.Instance.GetMaxPumpkins();
     }
 }

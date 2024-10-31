@@ -11,7 +11,7 @@ public class PumpkinSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnPumpkins(DataManager.Instance.TotalPumpkinCount);
+        SpawnPumpkins(PumpkinManager.Instance.GetPumpkinCount());
     }
 
     private void SpawnPumpkins(int totalPumpkinCount)
