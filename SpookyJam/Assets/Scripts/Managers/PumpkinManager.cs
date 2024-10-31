@@ -56,7 +56,7 @@ public class PumpkinManager : MonoBehaviour
         _pumpkinList = GameObject.FindGameObjectsWithTag(_collectibleName);
         var levelName = GameManager.Instance.CurrentWorld + "-" + GameManager.Instance.CurrentLevel;
         var levelData = SaveDataManager.Instance.GetLevelData(levelName);
-        if (levelData.PumpkinsFound == null)
+        if (levelData.PumpkinsFound == null || levelData.PumpkinsFound.Length == 0)
         {
             levelData.PumpkinsFound = new bool[_pumpkinList.Length];
             SaveDataManager.Instance.UpdatePumpkins();

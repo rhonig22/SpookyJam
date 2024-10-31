@@ -11,6 +11,8 @@ public class LevelButtonController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _requirementText;
     [SerializeField] private GameObject _showLevel;
     [SerializeField] private GameObject _showLock;
+    [SerializeField] private GameObject _pumpkins;
+    [SerializeField] private GameObject _pumpkinIndicatorPrefab;
     [SerializeField] private Image _image;
     [SerializeField] private Color _completeColor;
     [SerializeField] private Color _lockColor;
@@ -27,6 +29,7 @@ public class LevelButtonController : MonoBehaviour
             _showLevel.SetActive(true);
             _showLock.SetActive(false);
             _button.enabled = true;
+            GeneratePumpkins(worldData);
         }
         else
         {
@@ -39,6 +42,33 @@ public class LevelButtonController : MonoBehaviour
         if (worldData.Completed)
         {
             _image.color = _completeColor;
+        }
+    }
+
+    private void GeneratePumpkins(WorldData worldData)
+    {
+        var xPos = -60;
+        var yPos = 20;
+        var step = 40;
+        var xThresh = 75;        for (var i = 0; i < worldData.Levels.Count; i++)
+        {
+            var level = worldData.Levels[i];
+            for (var j = 0; j < level.PumpkinsFound.Length; j++)
+            {
+                var pumpkin = Instantiate(_pumpkinIndicatorPrefab, _pumpkins.transform);
+                if (!level.PumpkinsFound[j])
+                {
+                    pumpkin.GetComponent<Image>().color = Color.black;
+                }
+                
+                pumpkin.transform.localPosition = new Vector3(xPos, yPos, 0);
+                xPos += step;
+                if (xPos > xThresh)
+                {
+                    xPos = -60;
+                    yPos -= step;
+                }
+            }
         }
     }
 
