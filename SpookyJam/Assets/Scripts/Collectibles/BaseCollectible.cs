@@ -8,7 +8,13 @@ public class BaseCollectible : MonoBehaviour
     [SerializeField] private AudioClip _pumpkinSound;
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private int _index = 0;
     private bool _collected = false;
+
+    public int GetIndex()
+    {
+        return _index;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,7 +28,7 @@ public class BaseCollectible : MonoBehaviour
     private void PickupCollectible() {
         if (!_collected)
         {
-            DataManager.Instance.PickupCollectible(_collectibleName);
+            PumpkinManager.Instance.PickupCollectible(_index);
             SoundManager.Instance.PlaySound(_pumpkinSound, transform.position, 1f);
             _animator.SetTrigger("PickedUp");
             _particleSystem.Play();

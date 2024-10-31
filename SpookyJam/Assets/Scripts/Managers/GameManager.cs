@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     private readonly string _titleScene = "Title";
     private readonly string _settingsScene = "SettingsScene";
     private readonly string _levelScene = "Level";
-    private int CurrentLevel = 0;
-    private int CurrentWorld = 0;
+    public int CurrentLevel { get; private set; } = 0;
+    public int CurrentWorld { get; private set; } = 0;
 
     private void Awake()
     {

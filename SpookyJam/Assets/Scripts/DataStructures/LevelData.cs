@@ -19,5 +19,5 @@ public class WorldData
 [Serializable]
 public class LevelData
 {
-    public List<bool> PumpkinsFound;
+    public bool[] PumpkinsFound;
 }

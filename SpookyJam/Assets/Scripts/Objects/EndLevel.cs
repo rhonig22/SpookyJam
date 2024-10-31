@@ -13,7 +13,7 @@ public class EndLevel : MonoBehaviour
         {
             SceneTransition.Instance.EndLevelTransition();
             SoundManager.Instance.PlaySound(_endClip, transform.position, 1f);
-            DataManager.Instance.LevelFinished();
+            PumpkinManager.Instance.LevelFinished();
         }
     }
 }

@@ -95,6 +95,11 @@ public class SaveDataManager : MonoBehaviour
         return _levelList.Worlds[world].Levels.Count;
     }
 
+    public void UpdatePumpkins()
+    {
+        SetLevelList();
+    }
+
     private void SetLevelList()
     {
         PlayerPrefs.SetString(_levelDataKey, JsonUtility.ToJson(_levelList));
@@ -135,7 +140,7 @@ public class SaveDataManager : MonoBehaviour
                     Completed = false, 
                     Requirement = 0,
                     Levels = new List<LevelData> {
-                        new LevelData() {  },
+                        new LevelData() { },
                         new LevelData() { },
                         new LevelData() { } ,
                     }
