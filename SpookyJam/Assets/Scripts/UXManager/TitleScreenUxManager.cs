@@ -19,4 +19,9 @@ public class TitleScreenUxManager : MonoBehaviour
     {
         GameManager.Instance.LoadWorld(world);
     }
+
+    public void MainMenuClicked()
+    {
+        GameManager.Instance.LoadTitleScreen();
+    }
 }

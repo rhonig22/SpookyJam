@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using static Cinemachine.DocumentationSortingAttribute;
 
 public class SaveDataManager : MonoBehaviour
 {
-    public static SaveDataManager Instance;
+    public static SaveDataManager Instance { get; private set; }
     private readonly string _playerDataKey = "PlayerData";
-    private readonly string _levelDataKey = "LevelData";
     private PlayerData _playerData;
     private LevelList _levelList;
 
@@ -35,14 +36,7 @@ public class SaveDataManager : MonoBehaviour
             InitializePlayerData();
         }
 
-        if (PlayerPrefs.HasKey(_levelDataKey))
-        {
-            _levelList = JsonUtility.FromJson<LevelList>(PlayerPrefs.GetString(_levelDataKey));
-        }
-        else
-        {
-            InitializeLevelData();
-        }
+        LoadLevelData();
     }
 
     public PlayerData GetPlayerData()
@@ -82,50 +76,76 @@ public class SaveDataManager : MonoBehaviour
 
     public WorldData GetWorldData(int world)
     {
-        return _levelList.Worlds[world];
-    }
-
-    public int GetWorldCount()
-    {
-        return _levelList.Worlds.Count;
-    }
-
-    public int GetLevelCountForWorld(int world)
-    {
-        return _levelList.Worlds[world].Levels.Count;
+        if (world < _levelList.Worlds.Count)
+            return _levelList.Worlds[world];
+        else
+            return null;
     }
 
     public void UpdatePumpkins()
     {
-        SetLevelList();
+        SaveLevelData();
     }
 
-    private void SetLevelList()
+    private string GetLevelDataPath()
     {
-        PlayerPrefs.SetString(_levelDataKey, JsonUtility.ToJson(_levelList));
-        PlayerPrefs.Save();
+        return Application.persistentDataPath + "/levels.fun";
+    }
+
+    private void SaveLevelData()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = GetLevelDataPath();
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, _levelList);
+        stream.Close();
+    }
+
+    private void LoadLevelData()
+    {
+        string path = GetLevelDataPath();
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            _levelList = formatter.Deserialize(stream) as LevelList;
+            stream.Close();
+        }
+        else
+        {
+            InitializeLevelData();
+        }
+    }
+
+    private void ClearLevelData()
+    {
+        string path = GetLevelDataPath();
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    public void StartLevel(int world, int level, int pumpkins)
+    {
+        if (_levelList.Worlds[world].Levels.Count <= level)
+            _levelList.Worlds[world].AddLevel(pumpkins);
     }
 
     public void CompleteWorld(int world)
     {
         var worldData = GetWorldData(world);
         worldData.Completed = true;
-        CheckUnlocks();
-        SetLevelList();
+        CheckNextWorld(world);
+        SaveLevelData();
     }
 
-    private void CheckUnlocks()
+    private void CheckNextWorld(int world)
     {
-        var totalComplete = 0;
-        for (var i = 0; i < _levelList.Worlds.Count; i++)
-            if (_levelList.Worlds[i].Completed)
-                totalComplete++;
-
-        for (var i = 0; i < _levelList.Worlds.Count; i++)
+        if (GameManager.Instance.HasNextWorld(world) && world + 1 == _levelList.Worlds.Count)
         {
-            var world = _levelList.Worlds[i];
-            if (world.Requirement <= totalComplete)
-                world.Unlocked = true;
+            _levelList.Worlds.Add(new WorldData());
         }
     }
 
@@ -135,56 +155,18 @@ public class SaveDataManager : MonoBehaviour
         {
             Worlds = new List<WorldData>()
             {
-                new WorldData() {
-                    Unlocked = true, 
-                    Completed = false, 
-                    Requirement = 0,
-                    Levels = new List<LevelData> {
-                        new LevelData() { },
-                        new LevelData() { },
-                        new LevelData() { } ,
-                    }
-                },
-                new WorldData() {
-                    Unlocked = false,
-                    Completed = false,
-                    Requirement = 1,
-                    Levels = new List<LevelData> {
-                        new LevelData() { },
-                        new LevelData() { },
-                        new LevelData() { } ,
-                    }
-                },
-                new WorldData() {
-                    Unlocked = false,
-                    Completed = false,
-                    Requirement = 2,
-                    Levels = new List<LevelData> {
-                        new LevelData() { },
-                        new LevelData() { },
-                        new LevelData() { } ,
-                    }
-                },
-                new WorldData() {
-                    Unlocked = false,
-                    Completed = false,
-                    Requirement = 3,
-                    Levels = new List<LevelData> {
-                        new LevelData() { },
-                        new LevelData() { },
-                        new LevelData() { } ,
-                    }
-                },
+                new WorldData()
             }
         };
 
         _levelList = levelList;
-        SetLevelList();
+        SaveLevelData();
     }
 
     public void ClearData()
     {
         PlayerPrefs.DeleteAll();
+        ClearLevelData();
         SetUpDataManager();
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BaseCollectible : MonoBehaviour
 {
-    [SerializeField] private string _collectibleName = "Pumpkin";
     [SerializeField] private AudioClip _pumpkinSound;
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
