@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelBoundary : MonoBehaviour
 {
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         var controller = collision.GetComponent<PlayerController>();
         if (controller != null && controller.gameObject.scene.isLoaded && controller.gameObject.activeInHierarchy)

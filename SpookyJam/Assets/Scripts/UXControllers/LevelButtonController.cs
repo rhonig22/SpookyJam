@@ -23,13 +23,17 @@ public class LevelButtonController : MonoBehaviour
     {
         _levelText.text = "World " + _level;
         var worldData = SaveDataManager.Instance.GetWorldData(_level - 1);
-        _requirementText.text = "" + worldData.Requirement;
-        if (worldData.Unlocked)
+        if (worldData != null && worldData.Unlocked)
         {
             _showLevel.SetActive(true);
             _showLock.SetActive(false);
             _button.enabled = true;
             GeneratePumpkins(worldData);
+
+            if (worldData.Completed)
+            {
+                _image.color = _completeColor;
+            }
         }
         else
         {
@@ -38,11 +42,6 @@ public class LevelButtonController : MonoBehaviour
             _image.color = _lockColor;
             _button.enabled = false;
         }
-
-        if (worldData.Completed)
-        {
-            _image.color = _completeColor;
-        }
     }
 
     private void GeneratePumpkins(WorldData worldData)
@@ -50,7 +49,8 @@ public class LevelButtonController : MonoBehaviour
         var xPos = -60;
         var yPos = 20;
         var step = 40;
-        var xThresh = 75;        for (var i = 0; i < worldData.Levels.Count; i++)
+        var xThresh = 75;
+        for (var i = 0; i < worldData.Levels.Count; i++)
         {
             var level = worldData.Levels[i];
             for (var j = 0; j < level.PumpkinsFound.Length; j++)

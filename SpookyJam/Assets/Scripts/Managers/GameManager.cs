@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private readonly string _titleScene = "Title";
     private readonly string _settingsScene = "SettingsScene";
+    private readonly string _levelMenu = "LevelMenu";
     private readonly string _levelScene = "Level";
+    [SerializeField] private List<ScriptableWorld> _worldList;
     public int CurrentLevel { get; private set; } = 0;
     public int CurrentWorld { get; private set; } = 0;
 
@@ -37,6 +39,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            var sceneName = SceneManager.GetActiveScene().name;
+            if (sceneName == _levelMenu || sceneName == _settingsScene)
+                LoadTitleScreen();
+            else if (sceneName == _titleScene)
+                Application.Quit();
+            else
+                LoadLevelMenu();
+        }
+    }
+
     public void LoadSettings()
     {
         LoadScene(_settingsScene);
@@ -52,22 +68,34 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-
     private void FinishWorld(int world)
     {
         SaveDataManager.Instance.CompleteWorld(world - 1);
-        if (world+1 < SaveDataManager.Instance.GetWorldCount())
+        if (world < _worldList.Count)
             LoadLevelMenu();
         else
             LoadEndScreen();
     }
 
+    public bool HasNextWorld(int world)
+    {
+        if (world + 1 < _worldList.Count)
+            return true;
+
+        return false;
+    }
+
     public void LoadNextLevel()
     {
         CurrentLevel++;
-        var nextLevel = _levelScene + "_" + CurrentWorld + "_" + CurrentLevel;
-        if (CurrentLevel <= SaveDataManager.Instance.GetLevelCountForWorld(CurrentWorld))
+        // subtract 1 from world and level to be 0-based
+        if (CurrentLevel <= _worldList[CurrentWorld-1].GetLevelCount())
+        {
+            var scriptableLevel = _worldList[CurrentWorld - 1].GetLevel(CurrentLevel - 1);
+            var nextLevel = scriptableLevel.GetSceneName();
             SceneManager.LoadScene(nextLevel);
+            SaveDataManager.Instance.StartLevel(CurrentWorld-1, CurrentLevel-1, scriptableLevel.GetPumpkinCount());
+        }
         else
             FinishWorld(CurrentWorld);
     }
@@ -91,6 +119,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevelMenu()
     {
-        SceneManager.LoadScene("LevelMenu");
+        SceneManager.LoadScene(_levelMenu);
     }
 }
