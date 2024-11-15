@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private float _horizontalInput = 0f;
-    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f, _maxFloatFall = 3.5f;
+    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f, _maxFloatFall = 3.5f,
+        _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f;
     private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false, _isFloating = false;
-    private readonly int _speed = 6;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _playerRB;
@@ -67,15 +67,18 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Move(_horizontalInput * _speed * Time.fixedDeltaTime);
+        Move(_horizontalInput);
         CapVelocity();
     }
 
-    private void Move(float xSpeed)
+    private void Move(float horizontalInput)
     {
-        Vector2 targetVelocity = new Vector2(xSpeed * 60f, _playerRB.velocity.y);
-        // And then smoothing it out and applying it to the character
-        _playerRB.velocity = Vector2.SmoothDamp(_playerRB.velocity, targetVelocity, ref _currentVelocity, _movementSmoothing);
+        _playerRB.drag = 0;
+        Vector3 targetVelocity = new Vector2(_topSpeed * horizontalInput, 0);
+        Vector2 diffVelocity = new Vector2(targetVelocity.x - _playerRB.velocity.x, 0);
+        if (targetVelocity.x == 0)
+            diffVelocity.x *= _degradeInertiaMultiplier;
+        _playerRB.AddForce(_playerRB.mass * diffVelocity / _timeToTopSpeed);
     }
 
     private void CapVelocity()
