@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _horizontalInput = Input.GetAxisRaw("Horizontal");
+        _animator.SetFloat("xMovement", _horizontalInput);
 
         if (_isShrinking)
         {
