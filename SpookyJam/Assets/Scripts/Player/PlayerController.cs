@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private float _horizontalInput = 0f;
-    private readonly float _floatGravityMultiplier = 4f, _movementSmoothing = .1f, _maxFloatFall = 3.5f,
+    private readonly float _floatGravityMultiplier = 4f, _maxFloatFall = 3.5f,
         _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f;
     private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false, _isFloating = false;
     private Vector2 _currentVelocity = Vector2.zero;
@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private AudioClip _invertClip;
     [SerializeField] private AudioClip _deathClip;
+    [SerializeField] private TrailRenderer _trailRenderer;
 
     // Update is called once per frame
     void Update()
@@ -128,6 +129,7 @@ public class PlayerController : MonoBehaviour
         _playerRB.gravityScale /= _floatGravityMultiplier;
         _isFloating = true;
         _animator.SetBool("Float", true);
+        _trailRenderer.emitting = true;
     }
 
     public void EndFloat()
@@ -135,6 +137,7 @@ public class PlayerController : MonoBehaviour
         _playerRB.gravityScale *= _floatGravityMultiplier;
         _isFloating = false;
         _animator.SetBool("Float", false);
+        _trailRenderer.emitting = false;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
