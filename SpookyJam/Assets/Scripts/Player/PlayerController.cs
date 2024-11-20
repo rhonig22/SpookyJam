@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private AudioClip _invertClip;
     [SerializeField] private AudioClip _deathClip;
+    [SerializeField] private AudioClip _landingClip;
     [SerializeField] private TrailRenderer _trailRenderer;
 
     // Update is called once per frame
@@ -37,29 +38,18 @@ public class PlayerController : MonoBehaviour
         }
 
         _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _animator.SetFloat("xMovement", _horizontalInput);
 
         if (_isShrinking)
         {
             return;
         }
 
-        // Control the sprite for the character
-        if (_horizontalInput > 0 && !_facingRight)
-        {
-            _facingRight = true;
-            // _animator?.SetBool("facingRight", true);
-        }
-        else if (_horizontalInput < 0 && _facingRight)
-        {
-            _facingRight = false;
-            // _animator?.SetBool("facingRight", false);
-        }
-
         if (_grounded && Input.GetButtonDown("Flip"))
         {
             StartShrink();
         }
+
+        _animator.SetFloat("xMovement", (_inverted ? -1 : 1) * _horizontalInput);
     }
 
     private void FixedUpdate()
@@ -116,7 +106,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Flip");
         _isShrinking = true;
         _playerRB.velocity = Vector2.zero;
-        SoundManager.Instance.PlaySound(_invertClip, transform.position, 1.2f);
+        SoundManager.Instance.PlaySound(_invertClip, transform.position, 1f);
     }
 
     public void EndShrink()
@@ -152,11 +142,15 @@ public class PlayerController : MonoBehaviour
 
     private void CheckGrounding(Collision2D collision)
     {
+        var _startGrounded = _grounded;
         for (int i = 0; i < collision.contactCount; i++)
         {
             Vector2 normal = collision.GetContact(i).normal;
             _grounded |= Vector2.Angle(normal, transform.up) < 90;
         }
+
+        if (!_startGrounded && _grounded)
+            SoundManager.Instance.PlaySound(_landingClip, transform.position, 1f);
     }
 
     public void StartDeath()
