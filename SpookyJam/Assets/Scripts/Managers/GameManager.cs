@@ -85,6 +85,23 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public int GetPumpkinCount(int world)
+    {
+        if (world >= _worldList.Count)
+            return 0;
+
+        var scriptableWorld = _worldList[world];
+        var levels = scriptableWorld.GetLevelCount();
+        var count = 0;
+        for (int i = 0; i < levels; i++)
+        {
+            var level = scriptableWorld.GetLevel(i);
+            count += level.GetPumpkinCount();
+        }
+        
+        return count;
+    }
+
     public void LoadNextLevel()
     {
         CurrentLevel++;
