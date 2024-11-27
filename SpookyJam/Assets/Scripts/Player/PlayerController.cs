@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Flip");
         _isShrinking = true;
         _playerRB.velocity = Vector2.zero;
-        SoundManager.Instance.PlaySound(_invertClip, transform.position, 1f);
+        SoundManager.Instance.PlaySound(_invertClip, transform.position, .6f);
     }
 
     public void EndShrink()

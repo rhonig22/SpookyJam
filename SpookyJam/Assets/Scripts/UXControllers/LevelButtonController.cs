@@ -50,6 +50,7 @@ public class LevelButtonController : MonoBehaviour
         var yPos = 20;
         var step = 40;
         var xThresh = 75;
+        var count = 0;
         for (var i = 0; i < worldData.Levels.Count; i++)
         {
             var level = worldData.Levels[i];
@@ -68,6 +69,29 @@ public class LevelButtonController : MonoBehaviour
                     xPos = -60;
                     yPos -= step;
                 }
+
+                count++;
+            }
+        }
+
+        var pumpkinsCount = GameManager.Instance.GetPumpkinCount(_level - 1);
+        if (count < pumpkinsCount)
+            GenerateBlankPumpkins(pumpkinsCount - count, xPos, yPos, step, xThresh);
+    }
+
+    private void GenerateBlankPumpkins(int pumpkinsCount, int xPos, int yPos, int step, int xThresh)
+    {
+        for (var j = 0; j < pumpkinsCount; j++)
+        {
+            var pumpkin = Instantiate(_pumpkinIndicatorPrefab, _pumpkins.transform);
+            pumpkin.GetComponent<Image>().color = Color.black;
+
+            pumpkin.transform.localPosition = new Vector3(xPos, yPos, 0);
+            xPos += step;
+            if (xPos > xThresh)
+            {
+                xPos = -60;
+                yPos -= step;
             }
         }
     }
