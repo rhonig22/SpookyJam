@@ -10,7 +10,6 @@ public class Inverter : MonoBehaviour
         if (controller != null)
         {
             controller.InvertGravity();
-            controller.FlipCharacter();
         }
     }
 
@@ -20,7 +19,6 @@ public class Inverter : MonoBehaviour
         if (controller != null)
         {
             controller.InvertGravity();
-            controller.FlipCharacter();
         }
     }
 }

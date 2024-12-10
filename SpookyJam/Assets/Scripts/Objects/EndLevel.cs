@@ -8,9 +8,10 @@ public class EndLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var controller = collision.GetComponent<PlayerController>();
-        if (controller != null)
+        var player = collision.GetComponent<PlayerController>();
+        if (player != null && !player.IsDead)
         {
+            player.EndLevel();
             SceneTransition.Instance.EndLevelTransition();
             SoundManager.Instance.PlaySound(_endClip, transform.position, 1f);
             PumpkinManager.Instance.LevelFinished();
