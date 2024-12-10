@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float _horizontalInput = 0f;
     private readonly float _floatGravityMultiplier = 4f, _maxFloatFall = 3.5f,
         _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f;
-    private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isDead = false, _isFloating = false;
+    private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _playerRB;
@@ -18,11 +18,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _deathClip;
     [SerializeField] private AudioClip _landingClip;
     [SerializeField] private TrailRenderer _trailRenderer;
+    public bool IsDead { get; private set; } = false;
 
     // Update is called once per frame
     void Update()
     {
-        if ( _isDead)
+        if (IsDead)
         {
             return;
         }
@@ -153,11 +154,17 @@ public class PlayerController : MonoBehaviour
             SoundManager.Instance.PlaySound(_landingClip, transform.position, 1f);
     }
 
+    public void EndLevel()
+    {
+        _playerRB.gravityScale = 0;
+        _playerRB.velocity = Vector2.zero;
+    }
+
     public void StartDeath()
     {
-        if (!_isDead)
+        if (!IsDead)
         {
-            _isDead = true;
+            IsDead = true;
             _playerRB.gravityScale = 0;
             _playerRB.velocity = Vector2.zero;
             _animator.SetTrigger("Death");

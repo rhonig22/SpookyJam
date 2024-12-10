@@ -8,14 +8,16 @@ using UnityEngine.UI;
 public class UIButtonController : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] Image _highlightImage;
+    [SerializeField] Color _highlightColor;
+    [SerializeField] Color _baseColor;
 
     public void OnSelect(BaseEventData eventData)
     {
-        _highlightImage.enabled = true;
+        _highlightImage.color = _highlightColor;
     }
 
     public void OnDeselect(BaseEventData eventData)
     { 
-        _highlightImage.enabled = false;
+        _highlightImage.color = _baseColor;
     }
 }
