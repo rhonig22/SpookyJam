@@ -71,10 +71,11 @@ public class GameManager : MonoBehaviour
     private void FinishWorld(int world)
     {
         SaveDataManager.Instance.CompleteWorld(world - 1);
-        if (world < _worldList.Count)
+        /*if (world < _worldList.Count)
             LoadLevelMenu();
         else
-            LoadEndScreen();
+            LoadEndScreen();*/
+        LoadLevelMenu();
     }
 
     public bool HasNextWorld(int world)

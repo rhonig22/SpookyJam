@@ -9,7 +9,7 @@ public class EndLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.GetComponent<PlayerController>();
-        if (player != null && !player.IsDead)
+        if (player != null && !player.IsDead && !player.IsEnding)
         {
             player.EndLevel();
             SceneTransition.Instance.EndLevelTransition();
