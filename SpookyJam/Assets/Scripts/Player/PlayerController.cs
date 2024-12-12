@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _landingClip;
     [SerializeField] private TrailRenderer _trailRenderer;
     public bool IsDead { get; private set; } = false;
+    public bool IsEnding { get; private set; } = false;
 
     // Update is called once per frame
     void Update()
@@ -156,6 +157,7 @@ public class PlayerController : MonoBehaviour
 
     public void EndLevel()
     {
+        IsEnding = true;
         _playerRB.gravityScale = 0;
         _playerRB.velocity = Vector2.zero;
     }
