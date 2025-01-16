@@ -22,7 +22,13 @@ public class Sign : MonoBehaviour
         var controller = collision.GetComponent<PlayerController>();
         if (controller != null)
         {
-            _dialogueBox?.gameObject.SetActive(false);
+            StartCoroutine(CloseSign());
         }
+    }
+
+    IEnumerator CloseSign()
+    {
+        yield return new WaitForSeconds(.5f);
+        _dialogueBox?.gameObject.SetActive(false);
     }
 }
