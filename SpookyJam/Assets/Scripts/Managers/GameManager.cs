@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -50,6 +51,10 @@ public class GameManager : MonoBehaviour
                 Application.Quit();
             else
                 LoadLevelMenu();
+        }
+        else if (Input.GetButtonDown("Restart"))
+        {
+            SceneTransition.Instance.RestartLevelTransition();
         }
     }
 
