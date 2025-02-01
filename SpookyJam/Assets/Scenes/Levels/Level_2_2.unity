@@ -5803,6 +5803,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2013461464}
+--- !u!1001 &938243976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192844998, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192845001, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: _signText
+      value: Press R to restart a level if you get stuck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192845002, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_Name
+      value: Sign
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
 --- !u!1001 &957692097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7910,7 +7971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 456272542329677260, guid: 5f0f7dafaab12724a9f1c0efce5388f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 456272542329677260, guid: 5f0f7dafaab12724a9f1c0efce5388f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8272,3 +8333,4 @@ SceneRoots:
   - {fileID: 4322925}
   - {fileID: 593200646}
   - {fileID: 1319006944}
+  - {fileID: 938243976}
