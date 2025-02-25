@@ -98,9 +98,9 @@ public class PlayerController : MonoBehaviour
     public void InvertCharacter()
     {
         GravityManager.Instance.FlipGravity();
+        transform.position += (!_inverted ? -1 : 1) * Vector3.up;
         InvertGravity();
         FlipCharacter();
-        transform.position += (_inverted ? -1 : 1) * Vector3.up;
     }
 
     public void StartShrink()
