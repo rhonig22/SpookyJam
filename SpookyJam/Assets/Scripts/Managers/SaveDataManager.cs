@@ -70,7 +70,10 @@ public class SaveDataManager : MonoBehaviour
         if (vals.Length > 1)
             level = int.Parse(vals[1]) - 1;
 
-        return _levelList.Worlds[world].Levels[level];
+        if (world < _levelList.Worlds.Count && level < _levelList.Worlds[world].Levels.Count)
+            return _levelList.Worlds[world].Levels[level];
+        else
+            return new LevelData(0);
     }
 
 
