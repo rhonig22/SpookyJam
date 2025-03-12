@@ -37,6 +37,9 @@ public class PumpkinManager : MonoBehaviour
     public int GetPumpkinsFound()
     {
         int count = 0;
+        if (_currentPumpkinsFound == null)
+            return 0;
+
         for (int i = 0; i < _currentPumpkinsFound.Length; i++)
         {
             if (_currentPumpkinsFound[i])
@@ -48,6 +51,9 @@ public class PumpkinManager : MonoBehaviour
 
     public int GetMaxPumpkins()
     {
+        if (_currentPumpkinsFound == null)
+            return 0;
+
         return _currentPumpkinsFound.Length;
     }
 
