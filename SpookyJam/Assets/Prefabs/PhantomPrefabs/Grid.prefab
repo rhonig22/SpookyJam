@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1789295336399270084}
   - component: {fileID: 8001675522673064557}
   - component: {fileID: 9142985694201046852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4829367253589693333}
   - component: {fileID: 3122233487628154722}
   - component: {fileID: 4216234922084890717}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BackgroundTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2836,7 +2836,7 @@ GameObject:
   - component: {fileID: 9016466360489034959}
   - component: {fileID: 1999313511868668145}
   - component: {fileID: 3435047898610436059}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ForegroundTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3507,7 +3507,7 @@ GameObject:
   - component: {fileID: 2751757655573071397}
   - component: {fileID: 3611809165689234032}
   - component: {fileID: 7698770500113916331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ReverseTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4312,7 +4312,7 @@ GameObject:
   - component: {fileID: 1725334791479823129}
   - component: {fileID: 4471072256130713663}
   - component: {fileID: 977626660504765136}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InverterTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
