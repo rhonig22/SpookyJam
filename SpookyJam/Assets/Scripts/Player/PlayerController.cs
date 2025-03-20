@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     private float _horizontalInput = 0f;
     private readonly float _floatGravityMultiplier = 4f, _maxFloatFall = 3.5f,
-        _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f;
+        _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f, _horizontalThreshold = .2f;
     private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _deathClip;
     [SerializeField] private AudioClip _landingClip;
     [SerializeField] private TrailRenderer _trailRenderer;
+    [SerializeField] private ParticleSystem _particleSystem;
     public bool IsDead { get; private set; } = false;
     public bool IsEnding { get; private set; } = false;
 
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _animator.SetFloat("xMovement", (_inverted ? -1 : 1) * _horizontalInput);
+        SetMovementParticles();
     }
 
     private void FixedUpdate()
@@ -179,5 +181,20 @@ public class PlayerController : MonoBehaviour
     {
         _playerRB.simulated = false;
         SceneTransition.Instance.RestartLevelTransition();
+    }
+
+    private void SetMovementParticles()
+    {
+        if (Math.Abs(_playerRB.velocity.magnitude) < _horizontalThreshold)
+        {
+            if (_particleSystem.isEmitting)
+                _particleSystem.Stop();
+
+            return;
+        }
+
+
+        if (!_particleSystem.isEmitting)
+            _particleSystem.Play();
     }
 }
