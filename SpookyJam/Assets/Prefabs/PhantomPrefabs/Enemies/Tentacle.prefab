@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5421684981363392934}
   - component: {fileID: 5421684981363392935}
   m_Layer: 0
-  m_Name: Tentacle1
-  m_TagString: Untagged
+  m_Name: Tentacle
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
