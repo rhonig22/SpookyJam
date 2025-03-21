@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2543445106419625394}
   - component: {fileID: 2543445106419625398}
   m_Layer: 0
-  m_Name: EndPoint
-  m_TagString: Untagged
+  m_Name: EndPortal
+  m_TagString: EndPortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

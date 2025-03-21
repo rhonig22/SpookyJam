@@ -7,18 +7,15 @@ using System.Linq;
 public class TileClusterFinder : MonoBehaviour
 {
     [SerializeField] private Tilemap _tilemap;
-    private BoundsInt _bounds;
     private Dictionary<Vector3Int, bool> _visitedTiles = new Dictionary<Vector3Int, bool>();
     public List<TileCluster> Clusters { get; private set; } = new List<TileCluster>();
 
     public void FindTileClusters()
     {
-        _bounds = _tilemap.cellBounds;
-
         List<List<Vector3Int>> clusters = new List<List<Vector3Int>>();
 
         // Initialize the visited dictionary
-        foreach (Vector3Int pos in GetAllTilePositions())
+        foreach (Vector3Int pos in GetAllTilePositions(_tilemap))
         {
             _visitedTiles[pos] = false;
         }
@@ -41,13 +38,14 @@ public class TileClusterFinder : MonoBehaviour
         }
     }
 
-    List<Vector3Int> GetAllTilePositions()
+    public static List<Vector3Int> GetAllTilePositions(Tilemap tilemap)
     {
+        BoundsInt bounds = tilemap.cellBounds;
         List<Vector3Int> tilePositions = new List<Vector3Int>();
 
-        foreach (var pos in _bounds.allPositionsWithin)
+        foreach (var pos in bounds.allPositionsWithin)
         {
-            if (_tilemap.HasTile(pos))
+            if (tilemap.HasTile(pos))
             {
                 tilePositions.Add(pos);
             }

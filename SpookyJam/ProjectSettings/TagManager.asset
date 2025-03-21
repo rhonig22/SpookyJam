@@ -8,6 +8,11 @@ TagManager:
   - InvisiBlock
   - Inverter
   - Pumpkin
+  - Ghost
+  - Tentacle
+  - Bat
+  - Sign
+  - EndPortal
   layers:
   - Default
   - TransparentFX
