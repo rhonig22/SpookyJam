@@ -4,18 +4,28 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
+using UnityEngine.WSA;
 
 public class LevelSaveManager : MonoBehaviour
 {
-    [SerializeField] Tilemap _backgoundTiles;
-    [SerializeField] Tilemap _foregroundTiles;
-    [SerializeField] Tilemap _inverterTiles;
+    [SerializeField] Tilemap _backgoundTileMap;
+    [SerializeField] Tilemap _foregroundTileMap;
+    [SerializeField] Tilemap _inverterTileMap;
+    [SerializeField] TileBase _backgoundTile;
+    [SerializeField] TileBase _foregroundTile;
+    [SerializeField] TileBase _inverterTile;
+    [SerializeField] string _levelToLoad;
 
     // Start is called before the first frame update
     void Start()
     {
-        SaveLevel();
+        if (_levelToLoad == null || _levelToLoad.Length == 0)
+            SaveLevel();
+        else
+            LoadLevel(_levelToLoad);
     }
 
     public void SaveLevel()
@@ -24,17 +34,17 @@ public class LevelSaveManager : MonoBehaviour
 
         SerializableTileLayer background = new SerializableTileLayer();
         background.TileType = TileLayerType.Background;
-        background.Positions = TileClusterFinder.GetAllTilePositions(_backgoundTiles);
+        background.Positions = TileClusterFinder.GetAllTilePositions(_backgoundTileMap);
         level.SerializableTileLayers.Add(background);
 
         SerializableTileLayer foreground = new SerializableTileLayer();
         foreground.TileType = TileLayerType.Foreground;
-        foreground.Positions = TileClusterFinder.GetAllTilePositions(_foregroundTiles);
+        foreground.Positions = TileClusterFinder.GetAllTilePositions(_foregroundTileMap);
         level.SerializableTileLayers.Add(foreground);
 
         SerializableTileLayer inverter = new SerializableTileLayer();
         inverter.TileType = TileLayerType.Inverter;
-        inverter.Positions = TileClusterFinder.GetAllTilePositions(_inverterTiles);
+        inverter.Positions = TileClusterFinder.GetAllTilePositions(_inverterTileMap);
         level.SerializableTileLayers.Add(inverter);
 
         foreach (LevelEntityType type in Enum.GetValues(typeof(LevelEntityType)))
@@ -43,7 +53,50 @@ public class LevelSaveManager : MonoBehaviour
             level.SerializableEntities.AddRange(entities);
         }
 
+        SetLevelNameAndNumbers(level);
         SaveToFile(level);
+    }
+
+    public void LoadLevel(string levelName)
+    {
+        SerializableLevel level = LoadFromFile(levelName);
+        foreach (var layer in level.SerializableTileLayers)
+        {
+            Tilemap map;
+            TileBase tile;
+            switch (layer.TileType)
+            {
+                case TileLayerType.Background:
+                    map = _backgoundTileMap;
+                    tile = _backgoundTile;
+                    break;
+                case TileLayerType.Foreground:
+                    map = _foregroundTileMap;
+                    tile = _foregroundTile;
+                    break;
+                case TileLayerType.Inverter:
+                    map = _inverterTileMap;
+                    tile = _inverterTile;
+                    break;
+                default:
+                    map = null;
+                    tile = null;
+                    break;
+            }
+
+            if (map == null)
+                continue;
+
+            PlaceTilePositions(map, tile, layer);
+        }
+    }
+
+    void PlaceTilePositions(Tilemap map, TileBase tile, SerializableTileLayer layer)
+    {
+        foreach (Vector3Int pos in layer.Positions)
+        {
+            map.SetTile(pos, tile);
+        }
     }
 
     private List<LevelEntity> GetEntitiesFromType(LevelEntityType type)
@@ -61,17 +114,48 @@ public class LevelSaveManager : MonoBehaviour
         return entities;
     }
 
-    private string GetSerializedLevelPath()
+    private void SetLevelNameAndNumbers(SerializableLevel level)
     {
-        var filePath = Path.Combine(Application.persistentDataPath, "level.json");
+        var levelName = SceneManager.GetActiveScene().name;
+        var vals = levelName.Split('_');
+        if (vals[0] != "Level" || vals.Length != 3)
+        {
+            return;
+        }
+
+        level.Name = levelName;
+        level.Level = int.Parse(vals[2]);
+        level.World = int.Parse(vals[1]);
+    }
+
+    private string GetSerializedLevelPath(string levelName)
+    {
+        var filePath = Path.Combine(UnityEngine.Application.persistentDataPath, levelName + ".json");
         Debug.Log($"File Path: {filePath}");
         return filePath;
     }
 
     private void SaveToFile(SerializableLevel level)
     {
-        string path = GetSerializedLevelPath();
+        string path = GetSerializedLevelPath(level.Name);
         string json = JsonUtility.ToJson(level, true);
         File.WriteAllText(path, json);
+    }
+
+    private SerializableLevel LoadFromFile(string levelName)
+    {
+        string filePath = GetSerializedLevelPath(levelName);
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            SerializableLevel levelData = JsonUtility.FromJson<SerializableLevel>(json);
+            Debug.Log($"{filePath} loaded!");
+            return levelData;
+        }
+        else
+        {
+            Debug.Log($"No level file found for {filePath}");
+            return null;
+        }
     }
 }
