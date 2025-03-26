@@ -18,6 +18,7 @@ public class LevelSaveManager : MonoBehaviour
     [SerializeField] TileBase _backgoundTile;
     [SerializeField] TileBase _foregroundTile;
     [SerializeField] TileBase _inverterTile;
+    [SerializeField] ReverseTiles _reverseTiles;
     [SerializeField] string _levelToLoad;
 
     // Start is called before the first frame update
@@ -90,6 +91,8 @@ public class LevelSaveManager : MonoBehaviour
 
             PlaceTilePositions(map, tile, layer);
         }
+
+        _reverseTiles.CreateReverseTileMap();
 
         foreach (var entity in  level.SerializableEntities)
         {
