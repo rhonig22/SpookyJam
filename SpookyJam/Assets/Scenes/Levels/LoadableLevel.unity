@@ -548,6 +548,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe4176452d67ab43a66574c0a9d792f, type: 3}
+--- !u!114 &1347260643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6930432907356605940, guid: e3ac2ef5d51a0bc49b544527e67714d6, type: 3}
+  m_PrefabInstance: {fileID: 2920225148746825216}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df9afe431157ed4782e5383ccd11da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1692595903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -890,8 +901,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _levelToLoad
-      value: Level_1_1
+      value: Level_1_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _reverseTiles
+      value: 
+      objectReference: {fileID: 1347260643}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _inverterTileMap
       value: 
