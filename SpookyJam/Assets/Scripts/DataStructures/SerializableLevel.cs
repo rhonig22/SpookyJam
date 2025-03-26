@@ -44,7 +44,7 @@ public enum TileLayerType
 
 public enum LevelEntityType
 {
-    Player,
+    Ghost,
     Tentacle,
     Bat,
     Sign,

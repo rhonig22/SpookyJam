@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfcff43ed4e36844a30aa8cc55478c3, type: 3}
+  m_Name: Entity Map
+  m_EditorClassIdentifier: 
+  _levelEntityList:
+  - {fileID: 11400000, guid: 977975259eb5bba42a5e7dcee872454c, type: 2}
+  - {fileID: 11400000, guid: e74b3f36eb579654fb01e7577f910ff6, type: 2}
+  - {fileID: 11400000, guid: d5520d1bf9530e1498c1464d5fabb377, type: 2}
+  - {fileID: 11400000, guid: 783dfeb8715d0df40a075f7ba41f9943, type: 2}
+  - {fileID: 11400000, guid: 3fb69a5eceed9c44e88388bf210fc62c, type: 2}
+  - {fileID: 11400000, guid: 2534bf42a100e8e46a873e9183539970, type: 2}

@@ -11,6 +11,7 @@ using UnityEngine.WSA;
 
 public class LevelSaveManager : MonoBehaviour
 {
+    [SerializeField] ScriptableEntityMap _entityMap;
     [SerializeField] Tilemap _backgoundTileMap;
     [SerializeField] Tilemap _foregroundTileMap;
     [SerializeField] Tilemap _inverterTileMap;
@@ -89,14 +90,25 @@ public class LevelSaveManager : MonoBehaviour
 
             PlaceTilePositions(map, tile, layer);
         }
+
+        foreach (var entity in  level.SerializableEntities)
+        {
+            InstantiateLevelEntity(entity);
+        }
     }
 
-    void PlaceTilePositions(Tilemap map, TileBase tile, SerializableTileLayer layer)
+    private void PlaceTilePositions(Tilemap map, TileBase tile, SerializableTileLayer layer)
     {
         foreach (Vector3Int pos in layer.Positions)
         {
             map.SetTile(pos, tile);
         }
+    }
+
+    private void InstantiateLevelEntity(LevelEntity entity)
+    {
+        var prefab = _entityMap.GetPrefabForEntityType(entity.EntityType);
+        var entityInstance = Instantiate(prefab, entity.Position, entity.Rotation);
     }
 
     private List<LevelEntity> GetEntitiesFromType(LevelEntityType type)

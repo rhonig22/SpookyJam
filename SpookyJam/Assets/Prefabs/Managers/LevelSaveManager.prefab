@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437f14f5048e9d64aa1d52d9fca7c033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entityMap: {fileID: 11400000, guid: 65180b56d285aa1488c18e5a125125dd, type: 2}
   _backgoundTileMap: {fileID: 0}
   _foregroundTileMap: {fileID: 0}
   _inverterTileMap: {fileID: 0}
   _backgoundTile: {fileID: 11400000, guid: 94877a34d2478d44eaea806c06f68554, type: 2}
   _foregroundTile: {fileID: 11400000, guid: 76bffa51b08681a4185c4dc1291d9344, type: 2}
   _inverterTile: {fileID: 11400000, guid: 83a6ec21d73370446a94b9149dcf5604, type: 2}
+  _levelToLoad: 
