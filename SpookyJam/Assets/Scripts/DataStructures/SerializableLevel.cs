@@ -33,6 +33,10 @@ public class LevelEntity
     public Vector3 Position;
     public Quaternion Rotation;
     public LevelEntityType EntityType;
+    public Vector3 Endpoint1;
+    public Vector3 Endpoint2;
+    public string Message;
+    public int Index;
 }
 
 public enum TileLayerType

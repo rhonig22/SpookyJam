@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bat : Enemy
+public class Bat : Enemy, ILevelEntity
 {
     [SerializeField] private GameObject _endpoint1;
     [SerializeField] private GameObject _endpoint2;
@@ -18,5 +18,19 @@ public class Bat : Enemy
 
         moveDirection = moveDirection.normalized * Time.deltaTime * speed;
         transform.position += moveDirection;
+    }
+
+    public LevelEntity GetLevelEntity()
+    {
+        LevelEntity moveableEntity = new LevelEntity();
+        moveableEntity.Endpoint1 = _endpoint1.transform.position;
+        moveableEntity.Endpoint2 = _endpoint2.transform.position;
+        return moveableEntity;
+    }
+
+    public void SetLevelEntity(LevelEntity levelEntity)
+    {
+        _endpoint1.transform.position = levelEntity.Endpoint1;
+        _endpoint2.transform.position = levelEntity.Endpoint2;
     }
 }

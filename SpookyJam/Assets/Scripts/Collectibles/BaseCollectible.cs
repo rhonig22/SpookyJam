@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCollectible : MonoBehaviour
+public class BaseCollectible : MonoBehaviour, ILevelEntity
 {
     [SerializeField] private AudioClip _pumpkinSound;
     [SerializeField] private Animator _animator;
@@ -38,5 +38,17 @@ public class BaseCollectible : MonoBehaviour
     private void Finish()
     {
         Destroy(gameObject);
+    }
+
+    public LevelEntity GetLevelEntity()
+    {
+        LevelEntity collectibleEntity = new LevelEntity();
+        collectibleEntity.Index = _index;
+        return collectibleEntity;
+    }
+
+    public void SetLevelEntity(LevelEntity levelEntity)
+    {
+        _index = levelEntity.Index;
     }
 }
