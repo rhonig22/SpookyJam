@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
-public class Sign : MonoBehaviour
+public class Sign : MonoBehaviour, ILevelEntity
 {
     [SerializeField] private DialogueBox _dialogueBox;
     [SerializeField] private string _signText;
@@ -30,5 +31,17 @@ public class Sign : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         _dialogueBox?.gameObject.SetActive(false);
+    }
+
+    public LevelEntity GetLevelEntity()
+    {
+        LevelEntity messageEntity = new LevelEntity();
+        messageEntity.Message = _signText;
+        return messageEntity;
+    }
+
+    public void SetLevelEntity(LevelEntity levelEntity)
+    {
+        _signText = levelEntity.Message;
     }
 }

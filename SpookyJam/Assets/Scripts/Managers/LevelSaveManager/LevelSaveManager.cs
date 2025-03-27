@@ -112,6 +112,13 @@ public class LevelSaveManager : MonoBehaviour
     {
         var prefab = _entityMap.GetPrefabForEntityType(entity.EntityType);
         var entityInstance = Instantiate(prefab, entity.Position, entity.Rotation);
+        foreach (MonoBehaviour component in entityInstance.GetComponents<MonoBehaviour>())
+        {
+            if (component is ILevelEntity levelEntity)
+            {
+                levelEntity.SetLevelEntity(entity);
+            }
+        }
     }
 
     private List<LevelEntity> GetEntitiesFromType(LevelEntityType type)
@@ -120,6 +127,14 @@ public class LevelSaveManager : MonoBehaviour
         var foundEntities = GameObject.FindGameObjectsWithTag(type.ToString());
         foreach (var entityObject in foundEntities) {
             LevelEntity entity = new LevelEntity();
+            foreach (MonoBehaviour component in entityObject.GetComponents<MonoBehaviour>())
+            {
+                if (component is ILevelEntity levelEntity)
+                {
+                    entity = levelEntity.GetLevelEntity();
+                }
+            }
+
             entity.EntityType = type;
             entity.Position = entityObject.transform.position;
             entity.Rotation = entityObject.transform.rotation;
