@@ -16875,6 +16875,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 365769557}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 6331925799660289888}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _foregroundTileMap
       value: 
       objectReference: {fileID: 365769556}
@@ -17490,6 +17494,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+--- !u!114 &6331925799660289888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6331925800921451385, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+  m_PrefabInstance: {fileID: 6331925799660289887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf474f82528b584f8c99e4304e3f02c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
