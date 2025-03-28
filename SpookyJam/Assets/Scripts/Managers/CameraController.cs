@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
     public static CameraController Instance;
 
-    [SerializeField] private CinemachineVirtualCamera mainCamera;
+    [SerializeField] private CinemachineVirtualCamera _mainCamera;
     private CinemachineBasicMultiChannelPerlin _followNoisePerlin;
     private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f, _shakeTime = .5f;
     private float _shakeTimeElapsed = 0;
@@ -22,8 +22,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _currentZoom = mainCamera.m_Lens.OrthographicSize;
-        _followNoisePerlin = mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _currentZoom = _mainCamera.m_Lens.OrthographicSize;
+        _followNoisePerlin = _mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     private void Update()
@@ -51,5 +51,19 @@ public class CameraController : MonoBehaviour
         _followNoisePerlin.m_AmplitudeGain = 0;
         _followNoisePerlin.m_FrequencyGain = 0;
         _isShaking = false;
+    }
+
+    public LevelCamera GetLevelCamera()
+    {
+        LevelCamera levelCamera = new LevelCamera();
+        levelCamera.Position = _mainCamera.transform.position;
+        levelCamera.LensOrtho = _mainCamera.m_Lens.OrthographicSize;
+        return levelCamera;
+    }
+
+    public void SetLevelCamera(LevelCamera levelCamera)
+    {
+        _mainCamera.transform.position = levelCamera.Position;
+        _mainCamera.m_Lens.OrthographicSize = levelCamera.LensOrtho;
     }
 }

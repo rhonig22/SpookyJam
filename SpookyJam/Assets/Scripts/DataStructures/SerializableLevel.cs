@@ -12,6 +12,7 @@ public class SerializableLevel
     public string Name;
     public int Level;
     public int World;
+    public LevelCamera Camera;
 
     public SerializableLevel()
     {
@@ -37,6 +38,23 @@ public class LevelEntity
     public Vector3 Endpoint2;
     public string Message;
     public int Index;
+}
+
+[Serializable]
+public class LevelCamera
+{
+    public Vector3 Position;
+    public float LensOrtho;
+    public float xDamping;
+    public float yDamping;
+    public float screenX;
+    public float screenY;
+    public float deadZoneWidth;
+    public float deadZoneHeight;
+    public float softZoneWidth;
+    public float softZoneHeight;
+    public float biasX;
+    public float biasY;
 }
 
 public enum TileLayerType

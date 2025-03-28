@@ -12,6 +12,7 @@ using UnityEngine.WSA;
 public class LevelSaveManager : MonoBehaviour
 {
     [SerializeField] ScriptableEntityMap _entityMap;
+    [SerializeField] CameraController _cameraController;
     [SerializeField] Tilemap _backgoundTileMap;
     [SerializeField] Tilemap _foregroundTileMap;
     [SerializeField] Tilemap _inverterTileMap;
@@ -55,6 +56,7 @@ public class LevelSaveManager : MonoBehaviour
             level.SerializableEntities.AddRange(entities);
         }
 
+        level.Camera = _cameraController.GetLevelCamera();
         SetLevelNameAndNumbers(level);
         SaveToFile(level);
     }
@@ -93,6 +95,7 @@ public class LevelSaveManager : MonoBehaviour
         }
 
         _reverseTiles.CreateReverseTileMap();
+        _cameraController.SetLevelCamera(level.Camera);
 
         foreach (var entity in  level.SerializableEntities)
         {

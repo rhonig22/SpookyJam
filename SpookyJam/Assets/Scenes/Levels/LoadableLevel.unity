@@ -677,6 +677,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6331925800921451386, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
   m_PrefabInstance: {fileID: 1692595903}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1692595905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6331925800921451385, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+  m_PrefabInstance: {fileID: 1692595903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf474f82528b584f8c99e4304e3f02c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1830760483
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _levelToLoad
-      value: Level_1_1
+      value: Level_1_4
       objectReference: {fileID: 0}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _reverseTiles
@@ -915,6 +926,10 @@ PrefabInstance:
       propertyPath: _backgoundTileMap
       value: 
       objectReference: {fileID: 2920225148746825219}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 1692595905}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _foregroundTileMap
       value: 
