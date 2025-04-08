@@ -163,7 +163,7 @@ public class LevelSaveManager : MonoBehaviour
 
     private string GetSerializedLevelPath(string levelName)
     {
-        var filePath = Path.Combine(UnityEngine.Application.persistentDataPath, levelName + ".json");
+        string filePath = Path.Combine(UnityEngine.Application.streamingAssetsPath, "Levels/" + levelName + ".json");
         Debug.Log($"File Path: {filePath}");
         return filePath;
     }
