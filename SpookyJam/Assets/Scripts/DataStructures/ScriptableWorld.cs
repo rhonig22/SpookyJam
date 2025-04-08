@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenuAttribute(fileName = "New World", menuName = "Scriptables/ New World")]
 public class ScriptableWorld : ScriptableObject
 {
-    [SerializeField] private List<ScriptableLevel> _levels;
+    [SerializeField] private List<ScriptableLevel> _levels = new List<ScriptableLevel>();
 
     public int GetLevelCount()
     {
