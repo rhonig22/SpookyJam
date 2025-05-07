@@ -9,7 +9,8 @@ using static Cinemachine.DocumentationSortingAttribute;
 public class SaveDataManager : MonoBehaviour
 {
     public static SaveDataManager Instance { get; private set; }
-    private readonly string _playerDataKey = "PlayerData";
+    private const string _playerDataKey = "PlayerData";
+    private const string _levelScene = "Level";
     private PlayerData _playerData;
     private LevelList _levelList;
 
@@ -23,6 +24,19 @@ public class SaveDataManager : MonoBehaviour
 
         Instance = this;
         SetUpDataManager();
+    }
+
+    public static int[] ParseLevelName(string levelName)
+    {
+        var vals = levelName.Split('_');
+        int[] level = new int[2] { -1, -1 };
+        if (vals[0] == _levelScene && vals.Length == 3)
+        {
+            level[0] = int.Parse(vals[1]);
+            level[1] = int.Parse(vals[2]);
+        }
+
+        return level;
     }
 
     private void SetUpDataManager()

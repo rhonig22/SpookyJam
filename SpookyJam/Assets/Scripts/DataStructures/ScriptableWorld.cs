@@ -12,6 +12,11 @@ public class ScriptableWorld : ScriptableObject
         return _levels.Count;
     }
 
+    public void AddLevel(ScriptableLevel level)
+    {
+        _levels.Add(level); 
+    }
+
     public ScriptableLevel GetLevel(int level)
     {
         if (_levels != null && level < _levels.Count)
