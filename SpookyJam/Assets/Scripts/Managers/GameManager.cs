@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private const string _levelFolder = "Levels";
     private const string _titleScene = "Title";
     private const string _settingsScene = "SettingsScene";
     private const string _levelMenu = "LevelMenu";
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour
     // called second
     private void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        var levels = ParseLevelName(scene.name);
+        var levels = SaveDataManager.ParseLevelName(scene.name);
         if (levels[0] != -1)
         {
             CurrentWorld = levels[0];
@@ -60,35 +59,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SetUpLevelList()
+    public void SetWorldList(List<ScriptableWorld> worldList)
     {
-        string folderPath = Path.Combine(Application.streamingAssetsPath, _levelFolder);
-
-        if (Directory.Exists(folderPath))
-        {
-            string[] files = Directory.GetFiles(folderPath);
-
-            foreach (string file in files)
-            {
-                var name = Path.GetFileName(file);
-                var levelVals = ParseLevelName(name);
-                // ScriptableWorld world = ScriptableObject.CreateInstance<ScriptableWorld>();
-                // TODO - generate _worldList from level files
-            }
-        }
-    }
-
-    private int[] ParseLevelName(string levelName)
-    {
-        var vals = levelName.Split('_');
-        int[] level = new int[2] {-1,-1};
-        if (vals[0] == _levelScene && vals.Length == 3)
-        {
-            level[0] = int.Parse(vals[1]);
-            level[1] = int.Parse(vals[2]);
-        }
-
-        return level;
+        _worldList = worldList;
     }
 
     public void LoadSettings()

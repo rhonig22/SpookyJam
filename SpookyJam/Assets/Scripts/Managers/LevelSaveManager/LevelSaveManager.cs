@@ -31,6 +31,20 @@ public class LevelSaveManager : MonoBehaviour
             LoadLevel(_levelToLoad);
     }
 
+    public static int GetPumpkinCount(string levelName)
+    {
+        SerializableLevel level = LoadFromFile(levelName);
+
+        var count = 0;
+        foreach (var entity in level.SerializableEntities)
+        {
+            if (entity.EntityType == LevelEntityType.Pumpkin)
+                count++;
+        }
+
+        return count;
+    }
+
     public void SaveLevel()
     {
         SerializableLevel level = new SerializableLevel();
@@ -161,7 +175,7 @@ public class LevelSaveManager : MonoBehaviour
         level.World = int.Parse(vals[1]);
     }
 
-    private string GetSerializedLevelPath(string levelName)
+    private static string GetSerializedLevelPath(string levelName)
     {
         string filePath = Path.Combine(UnityEngine.Application.streamingAssetsPath, "Levels/" + levelName + ".json");
         Debug.Log($"File Path: {filePath}");
@@ -175,7 +189,7 @@ public class LevelSaveManager : MonoBehaviour
         File.WriteAllText(path, json);
     }
 
-    private SerializableLevel LoadFromFile(string levelName)
+    private static SerializableLevel LoadFromFile(string levelName)
     {
         string filePath = GetSerializedLevelPath(levelName);
         if (File.Exists(filePath))
