@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance;
 
     [SerializeField] private CinemachineVirtualCamera _mainCamera;
+    private CinemachineFramingTransposer _transposer;
     private CinemachineBasicMultiChannelPerlin _followNoisePerlin;
     private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f, _shakeTime = .5f;
     private float _shakeTimeElapsed = 0;
@@ -17,13 +18,9 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         _currentZoom = _mainCamera.m_Lens.OrthographicSize;
         _followNoisePerlin = _mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _transposer = _mainCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     private void Update()
@@ -58,6 +55,16 @@ public class CameraController : MonoBehaviour
         LevelCamera levelCamera = new LevelCamera();
         levelCamera.Position = _mainCamera.transform.position;
         levelCamera.LensOrtho = _mainCamera.m_Lens.OrthographicSize;
+        levelCamera.biasX = _transposer.m_BiasX;
+        levelCamera.biasY = _transposer.m_BiasY;
+        levelCamera.deadZoneHeight = _transposer.m_DeadZoneHeight;
+        levelCamera.deadZoneWidth = _transposer.m_DeadZoneWidth;
+        levelCamera.softZoneHeight = _transposer.m_SoftZoneHeight;
+        levelCamera.softZoneWidth = _transposer.m_SoftZoneWidth;
+        levelCamera.xDamping = _transposer.m_XDamping;
+        levelCamera.yDamping = _transposer.m_YDamping;
+        levelCamera.screenX = _transposer.m_ScreenX;
+        levelCamera.screenY = _transposer.m_ScreenY;
         return levelCamera;
     }
 
@@ -65,5 +72,18 @@ public class CameraController : MonoBehaviour
     {
         _mainCamera.transform.position = levelCamera.Position;
         _mainCamera.m_Lens.OrthographicSize = levelCamera.LensOrtho;
+        _transposer.m_BiasX = levelCamera.biasX;
+        _transposer.m_BiasY = levelCamera.biasY;
+        _transposer.m_DeadZoneHeight = levelCamera.deadZoneHeight;
+        _transposer.m_DeadZoneWidth = levelCamera.deadZoneWidth;
+        _transposer.m_SoftZoneHeight = levelCamera.softZoneHeight;
+        _transposer.m_SoftZoneWidth = levelCamera.softZoneWidth;
+        _transposer.m_XDamping = levelCamera.xDamping;
+        _transposer.m_YDamping = levelCamera.yDamping;
+        _transposer.m_ScreenX = levelCamera.screenX;
+        _transposer.m_ScreenY = levelCamera.screenY;
+
+        GameObject player = GameObject.FindGameObjectWithTag(LevelEntityType.Ghost.ToString());
+        _mainCamera.Follow = player.transform;
     }
 }

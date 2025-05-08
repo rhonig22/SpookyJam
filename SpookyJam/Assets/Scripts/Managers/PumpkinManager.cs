@@ -25,7 +25,7 @@ public class PumpkinManager : MonoBehaviour
 
     private void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name.StartsWith("Level_"))
+        if (scene.name.StartsWith("Level_") || scene.name.StartsWith("Loadable"))
             ResetPumpkins();
     }
 
@@ -57,7 +57,7 @@ public class PumpkinManager : MonoBehaviour
         return _currentPumpkinsFound.Length;
     }
 
-    private void ResetPumpkins()
+    public void ResetPumpkins()
     {
         _pumpkinList = GameObject.FindGameObjectsWithTag(_collectibleName);
         var levelName = GameManager.Instance.CurrentWorld + "-" + GameManager.Instance.CurrentLevel;

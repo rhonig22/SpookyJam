@@ -4247,14 +4247,14 @@
             },
             "EntityType": 2,
             "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": -10.500000953674317,
+                "y": -8.0,
+                "z": -0.11902254074811936
             },
             "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": -10.500000953674317,
+                "y": 0.9999999403953552,
+                "z": -0.11902254074811936
             },
             "Message": "",
             "Index": 0
@@ -4272,32 +4272,6 @@
                 "w": 1.0
             },
             "EntityType": 4,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Message": "",
-            "Index": 0
-        },
-        {
-            "Position": {
-                "x": 15.5,
-                "y": 2.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 5,
             "Endpoint1": {
                 "x": 0.0,
                 "y": 0.0,
@@ -4336,6 +4310,32 @@
             },
             "Message": "",
             "Index": 1
+        },
+        {
+            "Position": {
+                "x": 15.5,
+                "y": 2.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 5,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Message": "",
+            "Index": 0
         }
     ],
     "Name": "Level_2_4",
@@ -4348,14 +4348,14 @@
             "z": -10.0
         },
         "LensOrtho": 10.0,
-        "xDamping": 0.0,
-        "yDamping": 0.0,
-        "screenX": 0.0,
-        "screenY": 0.0,
-        "deadZoneWidth": 0.0,
-        "deadZoneHeight": 0.0,
-        "softZoneWidth": 0.0,
-        "softZoneHeight": 0.0,
+        "xDamping": 5.0,
+        "yDamping": 2.0,
+        "screenX": 0.36000001430511477,
+        "screenY": 0.5,
+        "deadZoneWidth": 0.6100000143051148,
+        "deadZoneHeight": 0.800000011920929,
+        "softZoneWidth": 2.0,
+        "softZoneHeight": 0.8999999761581421,
         "biasX": 0.0,
         "biasY": 0.0
     }

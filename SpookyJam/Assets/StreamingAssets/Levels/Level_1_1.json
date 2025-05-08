@@ -1543,14 +1543,14 @@
             "z": -10.0
         },
         "LensOrtho": 7.0,
-        "xDamping": 0.0,
-        "yDamping": 0.0,
-        "screenX": 0.0,
-        "screenY": 0.0,
-        "deadZoneWidth": 0.0,
-        "deadZoneHeight": 0.0,
-        "softZoneWidth": 0.0,
-        "softZoneHeight": 0.0,
+        "xDamping": 5.0,
+        "yDamping": 2.0,
+        "screenX": 0.5,
+        "screenY": 0.75,
+        "deadZoneWidth": 2.0,
+        "deadZoneHeight": 2.0,
+        "softZoneWidth": 2.0,
+        "softZoneHeight": 2.0,
         "biasX": 0.0,
         "biasY": 0.0
     }

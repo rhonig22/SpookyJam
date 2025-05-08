@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour
     private const string _settingsScene = "SettingsScene";
     private const string _levelMenu = "LevelMenu";
     private const string _levelScene = "Level";
+    private const string _loadableLevel = "LoadableLevel";
     [SerializeField] private List<ScriptableWorld> _worldList;
     public int CurrentLevel { get; private set; } = 0;
     public int CurrentWorld { get; private set; } = 0;
+    public string CurrentLevelName { get; private set; } = "";
 
     private void Awake()
     {
@@ -122,7 +124,8 @@ public class GameManager : MonoBehaviour
         {
             var scriptableLevel = _worldList[CurrentWorld - 1].GetLevel(CurrentLevel - 1);
             var nextLevel = scriptableLevel.GetSceneName();
-            SceneManager.LoadScene(nextLevel);
+            CurrentLevelName = nextLevel;
+            SceneManager.LoadScene(_loadableLevel);
             SaveDataManager.Instance.StartLevel(CurrentWorld-1, CurrentLevel-1, scriptableLevel.GetPumpkinCount());
         }
         else
