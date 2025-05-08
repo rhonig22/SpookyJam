@@ -912,12 +912,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _levelToLoad
-      value: Level_1_4
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _reverseTiles
       value: 
       objectReference: {fileID: 1347260643}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _isLevelLoader
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
       propertyPath: _inverterTileMap
       value: 

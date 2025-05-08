@@ -21,12 +21,15 @@ public class LevelSaveManager : MonoBehaviour
     [SerializeField] TileBase _inverterTile;
     [SerializeField] ReverseTiles _reverseTiles;
     [SerializeField] string _levelToLoad;
+    [SerializeField] bool _isLevelLoader;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (_levelToLoad == null || _levelToLoad.Length == 0)
+        if (!_isLevelLoader)
             SaveLevel();
+        else if (_levelToLoad == null || _levelToLoad.Length == 0)
+            LoadLevel(GameManager.Instance.CurrentLevelName);
         else
             LoadLevel(_levelToLoad);
     }
@@ -94,6 +97,7 @@ public class LevelSaveManager : MonoBehaviour
                     break;
                 case TileLayerType.Inverter:
                     map = _inverterTileMap;
+                    _inverterTileMap.gameObject.SetActive(true);
                     tile = _inverterTile;
                     break;
                 default:
@@ -109,12 +113,14 @@ public class LevelSaveManager : MonoBehaviour
         }
 
         _reverseTiles.CreateReverseTileMap();
-        _cameraController.SetLevelCamera(level.Camera);
 
         foreach (var entity in  level.SerializableEntities)
         {
             InstantiateLevelEntity(entity);
         }
+
+        _cameraController.SetLevelCamera(level.Camera);
+        PumpkinManager.Instance.ResetPumpkins();
     }
 
     private void PlaceTilePositions(Tilemap map, TileBase tile, SerializableTileLayer layer)

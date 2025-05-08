@@ -4464,6 +4464,32 @@
         },
         {
             "Position": {
+                "x": -1.25,
+                "y": 7.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "EntityType": 1,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Message": "",
+            "Index": 0
+        },
+        {
+            "Position": {
                 "x": -5.75,
                 "y": 7.5,
                 "z": 0.0
@@ -4473,6 +4499,58 @@
                 "y": 0.0,
                 "z": 1.0,
                 "w": 0.0
+            },
+            "EntityType": 1,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Message": "",
+            "Index": 0
+        },
+        {
+            "Position": {
+                "x": -1.25,
+                "y": 4.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 1,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Message": "",
+            "Index": 0
+        },
+        {
+            "Position": {
+                "x": -3.5,
+                "y": 0.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
             },
             "EntityType": 1,
             "Endpoint1": {
@@ -4518,84 +4596,6 @@
             "Position": {
                 "x": -5.75,
                 "y": 4.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 1,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Message": "",
-            "Index": 0
-        },
-        {
-            "Position": {
-                "x": -1.25,
-                "y": 4.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 1,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Message": "",
-            "Index": 0
-        },
-        {
-            "Position": {
-                "x": -1.25,
-                "y": 7.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 0.0
-            },
-            "EntityType": 1,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Message": "",
-            "Index": 0
-        },
-        {
-            "Position": {
-                "x": -3.5,
-                "y": 0.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -4785,14 +4785,14 @@
             "z": -10.0
         },
         "LensOrtho": 10.0,
-        "xDamping": 0.0,
-        "yDamping": 0.0,
-        "screenX": 0.0,
-        "screenY": 0.0,
-        "deadZoneWidth": 0.0,
-        "deadZoneHeight": 0.0,
-        "softZoneWidth": 0.0,
-        "softZoneHeight": 0.0,
+        "xDamping": 2.0,
+        "yDamping": 2.0,
+        "screenX": 0.4699999988079071,
+        "screenY": 0.5,
+        "deadZoneWidth": 0.75,
+        "deadZoneHeight": 2.0,
+        "softZoneWidth": 1.2000000476837159,
+        "softZoneHeight": 2.0,
         "biasX": 0.0,
         "biasY": 0.0
     }
