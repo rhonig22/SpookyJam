@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
         _worldList = worldList;
     }
 
+    public int GetWorldCount()
+    {
+        return _worldList.Count; 
+    }
+
     public void LoadSettings()
     {
         LoadScene(_settingsScene);
