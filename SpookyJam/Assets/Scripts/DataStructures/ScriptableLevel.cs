@@ -7,6 +7,7 @@ public class ScriptableLevel : ScriptableObject
 {
     [SerializeField] private string _sceneName;
     [SerializeField] private int _pumpkinCount;
+    [SerializeField] private bool _isFinal;
 
     public void SetSceneName(string sceneName)
     {
@@ -26,6 +27,11 @@ public class ScriptableLevel : ScriptableObject
     public int GetPumpkinCount()
     {
         return _pumpkinCount;
+    }
+
+    public bool IsFinalLevel()
+    {
+        return _isFinal;
     }
 
 }

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float _horizontalInput = 0f;
     private readonly float _floatGravityMultiplier = 4f, _maxFloatFall = 3.5f,
         _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f, _horizontalThreshold = .2f;
-    private bool _facingRight = true, _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false;
+    private bool _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _playerRB;

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: Level_1_4
   _pumpkinCount: 2
+  _isFinal: 1

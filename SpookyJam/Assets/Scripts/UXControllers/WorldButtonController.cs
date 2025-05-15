@@ -79,7 +79,7 @@ public class WorldButtonController : MonoBehaviour
             }
         }
 
-        var pumpkinsCount = GameManager.Instance.GetPumpkinCount(_world - 1);
+        var pumpkinsCount = GameManager.Instance.GetPumpkinCountForWorld(_world - 1);
         if (count < pumpkinsCount)
             GenerateBlankPumpkins(pumpkinsCount - count, xPos, yPos, step, xThresh);
     }
