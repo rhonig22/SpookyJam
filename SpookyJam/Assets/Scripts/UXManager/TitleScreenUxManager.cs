@@ -7,7 +7,7 @@ public class TitleScreenUxManager : MonoBehaviour
 
     public void StartButtonPressed()
     {
-        GameManager.Instance.LoadLevelMenu();
+        GameManager.Instance.LoadWorldMenu();
     }
 
     public void SettingsPressed()
@@ -23,5 +23,10 @@ public class TitleScreenUxManager : MonoBehaviour
     public void MainMenuClicked()
     {
         GameManager.Instance.LoadTitleScreen();
+    }
+
+    public void BackToWorldMenu()
+    {
+        GameManager.Instance.LoadWorldMenu();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WorldGenerator : MonoBehaviour
+public class WorldMenuGenerator : MonoBehaviour
 {
     [SerializeField] GameObject _worldButton;
     private int _widthOffset = 220;

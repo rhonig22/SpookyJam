@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     private const string _titleScene = "Title";
     private const string _settingsScene = "SettingsScene";
     private const string _levelMenu = "LevelMenu";
+    private const string _worldMenu = "WorldMenu";
     private const string _levelScene = "Level";
     private const string _loadableLevel = "LoadableLevel";
     [SerializeField] private List<ScriptableWorld> _worldList;
@@ -48,12 +50,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             var sceneName = SceneManager.GetActiveScene().name;
-            if (sceneName == _levelMenu || sceneName == _settingsScene)
+            if (sceneName == _worldMenu || sceneName == _settingsScene)
                 LoadTitleScreen();
+            else if (sceneName == _levelMenu)
+                LoadWorldMenu();
             else if (sceneName == _titleScene)
                 Application.Quit();
-            else
-                LoadLevelMenu();
+            else if (sceneName == _loadableLevel)
+                LoadWorld(CurrentWorld);
         }
         else if (Input.GetButtonDown("Restart"))
         {
@@ -69,6 +73,11 @@ public class GameManager : MonoBehaviour
     public int GetWorldCount()
     {
         return _worldList.Count; 
+    }
+
+    public int GetCurrentWorldLevelCount()
+    {
+        return _worldList[CurrentWorld-1].GetLevelCount();
     }
 
     public void LoadSettings()
@@ -93,7 +102,6 @@ public class GameManager : MonoBehaviour
             LoadLevelMenu();
         else
             LoadEndScreen();*/
-        LoadLevelMenu();
     }
 
     public bool HasNextWorld(int world)
@@ -104,7 +112,17 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public int GetPumpkinCount(int world)
+    public int GetPumpkinCount(int level)
+    {
+        var scriptableWorld = _worldList[CurrentWorld - 1];
+        if (level >= scriptableWorld.GetLevelCount())
+            return 0;
+
+        var scriptableLevel = scriptableWorld.GetLevel(level);
+        return scriptableLevel.GetPumpkinCount();
+    }
+
+    public int GetPumpkinCountForWorld(int world)
     {
         if (world >= _worldList.Count)
             return 0;
@@ -117,15 +135,27 @@ public class GameManager : MonoBehaviour
             var level = scriptableWorld.GetLevel(i);
             count += level.GetPumpkinCount();
         }
-        
+
         return count;
     }
 
-    public void LoadNextLevel()
+    public void FinishLevel()
     {
-        CurrentLevel++;
+        SaveDataManager.Instance.CompleteLevel(CurrentWorld-1, CurrentLevel - 1);
         // subtract 1 from world and level to be 0-based
-        if (CurrentLevel <= _worldList[CurrentWorld-1].GetLevelCount())
+        if (CurrentLevel == _worldList[CurrentWorld - 1].GetLevelCount())
+        {
+            FinishWorld(CurrentWorld);
+        }
+
+        LoadWorld(CurrentWorld);
+    }
+
+    public void LoadLevel(int level)
+    {
+        CurrentLevel = level;
+        // subtract 1 from world and level to be 0-based
+        if (level <= _worldList[CurrentWorld-1].GetLevelCount())
         {
             var scriptableLevel = _worldList[CurrentWorld - 1].GetLevel(CurrentLevel - 1);
             var nextLevel = scriptableLevel.GetSceneName();
@@ -133,15 +163,13 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(_loadableLevel);
             SaveDataManager.Instance.StartLevel(CurrentWorld-1, CurrentLevel-1, scriptableLevel.GetPumpkinCount());
         }
-        else
-            FinishWorld(CurrentWorld);
     }
 
     public void LoadWorld(int world)
     {
         CurrentWorld = world;
         CurrentLevel = 0;
-        LoadNextLevel();
+        SceneManager.LoadScene(_levelMenu);
     }
 
     public void ReloadLevel()
@@ -154,8 +182,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("EndTitle");
     }
 
-    public void LoadLevelMenu()
+    public void LoadWorldMenu()
     {
-        SceneManager.LoadScene(_levelMenu);
+        SceneManager.LoadScene(_worldMenu);
     }
 }

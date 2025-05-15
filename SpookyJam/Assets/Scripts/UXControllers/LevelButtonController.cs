@@ -21,16 +21,17 @@ public class LevelButtonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _levelText.text = "World " + _level;
-        var worldData = SaveDataManager.Instance.GetWorldData(_level - 1);
-        if (worldData != null && worldData.Unlocked)
+        _levelText.text = "Level " + (_level + 1);
+        var worldData = SaveDataManager.Instance.GetWorldData(GameManager.Instance.CurrentWorld - 1);
+        if (_level - 1 < worldData.Levels.Count && (_level == 0 || worldData.Levels[_level - 1].Completed))
         {
+            var levelData = _level < worldData.Levels.Count ? worldData.Levels[_level] : null;
             _showLevel.SetActive(true);
             _showLock.SetActive(false);
             _button.enabled = true;
-            GeneratePumpkins(worldData);
+            GeneratePumpkins(levelData);
 
-            if (worldData.Completed)
+            if (levelData != null && levelData.Completed)
             {
                 _image.color = _completeColor;
             }
@@ -44,24 +45,28 @@ public class LevelButtonController : MonoBehaviour
         }
     }
 
-    private void GeneratePumpkins(WorldData worldData)
+    public void SetLevel(int level)
+    {
+        _level = level;
+    }
+
+    private void GeneratePumpkins(LevelData levelData)
     {
         var xPos = -60;
-        var yPos = 20;
+        var yPos = 0;
         var step = 40;
         var xThresh = 75;
         var count = 0;
-        for (var i = 0; i < worldData.Levels.Count; i++)
+        if (levelData != null)
         {
-            var level = worldData.Levels[i];
-            for (var j = 0; j < level.PumpkinsFound.Length; j++)
+            for (var j = 0; j < levelData.PumpkinsFound.Length; j++)
             {
                 var pumpkin = Instantiate(_pumpkinIndicatorPrefab, _pumpkins.transform);
-                if (!level.PumpkinsFound[j])
+                if (!levelData.PumpkinsFound[j])
                 {
                     pumpkin.GetComponent<Image>().color = Color.black;
                 }
-                
+
                 pumpkin.transform.localPosition = new Vector3(xPos, yPos, 0);
                 xPos += step;
                 if (xPos > xThresh)
@@ -73,10 +78,11 @@ public class LevelButtonController : MonoBehaviour
                 count++;
             }
         }
-
-        var pumpkinsCount = GameManager.Instance.GetPumpkinCount(_level - 1);
-        if (count < pumpkinsCount)
-            GenerateBlankPumpkins(pumpkinsCount - count, xPos, yPos, step, xThresh);
+        else
+        {
+            var pumpkinsCount = GameManager.Instance.GetPumpkinCount(_level);
+            GenerateBlankPumpkins(pumpkinsCount, xPos, yPos, step, xThresh);
+        }
     }
 
     private void GenerateBlankPumpkins(int pumpkinsCount, int xPos, int yPos, int step, int xThresh)
@@ -104,6 +110,7 @@ public class LevelButtonController : MonoBehaviour
 
     public void ButtonClicked()
     {
-        GameManager.Instance.LoadWorld(_level);
+        // offset by one for Level Number
+        GameManager.Instance.LoadLevel(_level + 1);
     }
 }

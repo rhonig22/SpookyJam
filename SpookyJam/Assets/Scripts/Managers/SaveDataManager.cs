@@ -158,6 +158,13 @@ public class SaveDataManager : MonoBehaviour
         SaveLevelData();
     }
 
+    public void CompleteLevel(int world, int level)
+    {
+        var worldData = GetWorldData(world);
+        worldData.Levels[level].Completed = true;
+        SaveLevelData();
+    }
+
     private void CheckNextWorld(int world)
     {
         if (GameManager.Instance.HasNextWorld(world) && world + 1 == _levelList.Worlds.Count)

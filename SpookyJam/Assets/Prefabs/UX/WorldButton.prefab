@@ -728,8 +728,8 @@ MonoBehaviour:
   _pumpkins: {fileID: 3364521601983845512}
   _pumpkinIndicatorPrefab: {fileID: 7026641136862529334, guid: b132a7382fdb806438ebca405d9c6be6, type: 3}
   _image: {fileID: 2366109078585820532}
-  _completeColor: {r: 0.454902, g: 0.8000001, b: 0.37647063, a: 0}
-  _lockColor: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 0}
+  _completeColor: {r: 0.454902, g: 0.8000001, b: 0.37647063, a: 1}
+  _lockColor: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
   _button: {fileID: 3236151860677647251}
 --- !u!114 &6576510528501844798
 MonoBehaviour:
