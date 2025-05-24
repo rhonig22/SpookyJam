@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
     public void InvertCharacter()
     {
+        CameraController.Instance.InvertScreenY();
         GravityManager.Instance.FlipGravity();
         transform.position += (!_inverted ? -1 : 1) * Vector3.up;
         InvertGravity();
