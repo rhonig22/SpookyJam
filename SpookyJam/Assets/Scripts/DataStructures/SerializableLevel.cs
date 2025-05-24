@@ -36,6 +36,8 @@ public class LevelEntity
     public LevelEntityType EntityType;
     public Vector3 Endpoint1;
     public Vector3 Endpoint2;
+    public Vector3 EntityPoint;
+    public bool TowardsPoint1;
     public string Message;
     public int Index;
 }

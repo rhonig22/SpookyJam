@@ -2130,6 +2130,7 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "TowardsPoint1": false,
             "Message": "",
             "Index": 0
         },
@@ -2156,6 +2157,7 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "TowardsPoint1": false,
             "Message": "Press R to restart a level if you get stuck",
             "Index": 0
         },
@@ -2182,6 +2184,7 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "TowardsPoint1": false,
             "Message": "",
             "Index": 0
         },
@@ -2208,6 +2211,7 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "TowardsPoint1": false,
             "Message": "",
             "Index": 0
         }

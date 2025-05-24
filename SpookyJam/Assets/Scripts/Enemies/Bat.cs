@@ -7,10 +7,10 @@ public class Bat : Enemy, ILevelEntity
     [SerializeField] private GameObject _endpoint1;
     [SerializeField] private GameObject _endpoint2;
     [SerializeField] private GameObject _bat;
+    [SerializeField] private bool _towardsPoint1 = true;
 
     private readonly float speed = 5f;
-    private bool _towardsPoint1 = true;
-
+    
     private void Update()
     {
         var moveDirection = (_towardsPoint1 ? _endpoint1.transform.position : _endpoint2.transform.position) - _bat.transform.position;
@@ -26,6 +26,8 @@ public class Bat : Enemy, ILevelEntity
         LevelEntity moveableEntity = new LevelEntity();
         moveableEntity.Endpoint1 = _endpoint1.transform.position;
         moveableEntity.Endpoint2 = _endpoint2.transform.position;
+        moveableEntity.EntityPoint = _bat.transform.position;
+        moveableEntity.TowardsPoint1 = _towardsPoint1;
         return moveableEntity;
     }
 
@@ -33,5 +35,7 @@ public class Bat : Enemy, ILevelEntity
     {
         _endpoint1.transform.position = levelEntity.Endpoint1;
         _endpoint2.transform.position = levelEntity.Endpoint2;
+        _bat.transform.position = levelEntity.EntityPoint;
+        _towardsPoint1 = levelEntity.TowardsPoint1;
     }
 }
