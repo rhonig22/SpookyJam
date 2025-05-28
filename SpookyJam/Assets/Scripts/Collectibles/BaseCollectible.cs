@@ -7,8 +7,11 @@ public class BaseCollectible : MonoBehaviour, ILevelEntity
     [SerializeField] private AudioClip _pumpkinSound;
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private SpriteRenderer _shadow;
     [SerializeField] private int _index = 0;
     private bool _collected = false;
+    private bool _hidden = false;
 
     public int GetIndex()
     {
@@ -25,7 +28,7 @@ public class BaseCollectible : MonoBehaviour, ILevelEntity
     }
 
     private void PickupCollectible() {
-        if (!_collected)
+        if (!_hidden && !_collected)
         {
             PumpkinManager.Instance.PickupCollectible(_index);
             SoundManager.Instance.PlaySound(_pumpkinSound, transform.position, 1f);
@@ -37,7 +40,15 @@ public class BaseCollectible : MonoBehaviour, ILevelEntity
 
     private void Finish()
     {
-        Destroy(gameObject);
+        SetCollectedState();
+    }
+
+    public void SetCollectedState()
+    {
+        transform.localScale = Vector3.one;
+        _sprite.enabled = false;
+        _shadow.enabled = true;
+        _collected = true;
     }
 
     public LevelEntity GetLevelEntity()
