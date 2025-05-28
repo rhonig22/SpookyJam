@@ -73,7 +73,7 @@ public class PumpkinManager : MonoBehaviour
         {
             var collectible = _pumpkinList[i].GetComponent<BaseCollectible>();
             if (levelData.PumpkinsFound[collectible.GetIndex()])
-                _pumpkinList[i].SetActive(false);
+                _pumpkinList[i].GetComponent<BaseCollectible>().SetCollectedState();
         }
     }
 
@@ -91,6 +91,7 @@ public class PumpkinManager : MonoBehaviour
 
     public void PickupCollectible(int index)
     {
-        _currentPumpkinsFound[index] = true;
+        if (_currentPumpkinsFound != null && index < _currentPumpkinsFound.Length)
+            _currentPumpkinsFound[index] = true;
     }
 }

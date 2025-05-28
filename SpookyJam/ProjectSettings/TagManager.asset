@@ -13,6 +13,7 @@ TagManager:
   - Bat
   - Sign
   - EndPortal
+  - Daisy
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 2702961207
+    locked: 0
+  - name: Foreground
+    uniqueID: 3632164581
     locked: 0
