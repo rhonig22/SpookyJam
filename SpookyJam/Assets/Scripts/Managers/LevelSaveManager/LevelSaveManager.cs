@@ -16,7 +16,7 @@ public class LevelSaveManager : MonoBehaviour
     [SerializeField] Tilemap _backgoundTileMap;
     [SerializeField] Tilemap _foregroundTileMap;
     [SerializeField] Tilemap _inverterTileMap;
-    [SerializeField] TileBase _backgoundTile;
+    [SerializeField] TileBase[] _backgoundTiles;
     [SerializeField] TileBase _foregroundTile;
     [SerializeField] TileBase _inverterTile;
     [SerializeField] ReverseTiles _reverseTiles;
@@ -89,7 +89,7 @@ public class LevelSaveManager : MonoBehaviour
             {
                 case TileLayerType.Background:
                     map = _backgoundTileMap;
-                    tile = _backgoundTile;
+                    tile = _backgoundTiles[level.World - 1];
                     break;
                 case TileLayerType.Foreground:
                     map = _foregroundTileMap;

@@ -45,10 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityMap: {fileID: 11400000, guid: 65180b56d285aa1488c18e5a125125dd, type: 2}
+  _cameraController: {fileID: 0}
   _backgoundTileMap: {fileID: 0}
   _foregroundTileMap: {fileID: 0}
   _inverterTileMap: {fileID: 0}
-  _backgoundTile: {fileID: 11400000, guid: 94877a34d2478d44eaea806c06f68554, type: 2}
+  _backgoundTiles:
+  - {fileID: 11400000, guid: 94877a34d2478d44eaea806c06f68554, type: 2}
+  - {fileID: 11400000, guid: 37936f028db6c1d47b3968b6b69c112b, type: 2}
+  - {fileID: 11400000, guid: 9476b7df0f7a6034baf513403706d6d7, type: 2}
   _foregroundTile: {fileID: 11400000, guid: 76bffa51b08681a4185c4dc1291d9344, type: 2}
   _inverterTile: {fileID: 11400000, guid: 83a6ec21d73370446a94b9149dcf5604, type: 2}
+  _reverseTiles: {fileID: 0}
   _levelToLoad: 
+  _isLevelLoader: 0

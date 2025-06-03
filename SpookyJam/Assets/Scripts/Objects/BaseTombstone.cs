@@ -9,6 +9,7 @@ public class BaseTombstone : BaseConditionalTrigger
 
     protected override void TriggerConditional()
     {
+        base.TriggerConditional();
         Instantiate(_collectibleToReveal, _revealPosition.position, _revealPosition.rotation);
     }
 }
