@@ -6,6 +6,7 @@ public class BaseConditionalTrigger : MonoBehaviour
 {
     [SerializeField] protected string _conditionTag;
     private List<BaseCondition> _conditions = new List<BaseCondition>();
+    protected bool _triggered = false;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class BaseConditionalTrigger : MonoBehaviour
         foreach (BaseCondition condition in _conditions)
             if (condition.IsTriggered) conditionCount++;
 
-        if (conditionCount == _conditions.Count)
+        if (!_triggered && conditionCount == _conditions.Count)
             TriggerConditional();
     }
 
@@ -34,6 +35,6 @@ public class BaseConditionalTrigger : MonoBehaviour
 
     protected virtual void TriggerConditional()
     {
-        Debug.Log("Implement logic to be triggered");
+        _triggered = true;
     }
 }

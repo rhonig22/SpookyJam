@@ -19,7 +19,7 @@ public class WorldMenuGenerator : MonoBehaviour
             var world = Instantiate(_worldButton, pos, Quaternion.identity);
             WorldButtonController controller = world.GetComponent<WorldButtonController>();
             controller.SetWorld(i+1);
-            world.transform.parent = transform;
+            world.transform.SetParent(transform, true);
             if (i == 0)
             {
                 EventSystem.current.SetSelectedGameObject(world);
