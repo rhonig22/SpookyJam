@@ -40,6 +40,7 @@ public class LevelEntity
     public bool TowardsPoint1;
     public string Message;
     public int Index;
+    public string Tag;
 }
 
 [Serializable]
@@ -73,5 +74,7 @@ public enum LevelEntityType
     Bat,
     Sign,
     EndPortal,
-    Pumpkin
+    Pumpkin,
+    Daisy,
+    Tombstone
 }

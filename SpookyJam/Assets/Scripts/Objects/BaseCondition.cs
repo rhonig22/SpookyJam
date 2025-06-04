@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCondition : MonoBehaviour
+public class BaseCondition : MonoBehaviour, ILevelEntity
 {
     [SerializeField] private string _conditionTag;
     [SerializeField] private Animator _animator;
@@ -21,5 +21,17 @@ public class BaseCondition : MonoBehaviour
             IsTriggered = true;
             _animator.SetTrigger("Triggered");
         }
+    }
+
+    public LevelEntity GetLevelEntity()
+    {
+        LevelEntity messageEntity = new LevelEntity();
+        messageEntity.Tag = _conditionTag;
+        return messageEntity;
+    }
+
+    public void SetLevelEntity(LevelEntity levelEntity)
+    {
+        _conditionTag = levelEntity.Tag;
     }
 }

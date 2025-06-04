@@ -6,13 +6,21 @@ using UnityEngine.Events;
 
 public class DialogueBox : MonoBehaviour
 {
+    [SerializeField] Animator _animator;
+    [SerializeField] GameObject _dialogueBox;
     [SerializeField] TextMeshProUGUI _textBox;
     private string _fullText, _currentText = "";
     private float _addLetterTime = .03f, _currentTime = 0, _dismissTime = 1f;
+    private bool _showText = false;
     public UnityEvent DialogueFinished = new UnityEvent();
 
     private void Update()
     {
+        if (!_showText)
+        {
+            return;
+        }
+
         if (_fullText != null && _fullText != string.Empty)
         {
             if (_currentTime > _addLetterTime)
@@ -38,6 +46,28 @@ public class DialogueBox : MonoBehaviour
             }
 
         }
+    }
+
+    public void OpenDialogue()
+    {
+        _showText = false;
+        _dialogueBox.SetActive(true);
+        _animator.SetTrigger("Open");
+    }
+
+    private void FinishOpen()
+    {
+        _showText = true;
+    }
+
+    public void CloseDialogue()
+    {
+        _animator.SetTrigger("Close");
+    }
+
+    private void FinishClose()
+    {
+        _dialogueBox.SetActive(false);
     }
 
     public void SetText(string text)
