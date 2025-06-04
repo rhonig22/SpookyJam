@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseConditionalTrigger : MonoBehaviour
+public class BaseConditionalTrigger : MonoBehaviour, ILevelEntity
 {
     [SerializeField] protected string _conditionTag;
     private List<BaseCondition> _conditions = new List<BaseCondition>();
@@ -36,5 +36,17 @@ public class BaseConditionalTrigger : MonoBehaviour
     protected virtual void TriggerConditional()
     {
         _triggered = true;
+    }
+
+    public LevelEntity GetLevelEntity()
+    {
+        LevelEntity messageEntity = new LevelEntity();
+        messageEntity.Tag = _conditionTag;
+        return messageEntity;
+    }
+
+    public void SetLevelEntity(LevelEntity levelEntity)
+    {
+        _conditionTag = levelEntity.Tag;
     }
 }

@@ -13,8 +13,8 @@ public class Sign : MonoBehaviour, ILevelEntity
         var controller = collision.GetComponent<PlayerController>();
         if (controller != null)
         {
-            _dialogueBox?.gameObject.SetActive(true);
             _dialogueBox?.SetText(_signText);
+            _dialogueBox?.OpenDialogue();
         }
     }
 
@@ -30,7 +30,7 @@ public class Sign : MonoBehaviour, ILevelEntity
     IEnumerator CloseSign()
     {
         yield return new WaitForSeconds(.5f);
-        _dialogueBox?.gameObject.SetActive(false);
+        _dialogueBox?.CloseDialogue();
     }
 
     public LevelEntity GetLevelEntity()
