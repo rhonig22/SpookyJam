@@ -123,6 +123,146 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: DaisyGhost
     originalName: 
+    pivot: {x: 0.76666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 172
+      width: 30
+      height: 48
+    spriteID: 0d3117b437b204545b155a813c9a1164
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 172}
+  - name: DaisyGhost_Frame_1
+    originalName: 
+    pivot: {x: 0.5897436, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 116
+      width: 39
+      height: 48
+    spriteID: e40269e68edabb349ba7a21efe0ec58b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 116}
+  - name: DaisyGhost_Frame_2
+    originalName: 
+    pivot: {x: 0.54761904, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 60
+      width: 42
+      height: 48
+    spriteID: 4fa98095b57eb2c40819b372cb0bf999
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 60}
+  - name: DaisyGhost_Frame_3
+    originalName: 
+    pivot: {x: 0.53488374, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 172
+      width: 43
+      height: 48
+    spriteID: 527b373acdf194a4bb915aba6694fc04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 172}
+  - name: DaisyGhost_Frame_4
+    originalName: 
+    pivot: {x: 0.53488374, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 4
+      width: 43
+      height: 48
+    spriteID: e14e445b0c6c0c24a80c46642de9f550
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 4}
+  - name: DaisyGhost_Frame_5
+    originalName: 
+    pivot: {x: 0.52272725, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 116
+      width: 44
+      height: 48
+    spriteID: e19409befe2909045a9bc45d39c83e50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 116}
+  - name: DaisyGhost_Frame_6
+    originalName: 
+    pivot: {x: 0.51111114, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 60
+      width: 45
+      height: 48
+    spriteID: 67daf09380d72384dac1b0cb538e4f09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 60}
+  - name: DaisyGhost_Frame_7
+    originalName: 
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +271,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 46
-      height: 32
-    spriteID: 0d3117b437b204545b155a813c9a1164
+      height: 48
+    spriteID: 8788b7bb94a43204186ad3c4b5067b7a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,19 +290,82 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: DaisyGhost
+    - name: DaisyGhost_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 1
         y: 0
-        width: 46
-        height: 32
+        width: 30
+        height: 48
       spriteId: 0d3117b437b204545b155a813c9a1164
+    - name: DaisyGhost_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 39
+        height: 48
+      spriteId: e40269e68edabb349ba7a21efe0ec58b
+    - name: DaisyGhost_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 42
+        height: 48
+      spriteId: 4fa98095b57eb2c40819b372cb0bf999
+    - name: DaisyGhost_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 43
+        height: 48
+      spriteId: 527b373acdf194a4bb915aba6694fc04
+    - name: DaisyGhost_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 43
+        height: 48
+      spriteId: e14e445b0c6c0c24a80c46642de9f550
+    - name: DaisyGhost_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 44
+        height: 48
+      spriteId: e19409befe2909045a9bc45d39c83e50
+    - name: DaisyGhost_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 45
+        height: 48
+      spriteId: 67daf09380d72384dac1b0cb538e4f09
+    - name: DaisyGhost_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 46
+        height: 48
+      spriteId: 8788b7bb94a43204186ad3c4b5067b7a
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 48, y: 32}
+  canvasSize: {x: 48, y: 48}
