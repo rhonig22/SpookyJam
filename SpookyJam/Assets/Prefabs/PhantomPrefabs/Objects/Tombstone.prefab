@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6533903245566798226}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tombstone
       objectReference: {fileID: 0}
+    - target: {fileID: 8141351693192845002, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
+      propertyPath: m_TagString
+      value: Tombstone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -188,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _conditionTag: Daisy
-  _collectibleToReveal: {fileID: 1702479039061833991, guid: 6017a7afc612e5540a949696eb79aca8, type: 3}
+  _collectibleToReveal: {fileID: 1702479039061833991, guid: b55e04f28e925c9488e6a48d1b630b3e, type: 3}
   _revealPosition: {fileID: 7829639602596401194}
 --- !u!4 &1842841902860089998 stripped
 Transform:

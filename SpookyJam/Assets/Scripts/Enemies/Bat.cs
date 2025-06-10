@@ -23,12 +23,17 @@ public class Bat : Enemy, ILevelEntity
 
     public LevelEntity GetLevelEntity()
     {
-        LevelEntity moveableEntity = new LevelEntity();
-        moveableEntity.Endpoint1 = _endpoint1.transform.position;
-        moveableEntity.Endpoint2 = _endpoint2.transform.position;
-        moveableEntity.EntityPoint = _bat.transform.position;
-        moveableEntity.TowardsPoint1 = _towardsPoint1;
-        return moveableEntity;
+        LevelEntity levelEntity = new LevelEntity();
+        return GetLevelEntity(levelEntity);
+    }
+
+    public LevelEntity GetLevelEntity(LevelEntity levelEntity)
+    {
+        levelEntity.Endpoint1 = _endpoint1.transform.position;
+        levelEntity.Endpoint2 = _endpoint2.transform.position;
+        levelEntity.EntityPoint = _bat.transform.position;
+        levelEntity.TowardsPoint1 = _towardsPoint1;
+        return levelEntity;
     }
 
     public void SetLevelEntity(LevelEntity levelEntity)

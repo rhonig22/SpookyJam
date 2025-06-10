@@ -35,9 +35,14 @@ public class Sign : MonoBehaviour, ILevelEntity
 
     public LevelEntity GetLevelEntity()
     {
-        LevelEntity messageEntity = new LevelEntity();
-        messageEntity.Message = _signText;
-        return messageEntity;
+        LevelEntity levelEntity = new LevelEntity();
+        return GetLevelEntity(levelEntity);
+    }
+
+    public LevelEntity GetLevelEntity(LevelEntity levelEntity)
+    {
+        levelEntity.Message = _signText;
+        return levelEntity;
     }
 
     public void SetLevelEntity(LevelEntity levelEntity)

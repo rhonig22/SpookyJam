@@ -53,9 +53,14 @@ public class BaseCollectible : MonoBehaviour, ILevelEntity
 
     public LevelEntity GetLevelEntity()
     {
-        LevelEntity collectibleEntity = new LevelEntity();
-        collectibleEntity.Index = _index;
-        return collectibleEntity;
+        LevelEntity levelEntity = new LevelEntity();
+        return GetLevelEntity(levelEntity);
+    }
+
+    public LevelEntity GetLevelEntity(LevelEntity levelEntity)
+    {
+        levelEntity.Index = _index;
+        return levelEntity;
     }
 
     public void SetLevelEntity(LevelEntity levelEntity)
