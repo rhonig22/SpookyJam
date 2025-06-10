@@ -25,9 +25,14 @@ public class BaseCondition : MonoBehaviour, ILevelEntity
 
     public LevelEntity GetLevelEntity()
     {
-        LevelEntity messageEntity = new LevelEntity();
-        messageEntity.Tag = _conditionTag;
-        return messageEntity;
+        LevelEntity levelEntity = new LevelEntity();
+        return GetLevelEntity(levelEntity);
+    }
+
+    public LevelEntity GetLevelEntity(LevelEntity levelEntity)
+    {
+        levelEntity.Tag = _conditionTag;
+        return levelEntity;
     }
 
     public void SetLevelEntity(LevelEntity levelEntity)

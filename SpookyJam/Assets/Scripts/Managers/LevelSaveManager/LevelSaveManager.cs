@@ -154,7 +154,7 @@ public class LevelSaveManager : MonoBehaviour
             {
                 if (component is ILevelEntity levelEntity)
                 {
-                    entity = levelEntity.GetLevelEntity();
+                    entity = levelEntity.GetLevelEntity(entity);
                 }
             }
 
