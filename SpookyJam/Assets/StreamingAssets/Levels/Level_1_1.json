@@ -1406,7 +1406,8 @@
             },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -1438,7 +1439,8 @@
             },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -1470,7 +1472,8 @@
             },
             "TowardsPoint1": false,
             "Message": "Press Down or X to phase through the ground.",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -1502,7 +1505,8 @@
             },
             "TowardsPoint1": false,
             "Message": "Hold Up or Space to float slowly while falling.",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -1534,7 +1538,8 @@
             },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -1566,7 +1571,8 @@
             },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         }
     ],
     "Name": "Level_1_1",

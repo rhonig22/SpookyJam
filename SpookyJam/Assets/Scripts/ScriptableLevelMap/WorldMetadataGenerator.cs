@@ -47,6 +47,7 @@ public class WorldMetadataGenerator
             AssetDatabase.CreateAsset(level, levelPath);
 
             worlds[levelVals[0] -1].AddLevel(level);
+            AssetDatabase.SaveAssetIfDirty(worlds[levelVals[0] - 1]);
         }
 
         string prefabPath = "Assets/Prefabs/Managers/GameManager.prefab";

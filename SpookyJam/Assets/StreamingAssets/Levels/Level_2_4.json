@@ -4230,8 +4230,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -4256,8 +4263,15 @@
                 "y": 0.9999999403953552,
                 "z": -0.11902254074811936
             },
+            "EntityPoint": {
+                "x": -10.500000953674317,
+                "y": -5.0,
+                "z": -0.11902254074811936
+            },
+            "TowardsPoint1": true,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -4282,8 +4296,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -4308,8 +4329,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
             "Message": "",
-            "Index": 1
+            "Index": 1,
+            "Tag": ""
         },
         {
             "Position": {
@@ -4334,8 +4362,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         }
     ],
     "Name": "Level_2_4",
