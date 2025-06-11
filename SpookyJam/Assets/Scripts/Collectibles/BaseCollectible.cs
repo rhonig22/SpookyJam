@@ -10,8 +10,8 @@ public class BaseCollectible : MonoBehaviour, ILevelEntity
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private SpriteRenderer _shadow;
     [SerializeField] private int _index = 0;
-    private bool _collected = false;
-    private bool _hidden = false;
+    protected bool _collected = false;
+    protected bool _hidden = false;
 
     public int GetIndex()
     {
@@ -21,21 +21,19 @@ public class BaseCollectible : MonoBehaviour, ILevelEntity
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var controller = collision.GetComponent<PlayerController>();
-        if (controller != null)
+        if (controller != null && !_hidden && !_collected)
         {
             PickupCollectible();
         }
     }
 
-    private void PickupCollectible() {
-        if (!_hidden && !_collected)
-        {
-            PumpkinManager.Instance.PickupCollectible(_index);
-            SoundManager.Instance.PlaySound(_pumpkinSound, transform.position, 1f);
-            _animator.SetTrigger("PickedUp");
-            _particleSystem.Play();
-            _collected = true;
-        }
+    protected virtual void PickupCollectible()
+    {
+        PumpkinManager.Instance.PickupCollectible(_index);
+        SoundManager.Instance.PlaySound(_pumpkinSound, transform.position, 1f);
+        _animator.SetTrigger("PickedUp");
+        _particleSystem.Play();
+        _collected = true;
     }
 
     private void Finish()

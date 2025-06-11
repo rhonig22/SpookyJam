@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1702479039061833989}
   - component: {fileID: 1702479039061833990}
   - component: {fileID: 656805700}
-  - component: {fileID: 1121119872829375767}
+  - component: {fileID: 4421228767065871938}
   m_Layer: 0
   m_Name: DaisyGhost
   m_TagString: Friend
@@ -155,7 +155,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.71694565}
   m_EdgeRadius: 0
---- !u!114 &1121119872829375767
+--- !u!114 &4421228767065871938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,15 +164,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702479039061833991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75958d901bb545498236f85f0e40af6, type: 3}
+  m_Script: {fileID: 11500000, guid: fa3b3af3c723cca468850895d925b3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pumpkinSound: {fileID: 8300000, guid: aceb78293ba672446bec4becd32852d2, type: 3}
+  _pumpkinSound: {fileID: 0}
   _animator: {fileID: 1702479039061833990}
   _particleSystem: {fileID: 4012587367962113391}
   _sprite: {fileID: 1702479039061833989}
   _shadow: {fileID: 5579850971938133035}
   _index: 0
+  _ghostSound: {fileID: 8300000, guid: b2a36901adf6cf649bf38f77ae70ab44, type: 3}
 --- !u!1 &2525662586541730048
 GameObject:
   m_ObjectHideFlags: 0
