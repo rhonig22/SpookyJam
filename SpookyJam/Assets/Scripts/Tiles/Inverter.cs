@@ -31,7 +31,7 @@ public class Inverter : MonoBehaviour
 
         if (controller != null)
         {
-            controller.InvertGravity();
+            controller.EnterVoid();
         }
     }
 
@@ -41,7 +41,7 @@ public class Inverter : MonoBehaviour
 
         if (controller != null)
         {
-            controller.InvertGravity();
+            controller.ExitVoid();
         }
     }
 }

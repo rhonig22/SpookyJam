@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private float _horizontalInput = 0f;
-    private readonly float _floatGravityMultiplier = 4f, _maxFloatFall = 3.5f,
+    private readonly float _originalGravity = 2f, _floatGravityMultiplier = 2f, _maxFloatFall = -2f,
         _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f, _horizontalThreshold = .2f;
-    private bool _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false;
+    private bool _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false, _isInVoid = false;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _playerRB;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         if (_grounded && Input.GetButtonDown("Flip"))
         {
-            StartShrink();
+            CanFlip();
         }
 
         _animator.SetFloat("xMovement", (_inverted ? -1 : 1) * _horizontalInput);
@@ -80,16 +80,28 @@ public class PlayerController : MonoBehaviour
     private void CapVelocity()
     {
         var currentYVelocity = _playerRB.velocity.y;
-        if (_isFloating && Mathf.Abs(currentYVelocity) > _maxFloatFall)
+        if (_isFloating && ((_inverted && !_isInVoid ? -1 : 1) * currentYVelocity) < _maxFloatFall)
         {
-            _playerRB.velocity = new Vector2(_playerRB.velocity.x, _maxFloatFall * currentYVelocity / Mathf.Abs(currentYVelocity));
+            _playerRB.velocity = new Vector2(_playerRB.velocity.x, (_inverted && !_isInVoid ? -1 : 1) * _maxFloatFall);
         }
+    }
+
+    public void EnterVoid()
+    {
+        _isInVoid = true;
+        InvertGravity();
+    }
+
+    public void ExitVoid()
+    {
+        _isInVoid = false;
+        InvertGravity();
     }
 
     public void InvertGravity()
     {
         _inverted = !_inverted;
-        _playerRB.gravityScale *= -1;
+        _playerRB.gravityScale = (_inverted ? -1 : 1) * _originalGravity;
     }
 
     public void FlipCharacter()
@@ -104,6 +116,15 @@ public class PlayerController : MonoBehaviour
         transform.position += (!_inverted ? -1 : 1) * Vector3.up;
         InvertGravity();
         FlipCharacter();
+    }
+
+    public void CanFlip()
+    {
+        var testPoint = transform.position + (!_inverted ? -1 : 1) * Vector3.up;
+        if (GravityManager.Instance.TilemapContainsPoint(testPoint))
+        {
+            StartShrink();
+        }
     }
 
     public void StartShrink()
@@ -121,7 +142,8 @@ public class PlayerController : MonoBehaviour
 
     public void StartFloat()
     {
-        _playerRB.gravityScale /= _floatGravityMultiplier;
+        if (_isInVoid)
+            _playerRB.gravityScale *= _floatGravityMultiplier;
         _isFloating = true;
         _animator.SetBool("Float", true);
         _trailRenderer.emitting = true;
@@ -129,7 +151,8 @@ public class PlayerController : MonoBehaviour
 
     public void EndFloat()
     {
-        _playerRB.gravityScale *= _floatGravityMultiplier;
+        if (_isInVoid)
+            _playerRB.gravityScale = (_inverted ? -1 : 1) * _originalGravity;
         _isFloating = false;
         _animator.SetBool("Float", false);
         _trailRenderer.emitting = false;

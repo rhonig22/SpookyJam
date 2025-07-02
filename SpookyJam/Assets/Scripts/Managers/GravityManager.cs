@@ -23,4 +23,11 @@ public class GravityManager : MonoBehaviour
         _blocks.enabled = !Inverted;
         _inverseBlocks.enabled = Inverted;
     }
+
+    public bool TilemapContainsPoint(Vector3 point)
+    {
+        var map = Inverted ? _inverseBlocks : _blocks;
+        var collider = map.GetComponent<CompositeCollider2D>();
+        return collider.OverlapPoint(point);
+    }
 }

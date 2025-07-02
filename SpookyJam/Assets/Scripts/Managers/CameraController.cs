@@ -45,14 +45,14 @@ public class CameraController : MonoBehaviour
         if (_playerRb != null)
         {
             float verticalVelocity = _playerRb.velocity.y;
-            if (Mathf.Abs(verticalVelocity) > _speedThreshold && !_isLerpingDamping && !_lerpedDamping)
+            /*if (Mathf.Abs(verticalVelocity) > _speedThreshold && !_isLerpingDamping && !_lerpedDamping)
                 StartDampingY(true);
 
             if (Mathf.Abs(verticalVelocity) < _speedThreshold && !_isLerpingDamping && _lerpedDamping)
             {
                 _transposer.m_TrackedObjectOffset.y = 0;
                 _lerpedDamping = false;
-            }
+            }*/
         }
     }
 
@@ -92,7 +92,7 @@ public class CameraController : MonoBehaviour
 
     public void InvertScreenY()
     {
-        _transposer.m_ScreenY = 1 - _transposer.m_ScreenY;
+        // _transposer.m_ScreenY = 1 - _transposer.m_ScreenY;
     }
 
     public void ShakeCamera()
