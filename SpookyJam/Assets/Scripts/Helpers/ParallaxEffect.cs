@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParallaxEffect : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class ParallaxEffect : MonoBehaviour
     private readonly float _camSize = 7;
     private float _startPos, _length;
 
-    private void Start()
+    // called second
+    private void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
         if (_camera == null)
             return;
