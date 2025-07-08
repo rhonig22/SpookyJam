@@ -11,8 +11,15 @@ public class ParallaxEffect : MonoBehaviour
     private readonly float _camSize = 7;
     private float _startPos, _length;
 
-    // called second
-    private void LevelLoaded(Scene scene, LoadSceneMode mode)
+    private void Start()
+    {
+        if (CameraController.Instance != null)
+            CameraController.Instance.CameraValuesChanged.AddListener(() => ResetParallax());
+
+        ResetParallax();
+    }
+
+    private void ResetParallax()
     {
         if (_camera == null)
             return;
@@ -20,7 +27,7 @@ public class ParallaxEffect : MonoBehaviour
         _startPos = _camera.transform.position.x;
         transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, transform.position.z);
         var newCamSize = _camera.m_Lens.OrthographicSize;
-        if (newCamSize > _camSize)
+        if (newCamSize != _camSize)
             transform.localScale = transform.localScale * (newCamSize / _camSize);
         _length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
