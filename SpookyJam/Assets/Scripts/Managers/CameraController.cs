@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class CameraController : MonoBehaviour
     private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f, _shakeTime = .5f;
     private float _shakeTimeElapsed = 0, _currentZoom = 0;
     private bool _isShaking = false, _isLerpingDamping = false, _lerpedDamping = false;
+    public UnityEvent CameraValuesChanged = new UnityEvent();
 
     private void Awake()
     {
@@ -149,5 +151,7 @@ public class CameraController : MonoBehaviour
             _playerRb = player.GetComponent<Rigidbody2D>();
             _mainCamera.Follow = player.transform;
         }
+
+        CameraValuesChanged.Invoke();
     }
 }
