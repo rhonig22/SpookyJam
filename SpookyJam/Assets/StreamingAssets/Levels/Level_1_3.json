@@ -2748,8 +2748,8 @@
         },
         {
             "Position": {
-                "x": -5.5,
-                "y": 7.5,
+                "x": -10.5,
+                "y": 0.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -2814,8 +2814,107 @@
         },
         {
             "Position": {
-                "x": 4.5,
+                "x": -9.5,
+                "y": 0.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 6,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": "Daisy"
+        },
+        {
+            "Position": {
+                "x": -5.5,
                 "y": 7.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 6,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": "Daisy"
+        },
+        {
+            "Position": {
+                "x": 2.0,
+                "y": -3.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 6,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": "Daisy"
+        },
+        {
+            "Position": {
+                "x": 1.0,
+                "y": -3.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -2913,107 +3012,8 @@
         },
         {
             "Position": {
-                "x": 2.0,
-                "y": -3.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 6,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": "Daisy"
-        },
-        {
-            "Position": {
-                "x": -9.5,
-                "y": 0.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 6,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": "Daisy"
-        },
-        {
-            "Position": {
-                "x": -10.5,
-                "y": 0.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 6,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": "Daisy"
-        },
-        {
-            "Position": {
-                "x": 1.0,
-                "y": -3.5,
+                "x": 4.5,
+                "y": 7.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -3096,6 +3096,9 @@
         "softZoneWidth": 0.800000011920929,
         "softZoneHeight": 2.0,
         "biasX": 0.0,
-        "biasY": 0.0
+        "biasY": 0.0,
+        "lookAheadTime": 0.5,
+        "lookAheadSmoothing": 0.800000011920929,
+        "lookAheadIgnoreY": false
     }
 }

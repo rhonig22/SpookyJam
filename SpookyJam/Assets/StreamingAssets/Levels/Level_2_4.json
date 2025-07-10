@@ -4308,39 +4308,6 @@
         },
         {
             "Position": {
-                "x": 24.0,
-                "y": -25.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 5,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 1,
-            "Tag": ""
-        },
-        {
-            "Position": {
                 "x": 15.5,
                 "y": 2.0,
                 "z": 0.0
@@ -4371,6 +4338,39 @@
             "Message": "",
             "Index": 0,
             "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 24.0,
+                "y": -25.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 5,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 1,
+            "Tag": ""
         }
     ],
     "Name": "Level_2_4",
@@ -4392,6 +4392,9 @@
         "softZoneWidth": 2.0,
         "softZoneHeight": 0.8999999761581421,
         "biasX": 0.0,
-        "biasY": 0.0
+        "biasY": 0.0,
+        "lookAheadTime": 0.5,
+        "lookAheadSmoothing": 0.800000011920929,
+        "lookAheadIgnoreY": false
     }
 }

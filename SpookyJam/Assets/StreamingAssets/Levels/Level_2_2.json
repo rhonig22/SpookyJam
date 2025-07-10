@@ -2130,9 +2130,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -2157,9 +2163,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
             "TowardsPoint1": false,
             "Message": "Press R to restart a level if you get stuck",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -2184,9 +2196,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         },
         {
             "Position": {
@@ -2211,9 +2229,15 @@
                 "y": 0.0,
                 "z": 0.0
             },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
             "TowardsPoint1": false,
             "Message": "",
-            "Index": 0
+            "Index": 0,
+            "Tag": ""
         }
     ],
     "Name": "Level_2_2",
@@ -2235,6 +2259,9 @@
         "softZoneWidth": 2.0,
         "softZoneHeight": 1.0,
         "biasX": 0.0,
-        "biasY": 0.0
+        "biasY": 0.0,
+        "lookAheadTime": 0.5,
+        "lookAheadSmoothing": 0.800000011920929,
+        "lookAheadIgnoreY": false
     }
 }
