@@ -3160,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LookaheadIgnoreY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LookaheadSmoothing

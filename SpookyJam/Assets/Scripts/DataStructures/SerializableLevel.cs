@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -58,6 +59,9 @@ public class LevelCamera
     public float softZoneHeight;
     public float biasX;
     public float biasY;
+    public float lookAheadTime;
+    public float lookAheadSmoothing;
+    public bool lookAheadIgnoreY;
 }
 
 public enum TileLayerType

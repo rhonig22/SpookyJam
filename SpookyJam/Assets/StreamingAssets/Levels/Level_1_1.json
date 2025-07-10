@@ -1576,7 +1576,7 @@
         },
         {
             "Position": {
-                "x": -6.5,
+                "x": -5.5,
                 "y": 0.4893265962600708,
                 "z": 0.0
             },
@@ -1609,7 +1609,7 @@
         },
         {
             "Position": {
-                "x": -5.5,
+                "x": -6.5,
                 "y": 0.4893265962600708,
                 "z": 0.0
             },
@@ -1660,6 +1660,9 @@
         "softZoneWidth": 2.0,
         "softZoneHeight": 2.0,
         "biasX": 0.0,
-        "biasY": 0.0
+        "biasY": 0.0,
+        "lookAheadTime": 0.5,
+        "lookAheadSmoothing": 0.800000011920929,
+        "lookAheadIgnoreY": false
     }
 }

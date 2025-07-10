@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
-using UnityEngine.WSA;
 
 public class LevelSaveManager : MonoBehaviour
 {
@@ -80,7 +79,18 @@ public class LevelSaveManager : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        string filePath = GetLevelFileName(levelName);
+        _cameraController.DisableVCam();
+        WebDataLoader.Load<SerializableLevel>(this, filePath, InstantiateLevel, (string error) => Debug.LogWarning("Load failed: " + error));
+#else
         SerializableLevel level = LoadFromFile(levelName);
+        InstantiateLevel(level);
+    #endif
+    }
+
+    public void InstantiateLevel(SerializableLevel level)
+    {
         foreach (var layer in level.SerializableTileLayers)
         {
             Tilemap map;
@@ -181,9 +191,14 @@ public class LevelSaveManager : MonoBehaviour
         level.World = int.Parse(vals[1]);
     }
 
+    private static string GetLevelFileName(string levelName)
+    {
+        return "Levels/" + levelName + ".json";
+    }
+
     private static string GetSerializedLevelPath(string levelName)
     {
-        string filePath = Path.Combine(UnityEngine.Application.streamingAssetsPath, "Levels/" + levelName + ".json");
+        string filePath = Path.Combine(UnityEngine.Application.streamingAssetsPath, GetLevelFileName(levelName));
         Debug.Log($"File Path: {filePath}");
         return filePath;
     }
