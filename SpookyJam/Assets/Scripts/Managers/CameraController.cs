@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
 
     private const float _offsetPanAmount = -2f, _offsetPanTime = .5f, _speedThreshold = 3.25f;
     [SerializeField] private CinemachineVirtualCamera _mainCamera;
+    [SerializeField] private CinemachineVirtualCamera _focusCamera;
     private CinemachineFramingTransposer _transposer;
     private CinemachineBasicMultiChannelPerlin _followNoisePerlin;
     private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f, _shakeTime = .5f;
@@ -91,6 +92,7 @@ public class CameraController : MonoBehaviour
         if (player != null)
         {
             _mainCamera.Follow = player.transform;
+            _focusCamera.LookAt = player.transform;
         }
 
         _mainCamera.transform.position = levelCamera.Position;
@@ -113,5 +115,10 @@ public class CameraController : MonoBehaviour
 
         CameraValuesChanged.Invoke();
         Debug.Log("Setting Camera position: " + _mainCamera.transform.position);
+    }
+
+    public void SetFocusCamera()
+    {
+        _focusCamera.Priority = 100;
     }
 }

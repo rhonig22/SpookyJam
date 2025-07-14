@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false, _isInVoid = false;
     private Vector2 _currentVelocity = Vector2.zero;
     [SerializeField] private Animator _animator;
+    [SerializeField] private RuntimeAnimatorController _cutSceneController;
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private AudioClip _invertClip;
     [SerializeField] private AudioClip _deathClip;
@@ -52,13 +53,13 @@ public class PlayerController : MonoBehaviour
             CanFlip();
         }
 
-        _animator.SetFloat("xMovement", (_inverted ? -1 : 1) * _horizontalInput);
+        _animator.SetFloat("xMovement", (_inverted && !_isInVoid ? -1 : 1) * _horizontalInput);
         SetMovementParticles();
     }
 
     private void FixedUpdate()
     {
-        if (_isShrinking)
+        if (_isShrinking || IsDead)
         {
             return;
         }
@@ -183,6 +184,9 @@ public class PlayerController : MonoBehaviour
     public void EndLevel()
     {
         IsEnding = true;
+        CameraController.Instance.SetFocusCamera();
+        _animator.runtimeAnimatorController = _cutSceneController;
+        _animator.SetTrigger("Swirl");
         _playerRB.gravityScale = 0;
         _playerRB.velocity = Vector2.zero;
     }

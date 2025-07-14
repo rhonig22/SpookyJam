@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 456272542329677262}
+  _cutSceneController: {fileID: 9100000, guid: 0b6939e79d866d54e834c62087d414fe, type: 2}
   _playerRB: {fileID: 456272542329677259}
   _invertClip: {fileID: 8300000, guid: 7510e14023e037e42a9ca592c17730b0, type: 3}
   _deathClip: {fileID: 8300000, guid: 01356fb8349797943935b0dcf1ff0a55, type: 3}
