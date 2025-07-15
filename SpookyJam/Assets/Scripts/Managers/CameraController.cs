@@ -32,7 +32,6 @@ public class CameraController : MonoBehaviour
         if (_mainCamera != null && _mainCamera.transform.position != _currentPos)
         {
             _currentPos = _mainCamera.transform.position;
-            Debug.Log("Current cam pos: " + _currentPos);
         }
 
         if (_isShaking)
@@ -114,7 +113,6 @@ public class CameraController : MonoBehaviour
         _mainCamera.OnTargetObjectWarped(_mainCamera.Follow, Vector3.zero);
 
         CameraValuesChanged.Invoke();
-        Debug.Log("Setting Camera position: " + _mainCamera.transform.position);
     }
 
     public void SetFocusCamera()
