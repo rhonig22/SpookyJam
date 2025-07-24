@@ -42,14 +42,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   _weight:
-    m_OverrideState: 1
-    m_Value: 0.5
+    m_OverrideState: 0
+    m_Value: 0.1
   _bleed:
-    m_OverrideState: 1
-    m_Value: 2
+    m_OverrideState: 0
+    m_Value: 8.09
   _rocking:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.01
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

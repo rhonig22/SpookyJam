@@ -1538,16 +1538,6 @@
                     "z": 0
                 },
                 {
-                    "x": -10,
-                    "y": -8,
-                    "z": 0
-                },
-                {
-                    "x": -9,
-                    "y": -8,
-                    "z": 0
-                },
-                {
                     "x": -8,
                     "y": -8,
                     "z": 0
@@ -1719,16 +1709,6 @@
                 },
                 {
                     "x": -11,
-                    "y": -7,
-                    "z": 0
-                },
-                {
-                    "x": -10,
-                    "y": -7,
-                    "z": 0
-                },
-                {
-                    "x": -9,
                     "y": -7,
                     "z": 0
                 },
@@ -2483,16 +2463,6 @@
                     "z": 0
                 },
                 {
-                    "x": -6,
-                    "y": -3,
-                    "z": 0
-                },
-                {
-                    "x": -5,
-                    "y": -3,
-                    "z": 0
-                },
-                {
                     "x": -4,
                     "y": -3,
                     "z": 0
@@ -2664,16 +2634,6 @@
                 },
                 {
                     "x": -7,
-                    "y": -2,
-                    "z": 0
-                },
-                {
-                    "x": -6,
-                    "y": -2,
-                    "z": 0
-                },
-                {
-                    "x": -5,
                     "y": -2,
                     "z": 0
                 },
@@ -5116,8 +5076,8 @@
         },
         {
             "Position": {
-                "x": -1.5,
-                "y": -2.0,
+                "x": 4.5,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5128,87 +5088,21 @@
             },
             "EntityType": 2,
             "Endpoint1": {
-                "x": -9.5,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -4.5,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -9.0,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -1.5,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
+                "x": -3.5,
                 "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -9.5,
-                "y": -4.0,
                 "z": 0.0
             },
             "Endpoint2": {
-                "x": -4.5,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -8.0,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
                 "x": -1.5,
-                "y": -7.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
                 "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -9.5,
-                "y": -7.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -4.5,
-                "y": -7.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -6.5,
-                "y": -7.0,
+                "x": -2.5,
+                "y": 0.0,
                 "z": 0.0
             },
-            "TowardsPoint1": false,
+            "TowardsPoint1": true,
             "Message": "",
             "Index": 0,
             "Tag": ""
@@ -5248,41 +5142,8 @@
         },
         {
             "Position": {
-                "x": 4.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
                 "x": -1.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -2.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -1.5,
-                "y": -5.0,
+                "y": -7.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5294,182 +5155,17 @@
             "EntityType": 2,
             "Endpoint1": {
                 "x": -9.5,
-                "y": -5.0,
+                "y": -7.0,
                 "z": 0.0
             },
             "Endpoint2": {
                 "x": -4.5,
-                "y": -5.0,
+                "y": -7.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -7.5,
-                "y": -5.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -8.5,
-                "y": -8.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -15.5,
-                "y": -8.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -10.5,
-                "y": -8.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -14.0,
-                "y": -8.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": 4.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -1.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -3.0,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -7.5,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -15.5,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -10.5,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -11.0,
-                "y": -2.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -1.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -9.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -4.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -9.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -1.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -9.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -4.5,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -9.0,
-                "y": 0.0,
+                "x": -6.5,
+                "y": -7.0,
                 "z": 0.0
             },
             "TowardsPoint1": true,
@@ -5505,15 +5201,15 @@
                 "y": -6.0,
                 "z": 0.0
             },
-            "TowardsPoint1": false,
+            "TowardsPoint1": true,
             "Message": "",
             "Index": 0,
             "Tag": ""
         },
         {
             "Position": {
-                "x": -2.5,
-                "y": -8.0,
+                "x": 2.5,
+                "y": -9.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5524,54 +5220,21 @@
             },
             "EntityType": 2,
             "Endpoint1": {
-                "x": -9.5,
-                "y": -8.0,
+                "x": -3.5,
+                "y": -9.0,
                 "z": 0.0
             },
             "Endpoint2": {
-                "x": -4.5,
-                "y": -8.0,
+                "x": -1.5,
+                "y": -9.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -6.0,
-                "y": -8.0,
+                "x": -3.0,
+                "y": -9.0,
                 "z": 0.0
             },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -7.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -15.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -10.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -10.5,
-                "y": -1.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
+            "TowardsPoint1": true,
             "Message": "",
             "Index": 0,
             "Tag": ""
@@ -5602,6 +5265,171 @@
             "EntityPoint": {
                 "x": -5.0,
                 "y": -10.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 4.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -3.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -1.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -2.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -1.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -9.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -8.0,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -1.5,
+                "y": -3.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -9.5,
+                "y": -3.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": -3.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -8.5,
+                "y": -3.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 3.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -3.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -1.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -2.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 4.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -3.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -1.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -2.0,
+                "y": -5.0,
                 "z": 0.0
             },
             "TowardsPoint1": false,
@@ -5644,8 +5472,41 @@
         },
         {
             "Position": {
+                "x": -1.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
                 "x": -9.5,
-                "y": -9.0,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -9.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -7.5,
+                "y": -1.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5657,17 +5518,116 @@
             "EntityType": 2,
             "Endpoint1": {
                 "x": -15.5,
-                "y": -9.0,
+                "y": -1.0,
                 "z": 0.0
             },
             "Endpoint2": {
                 "x": -10.5,
-                "y": -9.0,
+                "y": -1.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -14.5,
-                "y": -9.0,
+                "x": -10.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -1.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -9.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -7.5,
+                "y": -5.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -7.5,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -15.5,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -10.5,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -11.0,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -2.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -9.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -6.0,
+                "y": -8.0,
                 "z": 0.0
             },
             "TowardsPoint1": true,
@@ -5678,7 +5638,7 @@
         {
             "Position": {
                 "x": 4.5,
-                "y": -4.0,
+                "y": -2.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5690,17 +5650,50 @@
             "EntityType": 2,
             "Endpoint1": {
                 "x": -3.5,
-                "y": -4.0,
+                "y": -2.0,
                 "z": 0.0
             },
             "Endpoint2": {
                 "x": -1.5,
-                "y": -4.0,
+                "y": -2.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -2.5,
-                "y": -4.0,
+                "x": -3.5,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 4.5,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -3.5,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -1.5,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -1.5,
+                "y": -6.0,
                 "z": 0.0
             },
             "TowardsPoint1": false,
@@ -5711,7 +5704,7 @@
         {
             "Position": {
                 "x": 4.5,
-                "y": -2.0,
+                "y": -3.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5723,17 +5716,50 @@
             "EntityType": 2,
             "Endpoint1": {
                 "x": -3.5,
-                "y": -2.0,
+                "y": -3.0,
                 "z": 0.0
             },
             "Endpoint2": {
                 "x": -1.5,
-                "y": -2.0,
+                "y": -3.0,
                 "z": 0.0
             },
             "EntityPoint": {
+                "x": -3.0,
+                "y": -3.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
                 "x": -3.5,
-                "y": -2.0,
+                "y": -9.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -9.5,
+                "y": -9.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": -9.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -5.5,
+                "y": -9.0,
                 "z": 0.0
             },
             "TowardsPoint1": true,
@@ -5743,8 +5769,74 @@
         },
         {
             "Position": {
-                "x": 3.5,
-                "y": -8.0,
+                "x": -1.5,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -9.5,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -4.5,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -9.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -7.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -15.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -10.5,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -12.0,
+                "y": -4.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 4.5,
+                "y": -7.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -5756,17 +5848,17 @@
             "EntityType": 2,
             "Endpoint1": {
                 "x": -3.5,
-                "y": -8.0,
+                "y": -7.0,
                 "z": 0.0
             },
             "Endpoint2": {
                 "x": -1.5,
-                "y": -8.0,
+                "y": -7.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -2.5,
-                "y": -8.0,
+                "x": -2.0,
+                "y": -7.0,
                 "z": 0.0
             },
             "TowardsPoint1": true,
@@ -5810,171 +5902,6 @@
         {
             "Position": {
                 "x": -7.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -15.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -10.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -13.0,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": 4.5,
-                "y": -5.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": -5.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -1.5,
-                "y": -5.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -2.0,
-                "y": -5.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -1.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -9.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -4.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -8.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": 4.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -1.5,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -3.0,
-                "y": -3.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": 2.5,
-                "y": -9.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": -9.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -1.5,
-                "y": -9.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -3.0,
-                "y": -9.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -7.5,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -6007,74 +5934,8 @@
         },
         {
             "Position": {
-                "x": 4.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
                 "x": -1.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -1.5,
-                "y": -6.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": 4.5,
-                "y": -7.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -3.5,
-                "y": -7.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -1.5,
-                "y": -7.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -2.0,
-                "y": -7.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -3.5,
-                "y": -9.0,
+                "y": -2.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -6086,20 +5947,119 @@
             "EntityType": 2,
             "Endpoint1": {
                 "x": -9.5,
-                "y": -9.0,
+                "y": -2.0,
                 "z": 0.0
             },
             "Endpoint2": {
                 "x": -4.5,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -9.0,
+                "y": -2.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": 4.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -3.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -1.5,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -3.0,
+                "y": -1.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -7.5,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -15.5,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -10.5,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -13.0,
+                "y": -6.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -9.5,
+                "y": -9.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -15.5,
+                "y": -9.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -10.5,
                 "y": -9.0,
                 "z": 0.0
             },
             "EntityPoint": {
-                "x": -5.5,
+                "x": -14.5,
                 "y": -9.0,
                 "z": 0.0
             },
-            "TowardsPoint1": false,
+            "TowardsPoint1": true,
             "Message": "",
             "Index": 0,
             "Tag": ""
@@ -6140,39 +6100,6 @@
         {
             "Position": {
                 "x": -7.5,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 2,
-            "Endpoint1": {
-                "x": -15.5,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": -10.5,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": -12.0,
-                "y": -4.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": true,
-            "Message": "",
-            "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -7.5,
                 "y": -7.0,
                 "z": 0.0
             },
@@ -6196,6 +6123,39 @@
             "EntityPoint": {
                 "x": -13.5,
                 "y": -7.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": true,
+            "Message": "",
+            "Index": 0,
+            "Tag": ""
+        },
+        {
+            "Position": {
+                "x": -8.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 2,
+            "Endpoint1": {
+                "x": -15.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": -10.5,
+                "y": -8.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": -14.0,
+                "y": -8.0,
                 "z": 0.0
             },
             "TowardsPoint1": true,
@@ -6292,6 +6252,6 @@
         "biasY": 0.0,
         "lookAheadTime": 0.20000000298023225,
         "lookAheadSmoothing": 1.0,
-        "lookAheadIgnoreY": false
+        "lookAheadIgnoreY": true
     }
 }
