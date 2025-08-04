@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Crawler : Enemy, ILevelEntity
 {
+    [SerializeField] Animator _animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,23 @@ public class Crawler : Enemy, ILevelEntity
     {
         transform.position -= transform.right;
         LayerMask mask = LayerMask.GetMask("Tiles");
-        Collider2D col = Physics2D.OverlapPoint(transform.position - transform.right, mask);
-        if (col != null)
-            transform.Rotate(new Vector3(0, 0, -90));
+        Collider2D collideFront = Physics2D.OverlapPoint(transform.position - transform.right, mask);
+        Collider2D collideDown = Physics2D.OverlapPoint(transform.position - transform.up, mask);
+        if (collideFront != null)
+            _animator.SetTrigger("Clockwise");
+        else if (collideDown == null)
+            RotateCounterClockwise();
+    }
+
+    public void RotateClockwise()
+    {
+        transform.Rotate(new Vector3(0, 0, -90));
+    }
+
+    public void RotateCounterClockwise()
+    {
+        transform.Rotate(new Vector3(0, 0, 90));
+        _animator.SetTrigger("CounterClockwise");
     }
 
     public LevelEntity GetLevelEntity()
