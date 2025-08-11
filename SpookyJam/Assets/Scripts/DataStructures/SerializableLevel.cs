@@ -68,7 +68,8 @@ public enum TileLayerType
 {
     Background,
     Foreground,
-    Inverter
+    Inverter,
+    Metal
 }
 
 public enum LevelEntityType
