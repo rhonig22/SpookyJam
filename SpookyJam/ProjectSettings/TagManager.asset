@@ -16,6 +16,7 @@ TagManager:
   - Daisy
   - Tombstone
   - Friend
+  - Crawler
   layers:
   - Default
   - TransparentFX

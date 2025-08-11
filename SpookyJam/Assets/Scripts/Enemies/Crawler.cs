@@ -26,10 +26,10 @@ public class Crawler : Enemy, ILevelEntity
         LayerMask mask = LayerMask.GetMask("Tiles");
         var front = transform.position - transform.right;
         var down = transform.position - transform.up;
-        if (GridManager.Instance.VisibleTilemapContainsPoint(front))
-            _animator.SetTrigger("Clockwise");
-        else if (!GridManager.Instance.VisibleTilemapContainsPoint(down))
+        if (!GridManager.Instance.VisibleTilemapContainsPoint(down))
             RotateCounterClockwise();
+        else if (GridManager.Instance.VisibleTilemapContainsPoint(front))
+            _animator.SetTrigger("Clockwise");
     }
 
     public void RotateClockwise()
