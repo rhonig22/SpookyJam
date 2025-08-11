@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _invertClip;
     [SerializeField] private AudioClip _deathClip;
     [SerializeField] private AudioClip _landingClip;
+    [SerializeField] private AudioClip _cantFlipClip;
     [SerializeField] private TrailRenderer _trailRenderer;
     [SerializeField] private ParticleSystem _particleSystem;
     public bool IsDead { get; private set; } = false;
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
     public void InvertCharacter()
     {
-        GravityManager.Instance.FlipGravity();
+        GridManager.Instance.FlipGravity();
         transform.position += (!_inverted ? -1 : 1) * Vector3.up;
         InvertGravity();
         FlipCharacter();
@@ -121,9 +122,14 @@ public class PlayerController : MonoBehaviour
     public void CanFlip()
     {
         var testPoint = transform.position + (!_inverted ? -1 : 1) * Vector3.up;
-        if (GravityManager.Instance.TilemapContainsPoint(testPoint))
+        if (GridManager.Instance.TilemapContainsPoint(testPoint))
         {
             StartShrink();
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound(_cantFlipClip, transform.position, 1f);
+            _animator.SetTrigger("CantShrink");
         }
     }
 

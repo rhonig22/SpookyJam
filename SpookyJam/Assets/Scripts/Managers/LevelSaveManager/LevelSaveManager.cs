@@ -15,9 +15,11 @@ public class LevelSaveManager : MonoBehaviour
     [SerializeField] Tilemap _backgoundTileMap;
     [SerializeField] Tilemap _foregroundTileMap;
     [SerializeField] Tilemap _inverterTileMap;
+    [SerializeField] Tilemap _metalTileMap;
     [SerializeField] TileBase[] _backgoundTiles;
     [SerializeField] TileBase _foregroundTile;
     [SerializeField] TileBase _inverterTile;
+    [SerializeField] TileBase _metalTile;
     [SerializeField] ReverseTiles _reverseTiles;
     [SerializeField] string _levelToLoad;
     [SerializeField] bool _isLevelLoader;
@@ -66,6 +68,14 @@ public class LevelSaveManager : MonoBehaviour
         inverter.Positions = TileClusterFinder.GetAllTilePositions(_inverterTileMap);
         level.SerializableTileLayers.Add(inverter);
 
+        if (_metalTileMap != null)
+        {
+            SerializableTileLayer metal = new SerializableTileLayer();
+            metal.TileType = TileLayerType.Metal;
+            metal.Positions = TileClusterFinder.GetAllTilePositions(_metalTileMap);
+            level.SerializableTileLayers.Add(metal);
+        }
+
         foreach (LevelEntityType type in Enum.GetValues(typeof(LevelEntityType)))
         {
             var entities = GetEntitiesFromType(type);
@@ -109,6 +119,11 @@ public class LevelSaveManager : MonoBehaviour
                     map = _inverterTileMap;
                     _inverterTileMap.gameObject.SetActive(true);
                     tile = _inverterTile;
+                    break;
+                case TileLayerType.Metal:
+                    map = _metalTileMap;
+                    _metalTileMap.gameObject.SetActive(true);
+                    tile = _metalTile;
                     break;
                 default:
                     map = null;

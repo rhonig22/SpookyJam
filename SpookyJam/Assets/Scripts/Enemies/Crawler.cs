@@ -24,11 +24,11 @@ public class Crawler : Enemy, ILevelEntity
     {
         transform.position -= transform.right;
         LayerMask mask = LayerMask.GetMask("Tiles");
-        Collider2D collideFront = Physics2D.OverlapPoint(transform.position - transform.right, mask);
-        Collider2D collideDown = Physics2D.OverlapPoint(transform.position - transform.up, mask);
-        if (collideFront != null)
+        var front = transform.position - transform.right;
+        var down = transform.position - transform.up;
+        if (GridManager.Instance.VisibleTilemapContainsPoint(front))
             _animator.SetTrigger("Clockwise");
-        else if (collideDown == null)
+        else if (!GridManager.Instance.VisibleTilemapContainsPoint(down))
             RotateCounterClockwise();
     }
 

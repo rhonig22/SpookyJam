@@ -109,6 +109,7 @@ MonoBehaviour:
   _invertClip: {fileID: 8300000, guid: 7510e14023e037e42a9ca592c17730b0, type: 3}
   _deathClip: {fileID: 8300000, guid: 01356fb8349797943935b0dcf1ff0a55, type: 3}
   _landingClip: {fileID: 8300000, guid: 78ab1c54291357444ae0b2ee69e1fb81, type: 3}
+  _cantFlipClip: {fileID: 8300000, guid: ed80607cba9848046918181ea68d852d, type: 3}
   _trailRenderer: {fileID: 7323423404774009833}
   _particleSystem: {fileID: 2351411809575278247}
 --- !u!50 &456272542329677259
