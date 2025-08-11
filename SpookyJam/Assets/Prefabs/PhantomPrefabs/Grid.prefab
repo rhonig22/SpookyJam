@@ -4638,6 +4638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _foregroundTileMap: {fileID: 902304132310064628}
   _reverseTileMap: {fileID: 6311403795690773525}
+  _metalTileMap: {fileID: 5872651461717076899}
   _reverseTile: {fileID: 11400000, guid: 76bffa51b08681a4185c4dc1291d9344, type: 2}
 --- !u!1 &6997591834018308115
 GameObject:

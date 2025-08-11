@@ -7,6 +7,7 @@ public class ReverseTiles : MonoBehaviour
 {
     [SerializeField] private Tilemap _foregroundTileMap;
     [SerializeField] private Tilemap _reverseTileMap;
+    [SerializeField] private Tilemap _metalTileMap;
     [SerializeField] private TileBase _reverseTile;
 
     private void Start()
@@ -23,13 +24,13 @@ public class ReverseTiles : MonoBehaviour
             var down = position + Vector3Int.down;
             var left = position + Vector3Int.left;
             var right = position + Vector3Int.right;
-            if (!_foregroundTileMap.HasTile(up) && !_reverseTileMap.HasTile(up))
+            if (!_foregroundTileMap.HasTile(up) && !_reverseTileMap.HasTile(up) && !_metalTileMap.HasTile(up))
                 _reverseTileMap.SetTile(up, _reverseTile);
-            if (!_foregroundTileMap.HasTile(down) && !_reverseTileMap.HasTile(down))
+            if (!_foregroundTileMap.HasTile(down) && !_reverseTileMap.HasTile(down) && !_metalTileMap.HasTile(down))
                 _reverseTileMap.SetTile(down, _reverseTile);
-            if (!_foregroundTileMap.HasTile(left) && !_reverseTileMap.HasTile(left))
+            if (!_foregroundTileMap.HasTile(left) && !_reverseTileMap.HasTile(left) && !_metalTileMap.HasTile(left))
                 _reverseTileMap.SetTile(left, _reverseTile);
-            if (!_foregroundTileMap.HasTile(right) && !_reverseTileMap.HasTile(right))
+            if (!_foregroundTileMap.HasTile(right) && !_reverseTileMap.HasTile(right) && !_metalTileMap.HasTile(right))
                 _reverseTileMap.SetTile(right, _reverseTile);
         }
     }

@@ -42,6 +42,7 @@ public class LevelEntity
     public string Message;
     public int Index;
     public string Tag;
+    public float Speed;
 }
 
 [Serializable]
@@ -81,5 +82,6 @@ public enum LevelEntityType
     EndPortal,
     Pumpkin,
     Daisy,
-    Tombstone
+    Tombstone,
+    Crawler
 }

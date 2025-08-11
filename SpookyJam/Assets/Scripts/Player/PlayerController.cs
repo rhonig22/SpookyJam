@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath()
     {
-        if (!IsDead)
+        if (!IsDead && !IsEnding)
         {
             IsDead = true;
             _playerRB.gravityScale = 0;
