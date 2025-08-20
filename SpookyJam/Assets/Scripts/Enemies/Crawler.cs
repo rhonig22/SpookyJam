@@ -39,8 +39,8 @@ public class Crawler : Enemy, ILevelEntity
 
     public void RotateCounterClockwise()
     {
-        transform.Rotate(new Vector3(0, 0, 90));
         _animator.SetTrigger("CounterClockwise");
+        transform.Rotate(new Vector3(0, 0, 90));
     }
 
     public LevelEntity GetLevelEntity()
