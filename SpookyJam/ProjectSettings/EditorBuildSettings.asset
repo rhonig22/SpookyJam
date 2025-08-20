@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Title.unity
     guid: ff29a3eb0c9522a4fb866fcec7d9e9f7
   - enabled: 1
-    path: Assets/Scenes/Menus/EndTitle.unity
+    path: Assets/Scenes/Cutscenes/EndTitle.unity
     guid: 08e4b22e6f281ac4bb0b33a3429f0f19
   - enabled: 1
     path: Assets/Scenes/Levels/Level_1_1.unity

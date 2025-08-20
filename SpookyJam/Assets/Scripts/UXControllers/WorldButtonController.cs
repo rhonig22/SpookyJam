@@ -51,8 +51,8 @@ public class WorldButtonController : MonoBehaviour
 
     private void GeneratePumpkins(WorldData worldData)
     {
-        var xPos = -60;
-        var yPos = 20;
+        var xPos = -64;
+        var yPos = 48;
         var step = 40;
         var xThresh = 75;
         var count = 0;
@@ -71,7 +71,7 @@ public class WorldButtonController : MonoBehaviour
                 xPos += step;
                 if (xPos > xThresh)
                 {
-                    xPos = -60;
+                    xPos = -64;
                     yPos -= step;
                 }
 
