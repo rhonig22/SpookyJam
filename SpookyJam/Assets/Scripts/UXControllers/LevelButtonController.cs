@@ -8,6 +8,7 @@ public class LevelButtonController : MonoBehaviour
 {
     [SerializeField] private int _level;
     [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private TextMeshProUGUI _levelShadowText;
     [SerializeField] private TextMeshProUGUI _requirementText;
     [SerializeField] private GameObject _showLevel;
     [SerializeField] private GameObject _showLock;
@@ -22,6 +23,7 @@ public class LevelButtonController : MonoBehaviour
     void Start()
     {
         _levelText.text = "Level " + (_level + 1);
+        _levelShadowText.text = _levelText.text;
         var worldData = SaveDataManager.Instance.GetWorldData(GameManager.Instance.CurrentWorld - 1);
         if (_level - 1 < worldData.Levels.Count && (_level == 0 || worldData.Levels[_level - 1].Completed))
         {
