@@ -8,6 +8,7 @@ public class WorldButtonController : MonoBehaviour
 {
     [SerializeField] private int _world;
     [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private TextMeshProUGUI _levelShadowText;
     [SerializeField] private TextMeshProUGUI _requirementText;
     [SerializeField] private GameObject _showLevel;
     [SerializeField] private GameObject _showLock;
@@ -22,6 +23,7 @@ public class WorldButtonController : MonoBehaviour
     void Start()
     {
         _levelText.text = "World " + _world;
+        _levelShadowText.text = _levelText.text;
         var worldData = SaveDataManager.Instance.GetWorldData(_world - 1);
         if (worldData != null && worldData.Unlocked)
         {

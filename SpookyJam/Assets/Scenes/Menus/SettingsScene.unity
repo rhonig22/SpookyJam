@@ -263,8 +263,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284045657
-  m_fontColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
+    rgba: 4285690482
+  m_fontColor: {r: 0.44705886, g: 0.44705886, b: 0.44705886, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -281,8 +281,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -475,8 +475,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284045657
-  m_fontColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
+    rgba: 4285690482
+  m_fontColor: {r: 0.44705886, g: 0.44705886, b: 0.44705886, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1134,8 +1134,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2482,7 +2482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontAsset
@@ -2490,7 +2490,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b650a638670792840be76aeedf1a7dcd, type: 2}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_sharedMaterial
@@ -2536,6 +2536,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SettingsUXController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_text
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_fontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2570,7 +2582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4570,7 +4582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontAsset
@@ -4578,7 +4590,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b650a638670792840be76aeedf1a7dcd, type: 2}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_sharedMaterial
@@ -4624,6 +4636,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SettingsUXController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_text
+      value: Clear Data
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_fontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4658,7 +4682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4694,7 +4718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: -113
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4795,8 +4819,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284045657
-  m_fontColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
+    rgba: 4285690482
+  m_fontColor: {r: 0.44705886, g: 0.44705886, b: 0.44705886, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
