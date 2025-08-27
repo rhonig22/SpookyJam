@@ -2138,40 +2138,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": -4.5,
-                "y": -3.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 3,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "Press R to restart a level if you get stuck",
-            "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -2204,7 +2172,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -2237,7 +2206,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         }
     ],
     "Name": "Level_2_2",
