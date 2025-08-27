@@ -18858,7 +18858,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_DeadZoneWidth
-      value: 0.8
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_LookaheadTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_SoftZoneWidth
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800480555126, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_DeadZoneHeight

@@ -1407,7 +1407,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -1440,40 +1441,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
-        },
-        {
-            "Position": {
-                "x": 4.0,
-                "y": 3.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 3,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "Hold Up or Space to float slowly while falling.",
-            "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -1504,9 +1473,44 @@
                 "z": 0.0
             },
             "TowardsPoint1": false,
-            "Message": "Press Down or X to phase through the ground.",
+            "Message": "Press Down or X to Flip",
             "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
+        },
+        {
+            "Position": {
+                "x": 4.0,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 3,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "Hold A to Float",
+            "Index": 0,
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -1539,7 +1543,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -1572,7 +1577,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": ""
+            "Tag": "",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -1605,7 +1611,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": "Daisy"
+            "Tag": "Daisy",
+            "Speed": 0.0
         },
         {
             "Position": {
@@ -1638,7 +1645,8 @@
             "TowardsPoint1": false,
             "Message": "",
             "Index": 0,
-            "Tag": "Daisy"
+            "Tag": "Daisy",
+            "Speed": 0.0
         }
     ],
     "Name": "Level_1_1",

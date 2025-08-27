@@ -10,7 +10,7 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] GameObject _dialogueBox;
     [SerializeField] TextMeshProUGUI _textBox;
     private string _fullText, _currentText = "";
-    private float _addLetterTime = .03f, _currentTime = 0, _dismissTime = 1f;
+    private float _addLetterTime = .01f, _currentTime = 0, _dismissTime = 1f;
     private bool _showText = false;
     public UnityEvent DialogueFinished = new UnityEvent();
 

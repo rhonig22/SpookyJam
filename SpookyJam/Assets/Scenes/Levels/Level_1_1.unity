@@ -691,7 +691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8141351693192845001, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
       propertyPath: _signText
-      value: Hold Up or Space to float slowly while falling.
+      value: Hold A to Float
       objectReference: {fileID: 0}
     - target: {fileID: 8141351693192845002, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
       propertyPath: m_Name
@@ -4046,7 +4046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8141351693192845001, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
       propertyPath: _signText
-      value: Press Down or X to phase through the ground.
+      value: Press Down or X to Flip
       objectReference: {fileID: 0}
     - target: {fileID: 8141351693192845002, guid: 4258b86cd0aa98e4db0b576a9ceff6ec, type: 3}
       propertyPath: m_Name

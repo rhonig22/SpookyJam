@@ -97,7 +97,7 @@ public class WorldButtonController : MonoBehaviour
             xPos += step;
             if (xPos > xThresh)
             {
-                xPos = -60;
+                xPos = -64;
                 yPos -= step;
             }
         }
