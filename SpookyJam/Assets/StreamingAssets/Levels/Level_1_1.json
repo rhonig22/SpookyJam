@@ -1446,40 +1446,6 @@
         },
         {
             "Position": {
-                "x": 0.0,
-                "y": -2.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 3,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "Press Down or X to Flip",
-            "Index": 0,
-            "Tag": "",
-            "Speed": 0.0
-        },
-        {
-            "Position": {
                 "x": 4.0,
                 "y": 3.5,
                 "z": 0.0
@@ -1508,6 +1474,40 @@
             },
             "TowardsPoint1": false,
             "Message": "Hold A to Float",
+            "Index": 0,
+            "Tag": "",
+            "Speed": 0.0
+        },
+        {
+            "Position": {
+                "x": 0.0,
+                "y": -2.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 3,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "Press Down to Flip",
             "Index": 0,
             "Tag": "",
             "Speed": 0.0
@@ -1582,7 +1582,7 @@
         },
         {
             "Position": {
-                "x": -6.5,
+                "x": -5.5,
                 "y": 0.4893265962600708,
                 "z": 0.0
             },
@@ -1616,7 +1616,7 @@
         },
         {
             "Position": {
-                "x": -5.5,
+                "x": -6.5,
                 "y": 0.4893265962600708,
                 "z": 0.0
             },
