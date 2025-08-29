@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetButtonDown("Float"))
+        /*if (Input.GetButtonDown("Float"))
         {
             StartFloat();
         }
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (_grounded && Input.GetButtonDown("Flip"))
         {
             CanFlip();
-        }
+        }*/
 
         _animator.SetFloat("xMovement", (_inverted && !_isInVoid ? -1 : 1) * _horizontalInput);
         SetMovementParticles();
@@ -65,11 +66,38 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Move(_horizontalInput);
+        OldMove(_horizontalInput);
         CapVelocity();
     }
 
-    private void Move(float horizontalInput)
+    #region Player Controls - New Input System
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        _horizontalInput = context.ReadValue<Vector2>().x;
+    }
+
+    public void Float(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            StartFloat();
+
+        if (context.canceled)
+            EndFloat();
+    }
+
+    public void Flip(InputAction.CallbackContext context)
+    {
+        if (context.performed && !_isShrinking)
+        {
+            CanFlip();
+        }
+    }
+
+    #endregion
+
+
+    private void OldMove(float horizontalInput)
     {
         _playerRB.drag = 0;
         Vector3 targetVelocity = new Vector2(_topSpeed * horizontalInput, 0);
