@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetButtonDown("Restart"))
         {
-            SceneTransition.Instance.RestartLevelTransition();
+            // SceneTransition.Instance.RestartLevelTransition();
         }
     }
 
