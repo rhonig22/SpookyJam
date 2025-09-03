@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour
     private const string _worldMenu = "WorldMenu";
     private const string _levelScene = "Level";
     private const string _loadableLevel = "LoadableLevel";
+    private const string _overworld = "Overworld";
     [SerializeField] private List<ScriptableWorld> _worldList;
     public int CurrentLevel { get; private set; } = 0;
     public int CurrentWorld { get; private set; } = 0;
     public string CurrentLevelName { get; private set; } = "";
+    private List<string> _sceneStack = new List<string>();
 
     private void Awake()
     {
@@ -37,12 +39,16 @@ public class GameManager : MonoBehaviour
     // called second
     private void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        var levels = SaveDataManager.ParseLevelName(scene.name);
+        var sceneName = scene.name;
+        var levels = SaveDataManager.ParseLevelName(sceneName);
         if (levels[0] != -1)
         {
             CurrentWorld = levels[0];
             CurrentLevel = levels[1];
         }
+
+        if (_sceneStack.Count == 0 || _sceneStack[_sceneStack.Count-1] != sceneName)
+            _sceneStack.Add(sceneName);
     }
 
     private void Update()
@@ -148,7 +154,13 @@ public class GameManager : MonoBehaviour
             FinishWorld(CurrentWorld);
         }
 
-        LoadWorld(CurrentWorld);
+        if (_sceneStack.Count > 0)
+            _sceneStack.RemoveAt(_sceneStack.Count-1);
+
+        if (_sceneStack.Count > 0 && _sceneStack[_sceneStack.Count - 1] == _overworld)
+            LoadOverworld();
+        else
+            LoadWorld(CurrentWorld);
     }
 
     public void LoadLevel(int level)
@@ -165,6 +177,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetWorld(int world)
+    {
+        CurrentWorld = world;
+    }
+
     public void LoadWorld(int world)
     {
         CurrentWorld = world;
@@ -175,6 +192,11 @@ public class GameManager : MonoBehaviour
     public void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadOverworld()
+    {
+        SceneManager.LoadScene(_overworld);
     }
 
     public void LoadEndScreen()

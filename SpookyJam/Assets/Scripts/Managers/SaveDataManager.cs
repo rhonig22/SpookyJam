@@ -165,6 +165,26 @@ public class SaveDataManager : MonoBehaviour
         SaveLevelData();
     }
 
+    public int GetTotalPumpkinCount()
+    {
+        var pumpkinCount = 0;
+        for (int i = 0; i < _levelList.Worlds.Count; i++)
+        {
+            var world = _levelList.Worlds[i];
+            for (int j = 0; j < world.Levels.Count; j++)
+            {
+                var level = world.Levels[j];
+                for (int k = 0; k < level.PumpkinsFound.Length; k++)
+                {
+                    if (level.PumpkinsFound[k])
+                        pumpkinCount++;
+                }
+            }
+        }
+
+        return pumpkinCount;
+    }
+
     private void CheckNextWorld(int world)
     {
         if (GameManager.Instance.HasNextWorld(world) && world + 1 == _levelList.Worlds.Count)

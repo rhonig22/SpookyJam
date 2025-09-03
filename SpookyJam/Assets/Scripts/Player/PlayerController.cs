@@ -94,6 +94,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void FlipUp(InputAction.CallbackContext context)
+    {
+        if (context.performed && !_isShrinking && _inverted && !_isInVoid)
+        {
+            CanFlip();
+        }
+    }
+
+    public void FlipDown(InputAction.CallbackContext context)
+    {
+        if (context.performed && !_isShrinking && !_inverted)
+        {
+            CanFlip();
+        }
+    }
+
     #endregion
 
 
