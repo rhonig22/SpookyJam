@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 {
     public static CameraController Instance;
 
-    private const float _offsetPanAmount = -2f, _offsetPanTime = .5f, _speedThreshold = 3.25f;
+    private const float _offsetPanAmount = -2f, _offsetPanTime = .5f, _speedThreshold = 3.25f, _pixelsPerUnit = 16;
     [SerializeField] private CinemachineVirtualCamera _mainCamera;
     [SerializeField] private CinemachineVirtualCamera _focusCamera;
     private CinemachineFramingTransposer _transposer;
@@ -42,6 +42,16 @@ public class CameraController : MonoBehaviour
                 StopShake();
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 pos = _mainCamera.transform.position;
+        _mainCamera.transform.position = new Vector3(
+            Mathf.Round(pos.x * _pixelsPerUnit) / _pixelsPerUnit,
+            Mathf.Round(pos.y * _pixelsPerUnit) / _pixelsPerUnit,
+            pos.z
+        );
     }
 
     public void ShakeCamera()
