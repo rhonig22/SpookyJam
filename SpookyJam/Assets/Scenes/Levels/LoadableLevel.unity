@@ -942,6 +942,18 @@ PrefabInstance:
       propertyPath: _foregroundTileMap
       value: 
       objectReference: {fileID: 2920225148746825218}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _backgoundTiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9476b7df0f7a6034baf513403706d6d7, type: 2}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _backgoundTiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 37936f028db6c1d47b3968b6b69c112b, type: 2}
+    - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
+      propertyPath: _backgoundTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 94877a34d2478d44eaea806c06f68554, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
