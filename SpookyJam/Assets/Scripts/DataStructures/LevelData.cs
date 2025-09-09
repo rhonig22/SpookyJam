@@ -48,11 +48,13 @@ public class LevelData
 {
     public bool[] PumpkinsFound;
     public bool Completed;
+    public bool Unlocked;
 
     public LevelData(int pumpkins)
     {
         PumpkinsFound = new bool[pumpkins];
         Completed= false;
+        Unlocked = false;
     }
 }
 

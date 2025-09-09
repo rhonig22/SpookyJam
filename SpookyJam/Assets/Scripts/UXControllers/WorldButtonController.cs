@@ -111,6 +111,6 @@ public class WorldButtonController : MonoBehaviour
 
     public void ButtonClicked()
     {
-        GameManager.Instance.LoadWorld(_world);
+        GameManager.Instance.LoadLevelMenuForWorld(_world);
     }
 }
