@@ -39,7 +39,7 @@ public class TitleScreenUxManager : MonoBehaviour
 
     public void LoadWorldPressed(int world)
     {
-        GameManager.Instance.LoadWorld(world);
+        GameManager.Instance.LoadLevelMenuForWorld(world);
     }
 
     public void MainMenuClicked()

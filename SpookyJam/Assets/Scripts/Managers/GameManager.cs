@@ -15,9 +15,11 @@ public class GameManager : MonoBehaviour
     private const string _levelMenu = "LevelMenu";
     private const string _worldMenu = "WorldMenu";
     private const string _levelScene = "Level";
+    private const string _worldHallwayScene = "World";
     private const string _loadableLevel = "LoadableLevel";
     private const string _overworld = "Overworld";
     [SerializeField] private List<ScriptableWorld> _worldList;
+    [SerializeField] private bool _isMenuSystem = false;
     public int CurrentLevel { get; private set; } = 0;
     public int CurrentWorld { get; private set; } = 0;
     public string CurrentLevelName { get; private set; } = "";
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
             else if (sceneName == _titleScene)
                 Application.Quit();
             else if (sceneName == _loadableLevel)
-                LoadWorld(CurrentWorld);
+                LoadLevelMenuForWorld(CurrentWorld);
         }
         else if (Input.GetButtonDown("Restart"))
         {
@@ -104,10 +106,6 @@ public class GameManager : MonoBehaviour
     private void FinishWorld(int world)
     {
         SaveDataManager.Instance.CompleteWorld(world - 1);
-        /*if (world < _worldList.Count)
-            LoadLevelMenu();
-        else
-            LoadEndScreen();*/
     }
 
     public bool HasNextWorld(int world)
@@ -157,10 +155,10 @@ public class GameManager : MonoBehaviour
         if (_sceneStack.Count > 0)
             _sceneStack.RemoveAt(_sceneStack.Count-1);
 
-        if (_sceneStack.Count > 0 && _sceneStack[_sceneStack.Count - 1] == _overworld)
-            LoadOverworld();
+        if (_isMenuSystem)
+            LoadLevelMenuForWorld(CurrentWorld);
         else
-            LoadWorld(CurrentWorld);
+            LoadWorldHallway(CurrentWorld);
     }
 
     public void LoadLevel(int level)
@@ -182,7 +180,12 @@ public class GameManager : MonoBehaviour
         CurrentWorld = world;
     }
 
-    public void LoadWorld(int world)
+    public void LoadWorldHallway(int world)
+    {
+        SceneManager.LoadScene(_worldHallwayScene + "_" + world);
+    }
+
+    public void LoadLevelMenuForWorld(int world)
     {
         CurrentWorld = world;
         CurrentLevel = 0;

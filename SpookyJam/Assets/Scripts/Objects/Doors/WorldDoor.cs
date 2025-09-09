@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class WorldDoor : Door
 {
     [SerializeField] private int _world;
+    [SerializeField] private int _pumpkinRequirement;
     protected override void OpenDoor()
     {
-        GameManager.Instance.LoadWorld(_world);
+        if (SaveDataManager.Instance.GetTotalPumpkinCount() >= _pumpkinRequirement)
+        {
+            SceneTransition.Instance.EndLevelTransition();
+            GameManager.Instance.LoadWorldHallway(_world);
+        }
     }
+
+    public int GetWorld() { return _world; }
+    public int GetPumpkinReq() { return _pumpkinRequirement; }
 }
