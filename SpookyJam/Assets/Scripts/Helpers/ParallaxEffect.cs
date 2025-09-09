@@ -33,7 +33,7 @@ public class ParallaxEffect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (_camera == null)
             return;
@@ -51,5 +51,17 @@ public class ParallaxEffect : MonoBehaviour
             _startPos -= _length;
         }
 
+        SnapToPixelGrid();
+    }
+
+    private void SnapToPixelGrid()
+    {
+        float ppu = 16f;
+        Vector3 pos = transform.position;
+        transform.position = new Vector3(
+            Mathf.Round(pos.x * ppu) / ppu,
+            Mathf.Round(pos.y * ppu) / ppu,
+            pos.z
+        );
     }
 }
