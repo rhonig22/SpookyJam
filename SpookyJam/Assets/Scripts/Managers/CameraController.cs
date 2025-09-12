@@ -101,7 +101,7 @@ public class CameraController : MonoBehaviour
         if (player != null)
         {
             _mainCamera.Follow = player.transform;
-            _focusCamera.LookAt = player.transform;
+            _focusCamera.Follow = player.transform;
         }
 
         _mainCamera.transform.position = levelCamera.Position;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
@@ -8,9 +9,16 @@ public class LevelDoorUX : MonoBehaviour
     [SerializeField] private LevelDoor _thisDoor;
     [SerializeField] private TextMeshProUGUI _levelNameText;
     [SerializeField] private TextMeshProUGUI _pumpkinReqText;
-    [SerializeField] private GameObject _lock;
-    [SerializeField] private Color _unlockColor;
+    [SerializeField] private SpriteRenderer _doorRenderer;
+    [SerializeField] private Sprite[] _doorSprites = new Sprite[0];
     private bool _locked = true;
+
+    protected enum LevelDoorSprites
+    {
+        Locked = 0,
+        Unlocked = 1,
+        Completed = 2
+    }
 
     private void Start()
     {
@@ -37,7 +45,7 @@ public class LevelDoorUX : MonoBehaviour
     private void UnlockDoor()
     {
         _locked = false;
-        _lock.SetActive(false);
-        _pumpkinReqText.color = _unlockColor;
+        _pumpkinReqText.text = "";
+        _doorRenderer.sprite = _doorSprites[(int)(LevelDoorSprites.Unlocked)];
     }
 }
