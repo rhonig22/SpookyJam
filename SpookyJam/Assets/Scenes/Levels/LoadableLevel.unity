@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 4b2cb8220000000037ea1ba18533560a
+  m_ApplyToSortingLayers: 4b2cb8220000000037ea1ba18533560ad511a3b5
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -585,7 +585,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800150124320, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 6.6666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800150124320, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800150124320, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800150124320, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331925800150124320, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6331925800150124511, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_LocalPosition.x
