@@ -115,9 +115,9 @@ public class PlayerController : MonoBehaviour
 
     private void OldMove(float horizontalInput)
     {
-        _playerRB.drag = 0;
+        _playerRB.linearDamping = 0;
         Vector3 targetVelocity = new Vector2(_topSpeed * horizontalInput, 0);
-        Vector2 diffVelocity = new Vector2(targetVelocity.x - _playerRB.velocity.x, 0);
+        Vector2 diffVelocity = new Vector2(targetVelocity.x - _playerRB.linearVelocity.x, 0);
         if (targetVelocity.x == 0)
             diffVelocity.x *= _degradeInertiaMultiplier;
         _playerRB.AddForce(_playerRB.mass * diffVelocity / _timeToTopSpeed);
@@ -125,10 +125,10 @@ public class PlayerController : MonoBehaviour
 
     private void CapVelocity()
     {
-        var currentYVelocity = _playerRB.velocity.y;
+        var currentYVelocity = _playerRB.linearVelocity.y;
         if (_isFloating && ((_inverted && !_isInVoid ? -1 : 1) * currentYVelocity) < _maxFloatFall)
         {
-            _playerRB.velocity = new Vector2(_playerRB.velocity.x, (_inverted && !_isInVoid ? -1 : 1) * _maxFloatFall);
+            _playerRB.linearVelocity = new Vector2(_playerRB.linearVelocity.x, (_inverted && !_isInVoid ? -1 : 1) * _maxFloatFall);
         }
     }
 
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger("Flip");
         _isShrinking = true;
-        _playerRB.velocity = Vector2.zero;
+        _playerRB.linearVelocity = Vector2.zero;
         SoundManager.Instance.PlaySound(_invertClip, transform.position, .6f);
     }
 
@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
         _animator.runtimeAnimatorController = _cutSceneController;
         _animator.SetTrigger("Swirl");
         _playerRB.gravityScale = 0;
-        _playerRB.velocity = Vector2.zero;
+        _playerRB.linearVelocity = Vector2.zero;
     }
 
     public void StartDeath()
@@ -247,7 +247,7 @@ public class PlayerController : MonoBehaviour
         {
             IsDead = true;
             _playerRB.gravityScale = 0;
-            _playerRB.velocity = Vector2.zero;
+            _playerRB.linearVelocity = Vector2.zero;
             _animator.SetTrigger("Death");
             SoundManager.Instance.PlaySound(_deathClip, transform.position);
             CameraController.Instance.ShakeCamera();
@@ -262,7 +262,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetMovementParticles()
     {
-        if (Math.Abs(_playerRB.velocity.magnitude) < _horizontalThreshold)
+        if (Math.Abs(_playerRB.linearVelocity.magnitude) < _horizontalThreshold)
         {
             if (_particleSystem.isEmitting)
                 _particleSystem.Stop();

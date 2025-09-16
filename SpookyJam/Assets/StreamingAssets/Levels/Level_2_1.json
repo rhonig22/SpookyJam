@@ -1358,27 +1358,22 @@
                     "z": 0
                 },
                 {
-                    "x": 4,
-                    "y": 1,
-                    "z": 0
-                },
-                {
                     "x": 5,
                     "y": 1,
                     "z": 0
                 },
                 {
+                    "x": 6,
+                    "y": 1,
+                    "z": 0
+                },
+                {
+                    "x": -10,
+                    "y": 2,
+                    "z": 0
+                },
+                {
                     "x": -9,
-                    "y": 2,
-                    "z": 0
-                },
-                {
-                    "x": -8,
-                    "y": 2,
-                    "z": 0
-                },
-                {
-                    "x": 4,
                     "y": 2,
                     "z": 0
                 },
@@ -1388,12 +1383,17 @@
                     "z": 0
                 },
                 {
-                    "x": -9,
+                    "x": 6,
+                    "y": 2,
+                    "z": 0
+                },
+                {
+                    "x": -10,
                     "y": 3,
                     "z": 0
                 },
                 {
-                    "x": -8,
+                    "x": -9,
                     "y": 3,
                     "z": 0
                 }
@@ -1818,7 +1818,7 @@
         },
         {
             "Position": {
-                "x": 5.0,
+                "x": 6.0,
                 "y": 2.0,
                 "z": 0.0
             },
@@ -1897,14 +1897,13 @@
         "LensOrtho": 7.0,
         "xDamping": 5.0,
         "yDamping": 2.0,
-        "screenX": 0.5,
-        "screenY": 0.34999996423721316,
+        "screenX": 0.0,
+        "screenY": 0.0,
         "deadZoneWidth": 1.0,
-        "deadZoneHeight": 2.0,
-        "softZoneWidth": 1.0,
-        "softZoneHeight": 2.0,
-        "biasX": 0.0,
-        "biasY": 0.0,
+        "deadZoneHeight": 1.0,
+        "hardLimitX": 1.0,
+        "hardLimitY": 1.0,
+        "useLookAhead": false,
         "lookAheadTime": 0.5,
         "lookAheadSmoothing": 0.800000011920929,
         "lookAheadIgnoreY": false

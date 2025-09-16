@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +9,22 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance;
 
     private const float _offsetPanAmount = -2f, _offsetPanTime = .5f, _speedThreshold = 3.25f, _pixelsPerUnit = 16;
-    [SerializeField] private CinemachineVirtualCamera _mainCamera;
-    [SerializeField] private CinemachineVirtualCamera _focusCamera;
-    private CinemachineFramingTransposer _transposer;
+    [SerializeField] private CinemachineCamera _mainCamera;
+    [SerializeField] private CinemachineCamera _focusCamera;
+    private CinemachinePositionComposer _transposer;
     private CinemachineBasicMultiChannelPerlin _followNoisePerlin;
     private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f, _shakeTime = .5f;
     private float _shakeTimeElapsed = 0, _currentZoom = 0;
-    private bool _isShaking = false, _lerpedDamping = false;
+    private bool _isShaking = false;
     public UnityEvent CameraValuesChanged = new UnityEvent();
     private Vector3 _currentPos;
 
     private void Awake()
     {
         Instance = this;
-        _currentZoom = _mainCamera.m_Lens.OrthographicSize;
-        _followNoisePerlin = _mainCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        _transposer = _mainCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        _currentZoom = _mainCamera.Lens.OrthographicSize;
+        _followNoisePerlin = _mainCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
+        _transposer = _mainCamera.GetComponent<CinemachinePositionComposer>();
     }
 
     private void Update()
@@ -56,16 +56,16 @@ public class CameraController : MonoBehaviour
 
     public void ShakeCamera()
     {
-        _followNoisePerlin.m_AmplitudeGain = _shakeAmplitude;
-        _followNoisePerlin.m_FrequencyGain = _shakeFrequency;
+        _followNoisePerlin.AmplitudeGain = _shakeAmplitude;
+        _followNoisePerlin.FrequencyGain = _shakeFrequency;
         _shakeTimeElapsed = 0;
         _isShaking = true;
     }
 
     private void StopShake()
     {
-        _followNoisePerlin.m_AmplitudeGain = 0;
-        _followNoisePerlin.m_FrequencyGain = 0;
+        _followNoisePerlin.AmplitudeGain = 0;
+        _followNoisePerlin.FrequencyGain = 0;
         _isShaking = false;
     }
 
@@ -73,20 +73,19 @@ public class CameraController : MonoBehaviour
     {
         LevelCamera levelCamera = new LevelCamera();
         levelCamera.Position = _mainCamera.transform.position;
-        levelCamera.LensOrtho = _mainCamera.m_Lens.OrthographicSize;
-        levelCamera.biasX = _transposer.m_BiasX;
-        levelCamera.biasY = _transposer.m_BiasY;
-        levelCamera.deadZoneHeight = _transposer.m_DeadZoneHeight;
-        levelCamera.deadZoneWidth = _transposer.m_DeadZoneWidth;
-        levelCamera.softZoneHeight = _transposer.m_SoftZoneHeight;
-        levelCamera.softZoneWidth = _transposer.m_SoftZoneWidth;
-        levelCamera.xDamping = _transposer.m_XDamping;
-        levelCamera.yDamping = _transposer.m_YDamping;
-        levelCamera.screenX = _transposer.m_ScreenX;
-        levelCamera.screenY = _transposer.m_ScreenY;
-        levelCamera.lookAheadTime = _transposer.m_LookaheadTime;
-        levelCamera.lookAheadSmoothing = _transposer.m_LookaheadSmoothing;
-        levelCamera.lookAheadIgnoreY = _transposer.m_LookaheadIgnoreY;
+        levelCamera.LensOrtho = _mainCamera.Lens.OrthographicSize;
+        levelCamera.hardLimitX = _transposer.Composition.HardLimits.Size.x;
+        levelCamera.hardLimitY = _transposer.Composition.HardLimits.Size.y;
+        levelCamera.deadZoneHeight = _transposer.Composition.DeadZone.Size.y;
+        levelCamera.deadZoneWidth = _transposer.Composition.DeadZone.Size.x;
+        levelCamera.xDamping = _transposer.Damping.x;
+        levelCamera.yDamping = _transposer.Damping.y;
+        levelCamera.screenX = _transposer.Composition.ScreenPosition.x;
+        levelCamera.screenY = _transposer.Composition.ScreenPosition.y;
+        levelCamera.useLookAhead = _transposer.Lookahead.Enabled;
+        levelCamera.lookAheadTime = _transposer.Lookahead.Time;
+        levelCamera.lookAheadSmoothing = _transposer.Lookahead.Smoothing;
+        levelCamera.lookAheadIgnoreY = _transposer.Lookahead.IgnoreY;
         return levelCamera;
     }
 
@@ -105,20 +104,19 @@ public class CameraController : MonoBehaviour
         }
 
         _mainCamera.transform.position = levelCamera.Position;
-        _mainCamera.m_Lens.OrthographicSize = levelCamera.LensOrtho;
-        _transposer.m_BiasX = levelCamera.biasX;
-        _transposer.m_BiasY = levelCamera.biasY;
-        _transposer.m_DeadZoneHeight = levelCamera.deadZoneHeight;
-        _transposer.m_DeadZoneWidth = levelCamera.deadZoneWidth;
-        _transposer.m_SoftZoneHeight = levelCamera.softZoneHeight;
-        _transposer.m_SoftZoneWidth = levelCamera.softZoneWidth;
-        _transposer.m_XDamping = levelCamera.xDamping;
-        _transposer.m_YDamping = levelCamera.yDamping;
-        _transposer.m_ScreenX = levelCamera.screenX;
-        _transposer.m_ScreenY = levelCamera.screenY;
-        _transposer.m_LookaheadIgnoreY = levelCamera.lookAheadIgnoreY;
-        _transposer.m_LookaheadSmoothing = levelCamera.lookAheadSmoothing;
-        _transposer.m_LookaheadTime = levelCamera.lookAheadTime;
+        _mainCamera.Lens.OrthographicSize = levelCamera.LensOrtho;
+        _transposer.Composition.HardLimits.Size.x = levelCamera.hardLimitX;
+        _transposer.Composition.HardLimits.Size.y = levelCamera.hardLimitY;
+        _transposer.Composition.DeadZone.Size.y = levelCamera.deadZoneHeight;
+        _transposer.Composition.DeadZone.Size.x = levelCamera.deadZoneWidth;
+        _transposer.Damping.x = levelCamera.xDamping;
+        _transposer.Damping.y = levelCamera.yDamping;
+        _transposer.Composition.ScreenPosition.x = levelCamera.screenX;
+        _transposer.Composition.ScreenPosition.y = levelCamera.screenY;
+        _transposer.Lookahead.Enabled = levelCamera.useLookAhead;
+        _transposer.Lookahead.IgnoreY = levelCamera.lookAheadIgnoreY;
+        _transposer.Lookahead.Smoothing = levelCamera.lookAheadSmoothing;
+        _transposer.Lookahead.Time = levelCamera.lookAheadTime;
         _mainCamera.enabled = true;
         _mainCamera.OnTargetObjectWarped(_mainCamera.Follow, Vector3.zero);
 
