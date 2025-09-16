@@ -1446,40 +1446,6 @@
         },
         {
             "Position": {
-                "x": 4.0,
-                "y": 3.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "EntityType": 3,
-            "Endpoint1": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Endpoint2": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "EntityPoint": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "TowardsPoint1": false,
-            "Message": "Hold A to Float",
-            "Index": 0,
-            "Tag": "",
-            "Speed": 0.0
-        },
-        {
-            "Position": {
                 "x": 0.0,
                 "y": -2.5,
                 "z": 0.0
@@ -1508,6 +1474,40 @@
             },
             "TowardsPoint1": false,
             "Message": "Press Down to Flip",
+            "Index": 0,
+            "Tag": "",
+            "Speed": 0.0
+        },
+        {
+            "Position": {
+                "x": 4.0,
+                "y": 3.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "EntityType": 3,
+            "Endpoint1": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Endpoint2": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "EntityPoint": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "TowardsPoint1": false,
+            "Message": "Hold A to Float",
             "Index": 0,
             "Tag": "",
             "Speed": 0.0
@@ -1654,21 +1654,20 @@
     "World": 1,
     "Camera": {
         "Position": {
-            "x": 0.0,
-            "y": 0.36999988555908205,
+            "x": -0.03883747756481171,
+            "y": 0.0,
             "z": -10.0
         },
         "LensOrtho": 7.0,
         "xDamping": 5.0,
         "yDamping": 2.0,
-        "screenX": 0.5,
-        "screenY": 0.75,
-        "deadZoneWidth": 2.0,
-        "deadZoneHeight": 2.0,
-        "softZoneWidth": 2.0,
-        "softZoneHeight": 2.0,
-        "biasX": 0.0,
-        "biasY": 0.0,
+        "screenX": 0.0,
+        "screenY": 0.0,
+        "deadZoneWidth": 1.0,
+        "deadZoneHeight": 1.0,
+        "hardLimitX": 1.0,
+        "hardLimitY": 1.0,
+        "useLookAhead": false,
         "lookAheadTime": 0.5,
         "lookAheadSmoothing": 0.800000011920929,
         "lookAheadIgnoreY": false

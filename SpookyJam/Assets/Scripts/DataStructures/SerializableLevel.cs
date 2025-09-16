@@ -56,10 +56,9 @@ public class LevelCamera
     public float screenY;
     public float deadZoneWidth;
     public float deadZoneHeight;
-    public float softZoneWidth;
-    public float softZoneHeight;
-    public float biasX;
-    public float biasY;
+    public float hardLimitX;
+    public float hardLimitY;
+    public bool useLookAhead;
     public float lookAheadTime;
     public float lookAheadSmoothing;
     public bool lookAheadIgnoreY;

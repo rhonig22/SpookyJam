@@ -4,7 +4,6 @@ using Unity.Collections.LowLevel.Unsafe;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class SaveDataManager : MonoBehaviour
 {

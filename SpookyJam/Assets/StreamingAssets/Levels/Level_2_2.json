@@ -2216,20 +2216,19 @@
     "Camera": {
         "Position": {
             "x": 2.0,
-            "y": -8.0,
+            "y": -7.5,
             "z": -10.0
         },
         "LensOrtho": 10.0,
         "xDamping": 5.0,
         "yDamping": 2.0,
-        "screenX": 0.5,
-        "screenY": 0.5,
-        "deadZoneWidth": 2.0,
+        "screenX": 0.0,
+        "screenY": 0.0,
+        "deadZoneWidth": 1.0,
         "deadZoneHeight": 1.0,
-        "softZoneWidth": 2.0,
-        "softZoneHeight": 1.0,
-        "biasX": 0.0,
-        "biasY": 0.0,
+        "hardLimitX": 1.0,
+        "hardLimitY": 1.0,
+        "useLookAhead": false,
         "lookAheadTime": 0.5,
         "lookAheadSmoothing": 0.800000011920929,
         "lookAheadIgnoreY": false

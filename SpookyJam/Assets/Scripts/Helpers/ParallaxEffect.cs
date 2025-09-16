@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ParallaxEffect : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera _camera;
+    [SerializeField] CinemachineCamera _camera;
     [SerializeField] float _parallaxEffect;
     private readonly float _camSize = 7;
     private float _startPos, _length;
@@ -26,7 +26,7 @@ public class ParallaxEffect : MonoBehaviour
 
         _startPos = _camera.transform.position.x;
         transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, transform.position.z);
-        var newCamSize = _camera.m_Lens.OrthographicSize;
+        var newCamSize = _camera.Lens.OrthographicSize;
         if (newCamSize != _camSize)
             transform.localScale = transform.localScale * (newCamSize / _camSize);
         _length = GetComponent<SpriteRenderer>().bounds.size.x;

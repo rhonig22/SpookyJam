@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -373,14 +370,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
+  m_ComponentVersion: 2
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
-  m_LightVolumeIntensityEnabled: 0
+  m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 4b2cb8220000000037ea1ba18533560ad511a3b5
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -390,8 +387,10 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowsEnabled: 0
   m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0
+  m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
@@ -567,6 +566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 588115263}
     m_Modifications:
+    - target: {fileID: 1107354991829385022, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+      propertyPath: Composition.HardLimits.Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6331925799719093885, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
       propertyPath: m_Follow
       value: 
@@ -683,7 +686,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraContainer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6331925799719093885, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+    - {fileID: 5608371063779815666, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+    - {fileID: 8555502382765622133, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+    - {fileID: 9140694375741836826, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+    - {fileID: 3504830247703970177, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
+    - {fileID: 7154066496324935115, guid: cda3e31f5fbb0ca4ab75b681112aaf05, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -747,7 +756,7 @@ RectTransform:
   m_Pivot: {x: 0, y: 0}
 --- !u!95 &1830760485
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -761,6 +770,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -959,15 +969,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2920225148746825218}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
-      propertyPath: _backgoundTiles.Array.data[0]
+      propertyPath: '_backgoundTiles.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 9476b7df0f7a6034baf513403706d6d7, type: 2}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
-      propertyPath: _backgoundTiles.Array.data[1]
+      propertyPath: '_backgoundTiles.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 37936f028db6c1d47b3968b6b69c112b, type: 2}
     - target: {fileID: 3495041849043282396, guid: 4a49989744f557d4bb39703fefee628c, type: 3}
-      propertyPath: _backgoundTiles.Array.data[2]
+      propertyPath: '_backgoundTiles.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 94877a34d2478d44eaea806c06f68554, type: 2}
     m_RemovedComponents: []
