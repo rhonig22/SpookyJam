@@ -16,7 +16,7 @@ public class WorldData
 
     public WorldData()
     {
-        Unlocked = true;
+        Unlocked = false;
         Completed = false;
         Levels = new List<LevelData>();
     }

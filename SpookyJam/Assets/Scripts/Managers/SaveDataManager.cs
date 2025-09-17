@@ -149,6 +149,13 @@ public class SaveDataManager : MonoBehaviour
             _levelList.Worlds[world].AddLevel(pumpkins);
     }
 
+    public void UnlockWorld(int world)
+    {
+        var worldData = GetWorldData(world);
+        worldData.Unlocked = true;
+        SaveLevelData();
+    }
+
     public void CompleteWorld(int world)
     {
         var worldData = GetWorldData(world);
@@ -157,11 +164,38 @@ public class SaveDataManager : MonoBehaviour
         SaveLevelData();
     }
 
+    public bool IsWorldUnlocked(int world)
+    {
+        return GetWorldData(world).Unlocked;
+    }
+
+    public bool IsWorldCompleted(int world)
+    {
+        return GetWorldData(world).Completed;
+    }
+
+    public void UnlockLevel(int world, int level)
+    {
+        var worldData = GetWorldData(world);
+        worldData.Levels[level].Unlocked = true;
+        SaveLevelData();
+    }
+
     public void CompleteLevel(int world, int level)
     {
         var worldData = GetWorldData(world);
         worldData.Levels[level].Completed = true;
         SaveLevelData();
+    }
+
+    public bool IsLevelUnlocked(int world, int level)
+    {
+        return GetWorldData(world).Levels[level].Unlocked;
+    }
+
+    public bool IsLevelCompleted(int world, int level)
+    {
+        return GetWorldData(world).Levels[level].Completed;
     }
 
     public int GetTotalPumpkinCount()
@@ -186,7 +220,7 @@ public class SaveDataManager : MonoBehaviour
 
     private void CheckNextWorld(int world)
     {
-        if (GameManager.Instance.HasNextWorld(world) && world + 1 == _levelList.Worlds.Count)
+        if (GameManager.Instance.HasNextWorld(world) && (world + 1 == _levelList.Worlds.Count))
         {
             _levelList.Worlds.Add(new WorldData());
         }
@@ -198,9 +232,25 @@ public class SaveDataManager : MonoBehaviour
         {
             Worlds = new List<WorldData>()
             {
-                new WorldData()
             }
         };
+
+        int worlds = GameManager.Instance.GetWorldCount();
+        for (int i = 0; i < worlds; i++)
+        {
+            var worldData = new WorldData();
+            int levels = GameManager.Instance.GetLevelCount(i);
+            for (int j = 0; j < levels; j++)
+            {
+                worldData.AddLevel(GameManager.Instance.GetPumpkinsInLevel(i, j));
+            }
+
+            levelList.Worlds.Add(worldData);
+        }
+
+        // unlock the first level
+        levelList.Worlds[0].Unlocked = true;
+        levelList.Worlds[0].Levels[0].Unlocked = true;
 
         _levelList = levelList;
         SaveLevelData();

@@ -25,9 +25,14 @@ public class LevelDoorUX : MonoBehaviour
         _levelNameText.text = _thisDoor.GetWorld() + "." + _thisDoor.GetLevel();
         var pumpReq = _thisDoor.GetPumpkinReq();
         _pumpkinReqText.text = pumpReq + "";
-        if (pumpReq == 0)
+        if (pumpReq == 0 || SaveDataManager.Instance.IsLevelUnlocked(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
         {
             UnlockDoor();
+        }
+
+        if (SaveDataManager.Instance.IsLevelCompleted(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
+        {
+            _doorRenderer.sprite = _doorSprites[(int)(LevelDoorSprites.Completed)];
         }
     }
 
@@ -47,5 +52,6 @@ public class LevelDoorUX : MonoBehaviour
         _locked = false;
         _pumpkinReqText.text = "";
         _doorRenderer.sprite = _doorSprites[(int)(LevelDoorSprites.Unlocked)];
+        SaveDataManager.Instance.UnlockLevel(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1);
     }
 }
