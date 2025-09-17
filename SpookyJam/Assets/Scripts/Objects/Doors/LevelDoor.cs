@@ -9,7 +9,7 @@ public class LevelDoor : Door
     [SerializeField] private int _pumpkinRequirement;
     protected override void OpenDoor()
     {
-        if (SaveDataManager.Instance.GetTotalPumpkinCount() >= _pumpkinRequirement)
+        if (SaveDataManager.Instance.IsLevelUnlocked(_world - 1, _level - 1))
         {
             SceneTransition.Instance.EndLevelTransition();
             GameManager.Instance.SetWorld(_world);

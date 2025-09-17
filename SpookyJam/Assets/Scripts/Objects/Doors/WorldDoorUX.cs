@@ -37,7 +37,6 @@ public class WorldDoorUX : MonoBehaviour
     private void UnlockDoor()
     {
         _locked = false;
-        _lock.SetActive(false);
-        _pumpkinReqText.color = _unlockColor;
+        _pumpkinReqText.text = "";
     }
 }

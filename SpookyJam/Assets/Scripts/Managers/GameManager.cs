@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #region Scriptable World Info Access
     public void SetWorldList(List<ScriptableWorld> worldList)
     {
         _worldList = worldList;
@@ -85,8 +86,19 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentWorldLevelCount()
     {
-        return _worldList[CurrentWorld-1].GetLevelCount();
+        return GetLevelCount(CurrentWorld - 1);
     }
+
+    public int GetLevelCount(int world)
+    {
+        return _worldList[world].GetLevelCount();
+    }
+
+    public int GetPumpkinsInLevel(int world, int level)
+    {
+        return _worldList[world].GetLevel(level).GetPumpkinCount();
+    }
+    #endregion
 
     public void LoadSettings()
     {
