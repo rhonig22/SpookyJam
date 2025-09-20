@@ -9,11 +9,11 @@ public class LevelDoorUX : MonoBehaviour
     [SerializeField] private LevelDoor _thisDoor;
     [SerializeField] private TextMeshProUGUI _levelNameText;
     [SerializeField] private TextMeshProUGUI _pumpkinReqText;
-    [SerializeField] private SpriteRenderer _doorRenderer;
-    [SerializeField] private Sprite[] _doorSprites = new Sprite[0];
-    private bool _locked = true;
+    [SerializeField] private Animator _doorAnimator;
+    [SerializeField] private AudioClip _fireSound;
+    private LevelDoorStates _doorState = LevelDoorStates.Locked;
 
-    protected enum LevelDoorSprites
+    protected enum LevelDoorStates
     {
         Locked = 0,
         Unlocked = 1,
@@ -27,31 +27,39 @@ public class LevelDoorUX : MonoBehaviour
         _pumpkinReqText.text = pumpReq + "";
         if (pumpReq == 0 || SaveDataManager.Instance.IsLevelUnlocked(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
         {
+            _doorAnimator.SetBool("IsUnlocked", true);
             UnlockDoor();
         }
 
-        if (SaveDataManager.Instance.IsLevelCompleted(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
-        {
-            _doorRenderer.sprite = _doorSprites[(int)(LevelDoorSprites.Completed)];
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_locked && collision != null && collision.gameObject.GetComponent<PlayerInteractor>() != null)
+        if (collision != null && collision.gameObject.GetComponent<PlayerInteractor>() != null)
         {
-            if (SaveDataManager.Instance.GetTotalPumpkinCount() >= _thisDoor.GetPumpkinReq())
+            if (_doorState == LevelDoorStates.Locked && SaveDataManager.Instance.GetTotalPumpkinCount() >= _thisDoor.GetPumpkinReq())
             {
                 UnlockDoor();
+            }
+            else if (_doorState == LevelDoorStates.Unlocked && SaveDataManager.Instance.IsLevelCompleted(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
+            {
+                CompleteDoor();
             }
         }
     }
 
+    private void CompleteDoor()
+    {
+        _doorState = LevelDoorStates.Completed;
+        SoundManager.Instance.PlaySound(_fireSound, transform.position, .6f);
+        _doorAnimator.SetTrigger("Completed");
+    }
+
     private void UnlockDoor()
     {
-        _locked = false;
+        _doorState = LevelDoorStates.Unlocked;
         _pumpkinReqText.text = "";
-        _doorRenderer.sprite = _doorSprites[(int)(LevelDoorSprites.Unlocked)];
+        _doorAnimator.SetTrigger("Unlocked");
         SaveDataManager.Instance.UnlockLevel(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1);
     }
 }
