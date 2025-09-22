@@ -22,7 +22,7 @@ public class LevelDoorUX : MonoBehaviour
 
     private void Start()
     {
-        _levelNameText.text = _thisDoor.GetWorld() + "." + _thisDoor.GetLevel();
+        _levelNameText.text = "" + _thisDoor.GetLevel();
         var pumpReq = _thisDoor.GetPumpkinReq();
         _pumpkinReqText.text = pumpReq + "";
         if (pumpReq == 0 || SaveDataManager.Instance.IsLevelUnlocked(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
