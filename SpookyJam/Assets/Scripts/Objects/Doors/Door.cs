@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
+    [SerializeField] protected int _entranceNumber;
+    [SerializeField] protected Transform _entrancePosition;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null && collision.gameObject.GetComponent<PlayerInteractor>() != null)
@@ -35,6 +38,16 @@ public class Door : MonoBehaviour, IInteractable
             Debug.Log("interacted");
             OpenDoor();
         }
+    }
+
+    public Vector3 GetEntrancePosition()
+    {
+        return _entrancePosition.position;
+    }
+
+    public int GetEntranceNumber()
+    {
+        return _entranceNumber;
     }
 
     protected virtual void OpenDoor()

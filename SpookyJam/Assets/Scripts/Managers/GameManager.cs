@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _isMenuSystem = false;
     public int CurrentLevel { get; private set; } = 0;
     public int CurrentWorld { get; private set; } = 0;
+    public int CurrentEntrance { get; private set; } = -1;
     public string CurrentLevelName { get; private set; } = "";
     private List<string> _sceneStack = new List<string>();
 
@@ -170,7 +171,7 @@ public class GameManager : MonoBehaviour
         if (_isMenuSystem)
             LoadLevelMenuForWorld(CurrentWorld);
         else
-            LoadWorldHallway(CurrentWorld);
+            LoadWorldHallway(CurrentWorld, CurrentEntrance);
     }
 
     public void LoadLevel(int level)
@@ -192,8 +193,14 @@ public class GameManager : MonoBehaviour
         CurrentWorld = world;
     }
 
-    public void LoadWorldHallway(int world)
+    public void SetEntrance(int entrance)
     {
+        CurrentEntrance = entrance;
+    }
+
+    public void LoadWorldHallway(int world, int entranceNumber)
+    {
+        CurrentEntrance = entranceNumber;
         SceneManager.LoadScene(_worldHallwayScene + "_" + world);
     }
 

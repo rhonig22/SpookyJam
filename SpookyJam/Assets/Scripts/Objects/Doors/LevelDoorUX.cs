@@ -11,6 +11,7 @@ public class LevelDoorUX : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _pumpkinReqText;
     [SerializeField] private Animator _doorAnimator;
     [SerializeField] private AudioClip _fireSound;
+    [SerializeField] private AudioClip _unlockSound;
     private LevelDoorStates _doorState = LevelDoorStates.Locked;
 
     protected enum LevelDoorStates
@@ -27,8 +28,7 @@ public class LevelDoorUX : MonoBehaviour
         _pumpkinReqText.text = pumpReq + "";
         if (pumpReq == 0 || SaveDataManager.Instance.IsLevelUnlocked(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
         {
-            _doorAnimator.SetBool("IsUnlocked", true);
-            UnlockDoor();
+            SetDoorUnlocked();
         }
 
     }
@@ -59,7 +59,15 @@ public class LevelDoorUX : MonoBehaviour
     {
         _doorState = LevelDoorStates.Unlocked;
         _pumpkinReqText.text = "";
+        SoundManager.Instance.PlaySound(_unlockSound, transform.position, .6f);
         _doorAnimator.SetTrigger("Unlocked");
         SaveDataManager.Instance.UnlockLevel(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1);
+    }
+
+    private void SetDoorUnlocked()
+    {
+        _doorAnimator.SetBool("IsUnlocked", true);
+        _doorState = LevelDoorStates.Unlocked;
+        _pumpkinReqText.text = "";
     }
 }
