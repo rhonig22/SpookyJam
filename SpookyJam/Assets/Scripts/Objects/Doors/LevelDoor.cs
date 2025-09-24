@@ -13,6 +13,7 @@ public class LevelDoor : Door
         {
             SceneTransition.Instance.EndLevelTransition();
             GameManager.Instance.SetWorld(_world);
+            GameManager.Instance.SetEntrance(_entranceNumber);
             GameManager.Instance.LoadLevel(_level);
         }
     }
