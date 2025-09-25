@@ -10,6 +10,7 @@ public class OverWorldDoorUX : MonoBehaviour
     [SerializeField] private SpriteRenderer _worldDoorSprite;
     [SerializeField] private Animator _animator;
     private bool _locked = true;
+    private bool _shouldUnlock = false;
 
 
     private void Start()
@@ -19,6 +20,15 @@ public class OverWorldDoorUX : MonoBehaviour
         {
             _animator.SetBool("IsUnlocked", true);
             _locked = false;
+            _thisDoor.HideCandles();
+        }
+    }
+
+    private void Update()
+    {
+        if (_locked && _thisDoor.AreAllCandlesLit() && _shouldUnlock)
+        {
+            UnlockDoor();
         }
     }
 
@@ -28,7 +38,7 @@ public class OverWorldDoorUX : MonoBehaviour
         {
             if (_locked && CanUnlockDoor())
             {
-                UnlockDoor();
+                _shouldUnlock = true;
             }
         }
     }
@@ -45,11 +55,13 @@ public class OverWorldDoorUX : MonoBehaviour
                 completedCount++;
         }
 
+        _thisDoor.LightCandles(Mathf.Min(completedCount, levelRequirement));
         return completedCount >= levelRequirement;
     }
 
     private void UnlockDoor()
     {
+        _thisDoor.HideCandles();
         _locked = false;
         SaveDataManager.Instance.UnlockWorld(_thisDoor.GetWorld());
         _animator.SetTrigger("Unlocked");
