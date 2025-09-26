@@ -63,6 +63,17 @@ public class SaveDataManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SetPlayerLocation(string sceneName, int entranceNumber)
+    {
+        _levelList.PlayerLocation = new PlayerLocation() { Scene = sceneName, Entrance = entranceNumber };
+        SaveLevelData();
+    }
+
+    public PlayerLocation GetPlayerLocation()
+    {
+        return _levelList.PlayerLocation;
+    }
+
     public void InitializePlayerData()
     {
         PlayerData playerData = new PlayerData()

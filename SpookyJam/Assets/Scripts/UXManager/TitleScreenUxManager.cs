@@ -29,7 +29,7 @@ public class TitleScreenUxManager : MonoBehaviour
 
     public void StartButtonPressed()
     {
-        GameManager.Instance.LoadWorldMenu();
+        GameManager.Instance.StartGame();
     }
 
     public void SettingsPressed()
