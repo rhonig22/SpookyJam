@@ -54,6 +54,8 @@ MonoBehaviour:
   _worldList:
   - {fileID: 11400000, guid: b62a884198aa98545addffa616b00f3c, type: 2}
   - {fileID: 11400000, guid: d305939af49992f44b5400b285e0ea0d, type: 2}
+  - {fileID: 11400000, guid: 885f2879f6e02de42a673d3beba546a4, type: 2}
+  _isMenuSystem: 0
 --- !u!1 &350034557885929438
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +200,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1a936f38925d3884b8bac57ef5e90e5e, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 1a936f38925d3884b8bac57ef5e90e5e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -382,7 +385,7 @@ MonoBehaviour:
   _animator: {fileID: 2144436852478933561}
 --- !u!95 &2144436852478933561
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -396,6 +399,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -489,6 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b2aae6be92ee84bafa03202722993b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelList:
+    Worlds: []
 --- !u!1 &5223502004600855873
 GameObject:
   m_ObjectHideFlags: 0
