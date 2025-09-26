@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour
             _playerRB.linearVelocity = Vector2.zero;
             _animator.SetTrigger("Death");
             SoundManager.Instance.PlaySound(_deathClip, transform.position);
-            CameraController.Instance.ShakeCamera();
+            CameraController.Instance.ShakeCamera(.5f);
         }
     }
 

@@ -17,6 +17,8 @@ TagManager:
   - Tombstone
   - Friend
   - Crawler
+  - ButtonPromptSpace
+  - ButtonPromptAlt
   layers:
   - Default
   - TransparentFX

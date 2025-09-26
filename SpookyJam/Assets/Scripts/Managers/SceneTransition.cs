@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class SceneTransition : MonoBehaviour
     public static SceneTransition Instance;
 
     [SerializeField] private Animator animator;
+    private Action _finishTransitionAction;
 
     private void Awake()
     {
@@ -23,8 +25,9 @@ public class SceneTransition : MonoBehaviour
         animator.SetTrigger("RestartLevel");
     }
 
-    public void EndLevelTransition()
+    public void EndLevelTransition(Action finishTransitionAction)
     {
+        _finishTransitionAction = finishTransitionAction;
         animator.SetTrigger("EndLevel");
     }
 
@@ -35,7 +38,7 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        GameManager.Instance.FinishLevel();
+        _finishTransitionAction();
     }
 
     public void RestartLevel()

@@ -9,8 +9,9 @@ public class WorldDoor : Door
     {
         if (SaveDataManager.Instance.IsWorldUnlocked(_world - 1))
         {
-            SceneTransition.Instance.EndLevelTransition();
-            GameManager.Instance.LoadWorldHallway(_world, _entranceNumber);
+            SceneTransition.Instance.EndLevelTransition(() => {
+                GameManager.Instance.LoadWorldHallway(_world, _entranceNumber);
+            });
         }
     }
 

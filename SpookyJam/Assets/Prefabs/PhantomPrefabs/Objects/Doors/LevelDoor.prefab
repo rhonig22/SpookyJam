@@ -370,6 +370,7 @@ MonoBehaviour:
   _world: 2
   _level: 1
   _pumpkinRequirement: 0
+  _lockedSound: {fileID: 8300000, guid: c606108fa033a6448bae31e19a2879e8, type: 3}
 --- !u!1 &2998927797094294091
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +454,7 @@ MonoBehaviour:
   _levelNameText: {fileID: 6725058314435543630}
   _pumpkinReqText: {fileID: 3562979697236838693}
   _doorAnimator: {fileID: 6056215140087634532}
-  _fireSound: {fileID: 8300000, guid: ec76f424f10f42b4da10575492198aeb, type: 3}
+  _fireSound: {fileID: 8300000, guid: 41fbbdc158b13b7438844b0b9cef7d9d, type: 3}
   _unlockSound: {fileID: 8300000, guid: 21ea44f3c1931c140b6ce8d2969b3b03, type: 3}
 --- !u!58 &4208861971865406446
 CircleCollider2D:

@@ -33,9 +33,10 @@ public class OverWorldDoor : Door
     {
         if (!_hasLock || SaveDataManager.Instance.IsWorldUnlocked(_world))
         {
-            SceneTransition.Instance.EndLevelTransition();
-            GameManager.Instance.SetEntrance(_entranceNumber);
-            GameManager.Instance.LoadOverworld();
+            SceneTransition.Instance.EndLevelTransition(() => {
+                GameManager.Instance.SetEntrance(_entranceNumber);
+                GameManager.Instance.LoadOverworld();
+            });
         }
     }
 
@@ -57,7 +58,7 @@ public class OverWorldDoor : Door
         for (var i = 0;i < count;i++)
         {
             _candles[i].LightCandle();
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(.3f);
         }
 
         if (count == _completedLevelsRequirement)

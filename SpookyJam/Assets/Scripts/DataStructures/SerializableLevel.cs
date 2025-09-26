@@ -82,5 +82,7 @@ public enum LevelEntityType
     Pumpkin,
     Daisy,
     Tombstone,
-    Crawler
+    Crawler,
+    ButtonPromptSpace,
+    ButtonPromptAlt
 }

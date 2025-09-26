@@ -9,6 +9,7 @@ public class OverWorldDoorUX : MonoBehaviour
     [SerializeField] private OverWorldDoor _thisDoor;
     [SerializeField] private SpriteRenderer _worldDoorSprite;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioClip _rumbleSound;
     private bool _locked = true;
     private bool _shouldUnlock = false;
 
@@ -63,6 +64,8 @@ public class OverWorldDoorUX : MonoBehaviour
     {
         _thisDoor.HideCandles();
         _locked = false;
+        SoundManager.Instance.PlaySound(_rumbleSound, transform.position, 1f);
+        CameraController.Instance.ShakeCamera(2f);
         SaveDataManager.Instance.UnlockWorld(_thisDoor.GetWorld());
         _animator.SetTrigger("Unlocked");
     }

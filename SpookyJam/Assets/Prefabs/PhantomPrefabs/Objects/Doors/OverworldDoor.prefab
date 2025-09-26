@@ -396,6 +396,7 @@ MonoBehaviour:
   _thisDoor: {fileID: 4852381668151328431}
   _worldDoorSprite: {fileID: 8433261785609672975}
   _animator: {fileID: 2697209738366374523}
+  _rumbleSound: {fileID: 8300000, guid: cd33361be162d264aa02670c01be5136, type: 3}
 --- !u!331 &4806878836980961608
 SpriteMask:
   m_ObjectHideFlags: 0

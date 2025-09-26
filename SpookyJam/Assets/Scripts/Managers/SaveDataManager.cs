@@ -11,7 +11,7 @@ public class SaveDataManager : MonoBehaviour
     private const string _playerDataKey = "PlayerData";
     private const string _levelScene = "Level";
     private PlayerData _playerData;
-    private LevelList _levelList;
+    [SerializeField] private LevelList _levelList;
 
     private void Awake()
     {
