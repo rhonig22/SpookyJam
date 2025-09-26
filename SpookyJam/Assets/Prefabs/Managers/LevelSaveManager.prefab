@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9476b7df0f7a6034baf513403706d6d7, type: 2}
   _foregroundTile: {fileID: 11400000, guid: 76bffa51b08681a4185c4dc1291d9344, type: 2}
   _inverterTile: {fileID: 11400000, guid: 83a6ec21d73370446a94b9149dcf5604, type: 2}
-  _metalTile: {fileID: 11400000, guid: 7bd31f923ee423543bad23e9d31e92b2, type: 2}
+  _metalTile: {fileID: 11400000, guid: ce076172cb0e1bf45a07835c7038d434, type: 2}
   _reverseTiles: {fileID: 0}
   _levelToLoad: 
   _isLevelLoader: 0

@@ -21,9 +21,9 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    public void Interact()
+    public void Interact(InputAction.CallbackContext context)
     {
-        if (_interactable != null)
+        if (_interactable != null && context.performed)
             _interactable.Interact();
     }
 }

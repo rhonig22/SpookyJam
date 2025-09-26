@@ -12,9 +12,15 @@ public class EndLevel : MonoBehaviour
         if (player != null && !player.IsDead && !player.IsEnding)
         {
             player.EndLevel();
-            SceneTransition.Instance.EndLevelTransition();
+            StartCoroutine(EndLevelTransition());
             SoundManager.Instance.PlaySound(_endClip, transform.position, 1f);
             PumpkinManager.Instance.LevelFinished();
         }
+    }
+
+    private IEnumerator EndLevelTransition()
+    {
+        yield return new WaitForSeconds(.75f);
+        SceneTransition.Instance.EndLevelTransition(() => GameManager.Instance.FinishLevel());
     }
 }

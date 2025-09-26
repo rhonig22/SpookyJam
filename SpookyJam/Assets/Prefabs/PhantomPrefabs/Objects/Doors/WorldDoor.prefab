@@ -412,7 +412,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 088b26cf087175c46ae507cfb4d3a498, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e764c89b0431c44498b4f4927e0e57d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -439,7 +439,6 @@ MonoBehaviour:
   _worldNameText: {fileID: 3184505106561141329}
   _shadowNameText: {fileID: 1793664743362385946}
   _worldDoorSprite: {fileID: 8433261785609672975}
-  _unlockedWorldDoor: {fileID: 21300000, guid: 0e764c89b0431c44498b4f4927e0e57d, type: 3}
 --- !u!1 &6129413238188462836
 GameObject:
   m_ObjectHideFlags: 0

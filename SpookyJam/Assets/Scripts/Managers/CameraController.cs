@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private CinemachineCamera _focusCamera;
     private CinemachinePositionComposer _transposer;
     private CinemachineBasicMultiChannelPerlin _followNoisePerlin;
-    private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f, _shakeTime = .5f;
-    private float _shakeTimeElapsed = 0, _currentZoom = 0;
+    private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f;
+    private float _shakeTimeElapsed = 0, _currentZoom = 0, _shakeTime = .5f;
     private bool _isShaking = false;
     public UnityEvent CameraValuesChanged = new UnityEvent();
     private Vector3 _currentPos;
@@ -54,8 +54,9 @@ public class CameraController : MonoBehaviour
         );
     }
 
-    public void ShakeCamera()
+    public void ShakeCamera(float shakeTime)
     {
+        _shakeTime = shakeTime;
         _followNoisePerlin.AmplitudeGain = _shakeAmplitude;
         _followNoisePerlin.FrequencyGain = _shakeFrequency;
         _shakeTimeElapsed = 0;

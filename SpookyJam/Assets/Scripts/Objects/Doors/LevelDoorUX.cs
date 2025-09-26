@@ -51,7 +51,7 @@ public class LevelDoorUX : MonoBehaviour
     private void CompleteDoor()
     {
         _doorState = LevelDoorStates.Completed;
-        SoundManager.Instance.PlaySound(_fireSound, transform.position, .6f);
+        SoundManager.Instance.PlaySound(_fireSound, transform.position, 1f);
         _doorAnimator.SetTrigger("Completed");
     }
 
@@ -59,7 +59,7 @@ public class LevelDoorUX : MonoBehaviour
     {
         _doorState = LevelDoorStates.Unlocked;
         _pumpkinReqText.text = "";
-        SoundManager.Instance.PlaySound(_unlockSound, transform.position, .6f);
+        SoundManager.Instance.PlaySound(_unlockSound, transform.position, 1f);
         _doorAnimator.SetTrigger("Unlocked");
         SaveDataManager.Instance.UnlockLevel(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1);
     }

@@ -106,3 +106,4 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 6527506481874315229}
   _litCandle: {fileID: 848466231169246436, guid: 527bc02efa0d32a4b976c79e7cff1a94, type: 3}
   _unlitCandle: {fileID: 9022796919022752234, guid: 527bc02efa0d32a4b976c79e7cff1a94, type: 3}
+  _candleSound: {fileID: 8300000, guid: 83b57c48e7920544e8f909fef048d527, type: 3}
