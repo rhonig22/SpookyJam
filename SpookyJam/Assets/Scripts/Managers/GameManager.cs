@@ -52,21 +52,16 @@ public class GameManager : MonoBehaviour
 
         if (_sceneStack.Count == 0 || _sceneStack[_sceneStack.Count-1] != sceneName)
             _sceneStack.Add(sceneName);
+
+        if (CurrentEntrance != -1 && (sceneName == _overworld || sceneName.StartsWith(_worldHallwayScene)))
+            SaveDataManager.Instance.SetPlayerLocation(sceneName, CurrentEntrance);
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            var sceneName = SceneManager.GetActiveScene().name;
-            if (sceneName == _worldMenu || sceneName == _settingsScene)
-                LoadTitleScreen();
-            else if (sceneName == _levelMenu)
-                LoadWorldMenu();
-            else if (sceneName == _titleScene)
-                Application.Quit();
-            else if (sceneName == _loadableLevel)
-                LoadLevelMenuForWorld(CurrentWorld);
+            LoadTitleScreen();
         }
         else if (Input.GetButtonDown("Restart"))
         {
@@ -229,5 +224,17 @@ public class GameManager : MonoBehaviour
     public void LoadWorldMenu()
     {
         SceneManager.LoadScene(_worldMenu);
+    }
+
+    public void StartGame()
+    {
+        var playerLocation = SaveDataManager.Instance.GetPlayerLocation();
+        if (playerLocation == null)
+            SceneManager.LoadScene(_overworld);
+        else
+        {
+            CurrentEntrance = playerLocation.Entrance;
+            SceneManager.LoadScene(playerLocation.Scene);
+        }
     }
 }

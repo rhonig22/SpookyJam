@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LevelList
 {
     public List<WorldData> Worlds;
+    public PlayerLocation PlayerLocation;
 }
 
 [Serializable]
@@ -63,4 +64,11 @@ public class PumpkinCount
 {
     public int Found;
     public int Total;
+}
+
+[Serializable]
+public class PlayerLocation
+{
+    public string Scene;
+    public int Entrance;
 }
