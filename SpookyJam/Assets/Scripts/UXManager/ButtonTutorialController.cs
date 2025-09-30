@@ -15,6 +15,7 @@ public class ButtonTutorialController : MonoBehaviour, ILevelEntity
 
     private void StartAnimation(bool isKeyboard)
     {
+        _animator.Play("Default");
         if (_showFlip)
         {
             if (isKeyboard)
@@ -49,7 +50,9 @@ public class ButtonTutorialController : MonoBehaviour, ILevelEntity
         if (collision != null && collision.gameObject.GetComponent<PlayerController>() != null)
         {
             var playerInput = collision.gameObject.GetComponent<PlayerInput>();
-            if (playerInput.currentControlScheme == "Keyboard&Mouse")
+            if (playerInput.currentControlScheme == null)
+                return;
+            else if (playerInput.currentControlScheme == "Keyboard&Mouse")
                 StartAnimation(true);
             else
                 StartAnimation(false);

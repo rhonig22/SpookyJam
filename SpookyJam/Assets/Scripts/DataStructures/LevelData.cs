@@ -2,6 +2,33 @@ using System;
 using System.Collections.Generic;
 
 [Serializable]
+public class SaveMetaData
+{
+    public List<SaveFile> Saves;
+    public SaveMetaData()
+    {
+        Saves = new List<SaveFile>();
+        Saves.Add(new SaveFile());
+        Saves.Add(new SaveFile());
+        Saves.Add(new SaveFile());
+    }
+}
+
+[Serializable]
+public class SaveFile
+{
+    public bool FileStarted;
+    public int LevelCount;
+    public int PumpkinCount;
+    public SaveFile()
+    {
+        FileStarted = false;
+        LevelCount = 0;
+        PumpkinCount = 0;
+    }
+}
+
+[Serializable]
 public class LevelList
 {
     public List<WorldData> Worlds;

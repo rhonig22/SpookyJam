@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int CurrentWorld { get; private set; } = 0;
     public int CurrentEntrance { get; private set; } = -1;
     public string CurrentLevelName { get; private set; } = "";
+    public bool IsNewGame { get; private set; } = false;
     private List<string> _sceneStack = new List<string>();
 
     private void Awake()
@@ -226,15 +227,28 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(_worldMenu);
     }
 
+    public void LoadSaveSelect()
+    {
+        SceneManager.LoadScene("SaveSelectScreen");
+    }
+
     public void StartGame()
     {
         var playerLocation = SaveDataManager.Instance.GetPlayerLocation();
         if (playerLocation == null)
+        {
+            IsNewGame = true;
             SceneManager.LoadScene(_overworld);
+        }
         else
         {
             CurrentEntrance = playerLocation.Entrance;
             SceneManager.LoadScene(playerLocation.Scene);
         }
+    }
+
+    public void ClearNewGame()
+    {
+        IsNewGame = false; 
     }
 }

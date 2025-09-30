@@ -12,6 +12,8 @@ public class SaveDataManager : MonoBehaviour
     private const string _levelScene = "Level";
     private PlayerData _playerData;
     [SerializeField] private LevelList _levelList;
+    [SerializeField] private SaveMetaData _saveMetaData;
+    [SerializeField] private int _currentSave = -1;
 
     private void Awake()
     {
@@ -49,7 +51,9 @@ public class SaveDataManager : MonoBehaviour
             InitializePlayerData();
         }
 
-        LoadLevelData();
+        LoadMetaData();
+        if (_currentSave != -1)
+            LoadLevelData();
     }
 
     public PlayerData GetPlayerData()
@@ -112,17 +116,51 @@ public class SaveDataManager : MonoBehaviour
     public void UpdatePumpkins()
     {
         SaveLevelData();
+        UpdateSaveMetaData();
     }
 
-    private string GetLevelDataPath()
+    #region File manipulation
+    private string GetMetadataPath()
     {
-        return Application.persistentDataPath + "/levels.fun";
+        return Application.persistentDataPath + "/saves.fun";
+    }
+    private string GetLevelDataPath(int saveNumber)
+    {
+        return Application.persistentDataPath + "/save" + saveNumber + ".fun";
+    }
+
+    private void SaveMetaData()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = GetMetadataPath();
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, _saveMetaData);
+        stream.Close();
+    }
+
+    private void LoadMetaData()
+    {
+        string path = GetMetadataPath();
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            _saveMetaData = formatter.Deserialize(stream) as SaveMetaData;
+            stream.Close();
+        }
+        else
+        {
+            InitializeMetaData();
+        }
     }
 
     private void SaveLevelData()
     {
+        if (_currentSave == -1 ) return;
+
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = GetLevelDataPath();
+        string path = GetLevelDataPath(_currentSave);
         FileStream stream = new FileStream(path, FileMode.Create);
         formatter.Serialize(stream, _levelList);
         stream.Close();
@@ -130,7 +168,9 @@ public class SaveDataManager : MonoBehaviour
 
     private void LoadLevelData()
     {
-        string path = GetLevelDataPath();
+        if (_currentSave == -1 ) return;
+
+        string path = GetLevelDataPath(_currentSave);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -145,19 +185,62 @@ public class SaveDataManager : MonoBehaviour
         }
     }
 
-    private void ClearLevelData()
+    private void ClearLevelData(int saveNumber)
     {
-        string path = GetLevelDataPath();
+        string path = GetLevelDataPath(saveNumber);
         if (File.Exists(path))
         {
             File.Delete(path);
         }
     }
 
+    private void ClearMetaData()
+    {
+        string path = GetMetadataPath();
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+    #endregion
+
+    #region Save File Actions
+    public void StartNewGame(int saveNumber)
+    {
+        _saveMetaData.Saves[saveNumber].FileStarted = true;
+        SaveMetaData();
+    }
+
+    public SaveFile GetSaveMetaData(int saveNumber)
+    {
+        return _saveMetaData.Saves[saveNumber];
+    }
+
+    public void UpdateSaveMetaData()
+    {
+        if (_currentSave == -1) return;
+        int pumpkinCount = GetTotalPumpkinCount();
+        int levelCount = GetTotalLevelCount();
+        var saveData = _saveMetaData.Saves[_currentSave];
+        saveData.PumpkinCount = pumpkinCount;
+        saveData.LevelCount = levelCount;
+        SaveMetaData();
+    }
+    #endregion
+
     public void StartLevel(int world, int level, int pumpkins)
     {
         if (_levelList.Worlds[world].Levels.Count <= level)
             _levelList.Worlds[world].AddLevel(pumpkins);
+    }
+
+    public void OpenSave(int saveNumber)
+    {
+        _currentSave = saveNumber;
+        if (!_saveMetaData.Saves[_currentSave].FileStarted)
+            StartNewGame(saveNumber);
+
+        LoadLevelData();
     }
 
     public void UnlockWorld(int world)
@@ -197,6 +280,7 @@ public class SaveDataManager : MonoBehaviour
         var worldData = GetWorldData(world);
         worldData.Levels[level].Completed = true;
         SaveLevelData();
+        UpdateSaveMetaData();
     }
 
     public bool IsLevelUnlocked(int world, int level)
@@ -207,6 +291,19 @@ public class SaveDataManager : MonoBehaviour
     public bool IsLevelCompleted(int world, int level)
     {
         return GetWorldData(world).Levels[level].Completed;
+    }
+
+    public bool IsLevelHundredPercented(int world, int level)
+    {
+        var levelData = GetWorldData(world).Levels[level];
+        bool completed = levelData.Completed;
+        bool allPumpkinsFound = true;
+        for (int i = 0; i < levelData.PumpkinsFound.Length; i++)
+        {
+            allPumpkinsFound = allPumpkinsFound && levelData.PumpkinsFound[i];
+        }
+
+        return completed && allPumpkinsFound;
     }
 
     public int GetTotalPumpkinCount()
@@ -229,12 +326,36 @@ public class SaveDataManager : MonoBehaviour
         return pumpkinCount;
     }
 
+    public int GetTotalLevelCount()
+    {
+        var levelCount = 0;
+        for (int i = 0; i < _levelList.Worlds.Count; i++)
+        {
+            var world = _levelList.Worlds[i];
+            for (int j = 0; j < world.Levels.Count; j++)
+            {
+                var level = world.Levels[j];
+                if (level.Completed)
+                    levelCount++;
+            }
+        }
+
+        return levelCount;
+    }
+
     private void CheckNextWorld(int world)
     {
         if (GameManager.Instance.HasNextWorld(world) && (world + 1 == _levelList.Worlds.Count))
         {
             _levelList.Worlds.Add(new WorldData());
         }
+    }
+
+    public void InitializeMetaData()
+    {
+        SaveMetaData saveMetaData = new SaveMetaData();
+        _saveMetaData = saveMetaData;
+        SaveMetaData();
     }
 
     public void InitializeLevelData()
@@ -270,7 +391,9 @@ public class SaveDataManager : MonoBehaviour
     public void ClearData()
     {
         PlayerPrefs.DeleteAll();
-        ClearLevelData();
+        for (int i = 0; i < _saveMetaData.Saves.Count; i++)
+            ClearLevelData(i);
+        ClearMetaData();
         SetUpDataManager();
     }
 }

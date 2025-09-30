@@ -7,6 +7,7 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] protected int _entranceNumber;
     [SerializeField] protected Transform _entrancePosition;
+    [SerializeField] protected GameObject _outline;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,7 @@ public class Door : MonoBehaviour, IInteractable
         {
             PlayerInteractor player = collision.gameObject.GetComponent<PlayerInteractor>();
             player.SetInteractable(this);
+            _outline.SetActive(true);
         }
     }
 
@@ -23,6 +25,7 @@ public class Door : MonoBehaviour, IInteractable
         {
             PlayerInteractor player = collision.gameObject.GetComponent<PlayerInteractor>();
             player.SetInteractable(null);
+            _outline.SetActive(false);
         }
     }
 

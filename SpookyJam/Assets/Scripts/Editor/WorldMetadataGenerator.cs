@@ -4,6 +4,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class WorldMetadataGenerator
 {
     private const string _levelFolder = "Levels";
@@ -66,3 +67,4 @@ public class WorldMetadataGenerator
         AssetDatabase.SaveAssets();
     }
 }
+#endif
