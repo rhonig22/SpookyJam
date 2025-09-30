@@ -10,6 +10,7 @@ public class LevelDoorUX : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelNameText;
     [SerializeField] private TextMeshProUGUI _pumpkinReqText;
     [SerializeField] private Animator _doorAnimator;
+    [SerializeField] private GameObject _doorShine;
     [SerializeField] private AudioClip _fireSound;
     [SerializeField] private AudioClip _unlockSound;
     private LevelDoorStates _doorState = LevelDoorStates.Locked;
@@ -26,11 +27,17 @@ public class LevelDoorUX : MonoBehaviour
         _levelNameText.text = "" + _thisDoor.GetLevel();
         var pumpReq = _thisDoor.GetPumpkinReq();
         _pumpkinReqText.text = pumpReq + "";
-        if (pumpReq == 0 || SaveDataManager.Instance.IsLevelUnlocked(_thisDoor.GetWorld() - 1, _thisDoor.GetLevel() - 1))
+        var level = _thisDoor.GetLevel();
+        var world = _thisDoor.GetWorld();
+        if (pumpReq == 0 || SaveDataManager.Instance.IsLevelUnlocked(world - 1, level - 1))
         {
             SetDoorUnlocked();
         }
 
+        if (SaveDataManager.Instance.IsLevelHundredPercented(world - 1, level - 1))
+        {
+            _doorShine.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
