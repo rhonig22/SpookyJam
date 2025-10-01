@@ -731,7 +731,8 @@ PrefabInstance:
       propertyPath: _isMenuSystem
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7480911982623053907, guid: 41fcd1d625f18f3468e2f006d557ba5d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

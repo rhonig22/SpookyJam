@@ -495,6 +495,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelList:
     Worlds: []
+    PlayerLocation:
+      Scene: 
+      Entrance: 0
+  _saveMetaData:
+    Saves:
+    - FileStarted: 0
+      LevelCount: 0
+      PumpkinCount: 0
+    - FileStarted: 0
+      LevelCount: 0
+      PumpkinCount: 0
+    - FileStarted: 0
+      LevelCount: 0
+      PumpkinCount: 0
+  _currentSave: -1
 --- !u!1 &5223502004600855873
 GameObject:
   m_ObjectHideFlags: 0

@@ -1058,7 +1058,7 @@ MonoBehaviour:
   _musicSlider: {fileID: 730292819}
   _soundSlider: {fileID: 485228394}
   _confirmationMessage: {fileID: 943309459}
-  _confirmButton: {fileID: 756070541}
+  _confirmNoButton: {fileID: 974699713}
   _menuButton: {fileID: 1599571012}
 --- !u!1 &570578939
 GameObject:
@@ -1560,17 +1560,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &756070541 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3085247755514842406, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
-  m_PrefabInstance: {fileID: 512601615}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &756070543 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
   m_PrefabInstance: {fileID: 512601615}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756070541}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -1931,12 +1926,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
   m_PrefabInstance: {fileID: 974699711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &974699713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3085247755514842406, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+  m_PrefabInstance: {fileID: 974699711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &974699714 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
   m_PrefabInstance: {fileID: 974699711}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 974699713}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -2651,7 +2651,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_text
-      value: Main Menu
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSize
@@ -2672,6 +2672,10 @@ PrefabInstance:
     - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134738558358338780, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 3085247755514842406, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Name
@@ -2711,7 +2715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_text
-      value: Main Menu
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSize
@@ -2720,6 +2724,10 @@ PrefabInstance:
     - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_fontSizeBase
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7793032276899557459, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Pivot.x

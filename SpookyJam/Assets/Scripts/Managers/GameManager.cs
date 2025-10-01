@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     public int CurrentEntrance { get; private set; } = -1;
     public string CurrentLevelName { get; private set; } = "";
     public bool IsNewGame { get; private set; } = false;
-    private List<string> _sceneStack = new List<string>();
+    private string _lastScene = "";
+    private string _currentScene = "";
 
     private void Awake()
     {
@@ -40,6 +41,14 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += LevelLoaded;
     }
 
+    private void ClearGameStates()
+    {
+        CurrentEntrance = -1;
+        CurrentLevel = 0;
+        CurrentWorld = 0;
+        CurrentLevelName = string.Empty;
+    }
+
     // called second
     private void LevelLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -51,10 +60,11 @@ public class GameManager : MonoBehaviour
             CurrentLevel = levels[1];
         }
 
-        if (_sceneStack.Count == 0 || _sceneStack[_sceneStack.Count-1] != sceneName)
-            _sceneStack.Add(sceneName);
+        _lastScene = _currentScene;
+        _currentScene = sceneName;
 
-        if (CurrentEntrance != -1 && (sceneName == _overworld || sceneName.StartsWith(_worldHallwayScene)))
+        //TODO Remove the World_3 condition post-demo
+        if (CurrentEntrance != -1 && (sceneName == _overworld || (sceneName.StartsWith(_worldHallwayScene) && sceneName != "World_3")))
             SaveDataManager.Instance.SetPlayerLocation(sceneName, CurrentEntrance);
     }
 
@@ -68,6 +78,12 @@ public class GameManager : MonoBehaviour
         {
             // SceneTransition.Instance.RestartLevelTransition();
         }
+    }
+
+    private bool IsPlayableScene()
+    {
+        var sceneName = SceneManager.GetActiveScene().name;
+        return sceneName == _overworld || sceneName == _loadableLevel || sceneName.StartsWith(_worldHallwayScene) || sceneName.StartsWith(_levelScene);
     }
 
     #region Scriptable World Info Access
@@ -104,6 +120,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadTitleScreen()
     {
+        ClearGameStates();
         LoadScene(_titleScene);
     }
 
@@ -161,9 +178,6 @@ public class GameManager : MonoBehaviour
             FinishWorld(CurrentWorld);
         }
 
-        if (_sceneStack.Count > 0)
-            _sceneStack.RemoveAt(_sceneStack.Count-1);
-
         if (_isMenuSystem)
             LoadLevelMenuForWorld(CurrentWorld);
         else
@@ -179,6 +193,7 @@ public class GameManager : MonoBehaviour
             var scriptableLevel = _worldList[CurrentWorld - 1].GetLevel(CurrentLevel - 1);
             var nextLevel = scriptableLevel.GetSceneName();
             CurrentLevelName = nextLevel;
+            SaveDataManager.Instance.SetPlayerLocation(SceneManager.GetActiveScene().name, CurrentEntrance);
             SceneManager.LoadScene(_loadableLevel);
             SaveDataManager.Instance.StartLevel(CurrentWorld-1, CurrentLevel-1, scriptableLevel.GetPumpkinCount());
         }
@@ -250,5 +265,13 @@ public class GameManager : MonoBehaviour
     public void ClearNewGame()
     {
         IsNewGame = false; 
+    }
+
+    public void ReturnToGame()
+    {
+        if (_lastScene == _titleScene || _lastScene == string.Empty)
+            LoadTitleScreen();
+        else
+            StartGame();
     }
 }

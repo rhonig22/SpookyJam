@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerActions",
     "maps": [
         {
@@ -195,6 +196,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2deb4a6f-e3f6-4d90-b291-7f4f1b9937e3",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2cf1384e-1adb-4bfd-8da0-122e2631498b",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -272,6 +284,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4d558945-411e-4e5a-a486-f89d9f4e02fd",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlipDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "99800e6d-c54b-424e-8bb3-9ebb91b9b701",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -296,6 +319,17 @@
                     "name": "",
                     "id": "f23d8e39-0dac-4fd8-9974-2c29ea0b25b9",
                     "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlipUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c75116b8-48b1-4659-a22d-2827d5f4e301",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -838,6 +872,45 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "System",
+            "id": "0cf4f913-ded3-4c8e-8b2b-dc842c7287d8",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "54619fd4-6f0a-4928-a867-53a318d72991",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5f77e5a6-0347-4d99-8469-154168d33cb5",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97331158-cd93-437a-b3ff-2a1a90b67f0f",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

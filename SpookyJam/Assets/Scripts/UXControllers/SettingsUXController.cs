@@ -9,7 +9,7 @@ public class SettingsUXController : MonoBehaviour
     [SerializeField] Slider _musicSlider;
     [SerializeField] Slider _soundSlider;
     [SerializeField] GameObject _confirmationMessage;
-    [SerializeField] GameObject _confirmButton;
+    [SerializeField] GameObject _confirmNoButton;
     [SerializeField] GameObject _menuButton;
 
     private void Start()
@@ -20,7 +20,7 @@ public class SettingsUXController : MonoBehaviour
 
     public void MainMenuClicked()
     {
-        GameManager.Instance.LoadTitleScreen();
+        GameManager.Instance.ReturnToGame();
     }
 
     public void SetMusicVolume()
@@ -39,7 +39,7 @@ public class SettingsUXController : MonoBehaviour
     public void ClearDataButtonClicked()
     {
         _confirmationMessage.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(_confirmButton);
+        EventSystem.current.SetSelectedGameObject(_confirmNoButton);
     }
 
     public void ConfirmClearData()

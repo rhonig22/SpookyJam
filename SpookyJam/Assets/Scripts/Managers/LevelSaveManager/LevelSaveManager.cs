@@ -23,6 +23,7 @@ public class LevelSaveManager : MonoBehaviour
     [SerializeField] ReverseTiles _reverseTiles;
     [SerializeField] string _levelToLoad;
     [SerializeField] bool _isLevelLoader;
+    [SerializeField] PauseManager _pauseManager;
 
     // Start is called before the first frame update
     void Start()
@@ -146,6 +147,7 @@ public class LevelSaveManager : MonoBehaviour
 
         _cameraController.SetLevelCamera(level.Camera);
         PumpkinManager.Instance.ResetPumpkins();
+        _pauseManager.SetupPauseMenu();
     }
 
     private void PlaceTilePositions(Tilemap map, TileBase tile, SerializableTileLayer layer)
