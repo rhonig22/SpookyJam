@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private float _horizontalInput = 0f;
+    private float _horizontalInput = 0f, _groundedTimer = .5f;
     private readonly float _originalGravity = 2f, _floatGravityMultiplier = 2f, _maxFloatFall = -2f,
         _topSpeed = 10f, _timeToTopSpeed = .2f, _degradeInertiaMultiplier = 6f, _horizontalThreshold = .2f;
     private bool _inverted = false, _grounded = false, _isShrinking = false, _isFloating = false, _isInVoid = false;
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
             CanFlip();
         }*/
 
+        _groundedTimer -= Time.deltaTime;
         _animator.SetFloat("xMovement", (_inverted && !_isInVoid ? -1 : 1) * _horizontalInput);
         SetMovementParticles();
     }
@@ -216,6 +217,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         _grounded = false;
+        _groundedTimer = .3f;
     }
 
     private void CheckGrounding(Collision2D collision)
@@ -224,11 +226,14 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < collision.contactCount; i++)
         {
             Vector2 normal = collision.GetContact(i).normal;
-            _grounded |= Vector2.Angle(normal, transform.up) < 90;
+            _grounded |= Vector2.Angle(normal, transform.up) < 45;
         }
 
-        if (!_startGrounded && _grounded)
+        if (!_startGrounded && _grounded && _groundedTimer < 0)
+        {
             SoundManager.Instance.PlaySound(_landingClip, transform.position, 1f);
+            _groundedTimer = .5f;
+        }
     }
 
     public void EndLevel()

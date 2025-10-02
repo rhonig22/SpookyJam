@@ -14,6 +14,7 @@ public class SerializableLevel
     public int Level;
     public int World;
     public LevelCamera Camera;
+    public SecondaryCamera SecondaryCamera;
 
     public SerializableLevel()
     {
@@ -38,6 +39,7 @@ public class LevelEntity
     public Vector3 Endpoint1;
     public Vector3 Endpoint2;
     public Vector3 EntityPoint;
+    public Vector2 Size;
     public bool TowardsPoint1;
     public string Message;
     public int Index;
@@ -64,6 +66,13 @@ public class LevelCamera
     public bool lookAheadIgnoreY;
 }
 
+[Serializable]
+public class SecondaryCamera
+{
+    public Vector3 Position;
+    public float LensOrtho;
+}
+
 public enum TileLayerType
 {
     Background,
@@ -84,5 +93,6 @@ public enum LevelEntityType
     Tombstone,
     Crawler,
     ButtonPromptSpace,
-    ButtonPromptAlt
+    ButtonPromptAlt,
+    CameraTriggerZone
 }

@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    private float _volume; 
+    private float _volume;
+    private readonly float _maxVolume = .6f;
     [SerializeField] private AudioSource _soundEffectsSource;
 
     private void Awake()
@@ -30,10 +31,11 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource audioSource = Instantiate(_soundEffectsSource, position, Quaternion.identity);
         audioSource.clip = clip;
-        audioSource.volume = _volume;
+        audioSource.volume = _volume * _maxVolume;
         audioSource.pitch = pitch;
         audioSource.Play();
         float clipLength = clip.length;
+        DontDestroyOnLoad(audioSource.gameObject);
         Destroy(audioSource.gameObject, clipLength);
         return audioSource;
     }

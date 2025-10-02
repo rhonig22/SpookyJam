@@ -19,6 +19,7 @@ TagManager:
   - Crawler
   - ButtonPromptSpace
   - ButtonPromptAlt
+  - CameraTriggerZone
   layers:
   - Default
   - TransparentFX

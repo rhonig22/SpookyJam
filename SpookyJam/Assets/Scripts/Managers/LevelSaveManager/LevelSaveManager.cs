@@ -84,6 +84,7 @@ public class LevelSaveManager : MonoBehaviour
         }
 
         level.Camera = _cameraController.GetLevelCamera();
+        level.SecondaryCamera = _cameraController.GetSecondaryCamera();
         SetLevelNameAndNumbers(level);
         SaveToFile(level);
     }
@@ -146,6 +147,7 @@ public class LevelSaveManager : MonoBehaviour
         }
 
         _cameraController.SetLevelCamera(level.Camera);
+        _cameraController.SetSecondaryCamera(level.SecondaryCamera);
         PumpkinManager.Instance.ResetPumpkins();
         _pauseManager.SetupPauseMenu();
     }
