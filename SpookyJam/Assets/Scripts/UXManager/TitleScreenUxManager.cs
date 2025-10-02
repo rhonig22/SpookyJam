@@ -51,4 +51,9 @@ public class TitleScreenUxManager : MonoBehaviour
     {
         GameManager.Instance.LoadWorldMenu();
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

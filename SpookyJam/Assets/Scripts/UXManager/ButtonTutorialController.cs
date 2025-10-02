@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Splines.Interpolators;
 using UnityEngine.Windows;
 
@@ -12,6 +13,17 @@ public class ButtonTutorialController : MonoBehaviour, ILevelEntity
     private float _currentVal = 0;
     private float _endVal = 0;
     private float _speed = 4f;
+    private float _levelStartTimer = 1f;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += LevelLoaded;
+    }
+
+    private void LevelLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _levelStartTimer = 1f;
+    }
 
     private void StartAnimation(bool isKeyboard)
     {
@@ -36,6 +48,7 @@ public class ButtonTutorialController : MonoBehaviour, ILevelEntity
     // Update is called once per frame
     void Update()
     {
+        _levelStartTimer -= Time.deltaTime;
         if (_currentVal == _endVal)
             return;
         _currentVal = Mathf.Lerp(_currentVal, _endVal, _speed*Time.deltaTime);
@@ -47,7 +60,7 @@ public class ButtonTutorialController : MonoBehaviour, ILevelEntity
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.gameObject.GetComponent<PlayerController>() != null)
+        if (_levelStartTimer < 0 && collision != null && collision.gameObject.GetComponent<PlayerController>() != null)
         {
             var playerInput = collision.gameObject.GetComponent<PlayerInput>();
             if (playerInput.currentControlScheme == null)

@@ -6,6 +6,7 @@ public class StartCinematic : MonoBehaviour
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] GameObject _player;
+    [SerializeField] AudioClip _clip;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class StartCinematic : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         _animator.SetTrigger("StartCinematic");
+        // SoundManager.Instance.PlaySound(_clip, transform.position);
     }
 
     public void FinishStartingCinematic()
