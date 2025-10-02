@@ -4356,7 +4356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4216234922084890717, guid: e3ac2ef5d51a0bc49b544527e67714d6, type: 3}
       propertyPath: m_GeometryType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4216234922084890717, guid: e3ac2ef5d51a0bc49b544527e67714d6, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size

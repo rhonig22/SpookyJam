@@ -746,15 +746,15 @@ PrefabInstance:
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 974699714}
+      objectReference: {fileID: 0}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 974699714}
+      objectReference: {fileID: 0}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
-      objectReference: {fileID: 974699714}
+      objectReference: {fileID: 0}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1803,11 +1803,11 @@ PrefabInstance:
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 756070543}
+      objectReference: {fileID: 0}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 756070543}
+      objectReference: {fileID: 0}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnLeft
       value: 
@@ -1815,7 +1815,7 @@ PrefabInstance:
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
-      objectReference: {fileID: 756070543}
+      objectReference: {fileID: 0}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2870,7 +2870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ad9e681989044998798b273b75756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
+  _brain: {fileID: 0}
+  _cam: {fileID: 0}
   _parallaxEffect: 1
 --- !u!95 &1604762971
 Animator:
@@ -5221,7 +5222,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

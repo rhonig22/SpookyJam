@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     private const float _offsetPanAmount = -2f, _offsetPanTime = .5f, _speedThreshold = 3.25f, _pixelsPerUnit = 16;
     [SerializeField] private CinemachineCamera _mainCamera;
     [SerializeField] private CinemachineCamera _focusCamera;
+    [SerializeField] private CinemachineCamera _secondaryCamera;
     private CinemachinePositionComposer _transposer;
     private CinemachineBasicMultiChannelPerlin _followNoisePerlin;
     private readonly float _shakeAmplitude = 5f, _shakeFrequency = 2f;
@@ -90,6 +91,14 @@ public class CameraController : MonoBehaviour
         return levelCamera;
     }
 
+    public SecondaryCamera GetSecondaryCamera()
+    {
+        SecondaryCamera secondaryCamera = new SecondaryCamera();
+        secondaryCamera.Position = _secondaryCamera.transform.position;
+        secondaryCamera.LensOrtho = _secondaryCamera.Lens.OrthographicSize;
+        return secondaryCamera;
+    }
+
     public void DisableVCam()
     {
         _mainCamera.enabled = false;
@@ -124,8 +133,26 @@ public class CameraController : MonoBehaviour
         CameraValuesChanged.Invoke();
     }
 
+    public void SetSecondaryCamera(SecondaryCamera secondaryCamera)
+    {
+        _secondaryCamera.transform.position = secondaryCamera.Position;
+        _secondaryCamera.Lens.OrthographicSize = secondaryCamera.LensOrtho;
+    }
+
     public void SetFocusCamera()
     {
         _focusCamera.Priority = 100;
+    }
+
+    public void SwitchToSecondaryCam()
+    {
+        _secondaryCamera.Priority = 10;
+        _mainCamera.Priority = 0;
+    }
+
+    public void SwitchToMainCam()
+    {
+        _mainCamera.Priority = 10;
+        _secondaryCamera.Priority = 0;
     }
 }

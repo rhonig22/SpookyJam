@@ -68,18 +68,6 @@ public class GameManager : MonoBehaviour
             SaveDataManager.Instance.SetPlayerLocation(sceneName, CurrentEntrance);
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            LoadTitleScreen();
-        }
-        else if (Input.GetButtonDown("Restart"))
-        {
-            // SceneTransition.Instance.RestartLevelTransition();
-        }
-    }
-
     private bool IsPlayableScene()
     {
         var sceneName = SceneManager.GetActiveScene().name;

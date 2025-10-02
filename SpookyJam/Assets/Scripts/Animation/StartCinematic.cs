@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StartCinematic : MonoBehaviour
@@ -12,8 +13,14 @@ public class StartCinematic : MonoBehaviour
         {
             _spriteRenderer.enabled = true;
             _player.SetActive(false);
-            _animator.SetTrigger("StartCinematic");
+            StartCoroutine(TriggerAnimation());
         }
+    }
+
+    private IEnumerator TriggerAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+        _animator.SetTrigger("StartCinematic");
     }
 
     public void FinishStartingCinematic()

@@ -494,6 +494,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 32e808c6-5adc-44a3-b2f2-97a79cc65057
     m_ActionName: Player/FlipUp
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 54619fd4-6f0a-4928-a867-53a318d72991
+    m_ActionName: 'System/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -526,7 +530,7 @@ Transform:
   m_GameObject: {fileID: 5201169079499937195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

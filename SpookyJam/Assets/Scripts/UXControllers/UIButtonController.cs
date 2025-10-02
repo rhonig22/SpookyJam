@@ -14,6 +14,7 @@ public class UIButtonController : MonoBehaviour, ISelectHandler, IDeselectHandle
     [SerializeField] Color _baseTextColor;
     [SerializeField] Sprite _highlightSprite;
     [SerializeField] Sprite _baseSprite;
+    [SerializeField] AudioClip _clickSound;
 
     public void OnSelect(BaseEventData eventData)
     {
@@ -25,5 +26,10 @@ public class UIButtonController : MonoBehaviour, ISelectHandler, IDeselectHandle
     {
         _buttonText.color = _baseTextColor;
         _buttonImage.sprite = _baseSprite;
+    }
+
+    public void ClickSound()
+    {
+        SoundManager.Instance.PlaySound(_clickSound, transform.position);
     }
 }
