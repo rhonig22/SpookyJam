@@ -27,7 +27,6 @@ public class PauseManager : MonoBehaviour
         _pauseAction.Enable();
     }
 
-    void OnEnable() => _pauseAction.Enable();
     void OnDisable()
     {
         _pauseAction.Disable();

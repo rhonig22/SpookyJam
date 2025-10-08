@@ -160,6 +160,8 @@ public class GameManager : MonoBehaviour
     public void FinishLevel()
     {
         SaveDataManager.Instance.CompleteLevel(CurrentWorld-1, CurrentLevel - 1);
+        SteamSetup.IncrementWins(CurrentWorld, CurrentLevel);
+        SteamSetup.SetPumpkins(SaveDataManager.Instance.GetTotalPumpkinCount());
         // subtract 1 from world and level to be 0-based
         if (CurrentLevel == _worldList[CurrentWorld - 1].GetLevelCount())
         {
