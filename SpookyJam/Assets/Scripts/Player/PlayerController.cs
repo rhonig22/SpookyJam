@@ -256,6 +256,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetTrigger("Death");
             SoundManager.Instance.PlaySound(_deathClip, transform.position);
             CameraController.Instance.ShakeCamera(.5f);
+            SteamSetup.IncrementDeaths(GameManager.Instance.CurrentWorld, GameManager.Instance.CurrentLevel);
         }
     }
 

@@ -1131,10 +1131,14 @@ PrefabInstance:
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 637102311}
+      objectReference: {fileID: 637102316}
     - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374311857516659547, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TitleScreenUxManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4439233113663943489, guid: b9458fe7bf68c8249ab55ac09e4c5a25, type: 3}
       propertyPath: m_text

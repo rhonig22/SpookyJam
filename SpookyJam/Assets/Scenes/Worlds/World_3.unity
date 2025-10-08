@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 765497996}
   - component: {fileID: 765497995}
   - component: {fileID: 765497999}
+  - component: {fileID: 765498000}
   m_Layer: 5
   m_Name: EndCredits
   m_TagString: Untagged
@@ -905,6 +906,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleScreenUxManager
   firstButton: {fileID: 0}
+--- !u!114 &765498000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765497994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8282723d790dcf4184aaa7b10710e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FinishDemoUx
 --- !u!1001 &851012896
 PrefabInstance:
   m_ObjectHideFlags: 0
